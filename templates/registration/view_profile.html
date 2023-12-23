@@ -1,0 +1,70 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+<section class="content" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="cabinet">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="cabinet-left">
+                            
+                            {% if user_profile.profile_photo%}
+                            <img src="{{ user_profile.profile_photo.url }}" alt="">
+                            {% else %}
+                            <img src="{% static 'images/user-default-image.svg' %}" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-9 mt-3 mt-lg-0">
+                        <div class="cabinet-right">
+                            <h4 class="cabinet-username">{{user_profile.user.first_name}} {{user_profile.user.last_name}}</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="cabinet-subtitle">Школа</h5>
+                                    <p class="cabinet-description">{{user_profile.school}}</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="cabinet-subtitle">Класс</h5>
+                                    <p class="cabinet-description">{{user_profile.clas}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h5 class="cabinet-subtitle">Предметы по выбору</h5>
+                                    <p class="cabinet-description">Физика, Математика</p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-lg-6">
+                                    <h5 class="cabinet-subtitle">Телефон номер</h5>
+                                    {% if user_profile.phone_number != ''%}
+                                        <p class="cabinet-description">{{ user_profile.phone_number }}</p>
+                                    {% else %}
+                                        <p class="cabinet-description">Номер не указан</p>
+                                    {% endif %}
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5 class="cabinet-subtitle">Эл. почта</h5>
+                                    <p class="cabinet-description">{{user_profile.user.email}}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="cabinet-buttons">
+                                        <a class="btn cabinet-btn" href="{% url 'profile' %}">Редактировать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'include/question.html' %}
+{% endblock %}

@@ -1,0 +1,238 @@
+{% extends 'include/homepage.html' %}
+{% block content %}
+{% load static %}
+    
+            <section class="content" style="padding-top: 40px;">
+                <form method="POST" action={% url 'profile_update' %} class="cabinet-edit" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <h5 class="cabinet-title">Личные данные</h5>
+                            <div class="cabinet-edit">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="cabinet-left">
+                                            {% if user_profile.profile_photo %}
+                                            <img id="user-image" class="cabinet-image"
+                                            src="{{ user_profile.profile_photo.url }}" alt="">
+                                            {% else %}
+                                            <img id="user-image" class="cabinet-image"
+                                            src="{% static 'images/user-default-image.svg' %}" alt="">
+                                            {% endif %}
+                                            <div class="cabinet-upload-block">
+                                                <label class="btn btn-default"
+                                               for="upload-image">Загрузить изображение</label>
+                                        <input id="upload-image" type="file" name="profile_photo"
+                                               onchange="readURL(this)" hidden="hidden"/>
+                                            </div>
+                                                                            </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="cabinet-right">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name">Username</label>
+                                                        <input name="username" type="text" class="form-control"
+                                                               id="full_name"
+                                                               value="{{user.username}}" readonly>
+                                                                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name">Ваше Имя</label>
+                                                        <input name="first_name" type="text" class="form-control"
+                                                               id="full_name" placeholder="Ваше Имя" required
+                                                               value="{{user.first_name}}">
+                                                                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="full_name">Ваше фамилия</label>
+                                                        <input name="last_name" type="text" class="form-control"
+                                                               id="full_name" placeholder="Ваше фамилия" required
+                                                               value="{{user.last_name}}">
+                                                                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="phone">Телефон номер</label>
+                                                        <input type="text" class="form-control phone" id="phone"
+                                                               placeholder="+996(777)-777-77-77" required name="phone_number">
+                                                                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="birthday">Дата рождения</label>
+                                                        <input name="birthday" type="date" class="form-control" id="birthday"
+                                                               placeholder="Дата рождения">
+                                                                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="email">Эл. почта</label>
+                                                        <input type="text" class="form-control" id="email" name="email"
+                                                               placeholder="E-mail" value="{{user.email}}" readonly>
+                                                                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="cabinet-title">Место учебы</h5>
+                            <div class="cabinet-edit">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="region">Облаc</label>
+                                            <input type="text" id="region" name="region"
+                                                   class="form-control"
+                                                   value="">
+                                                                            </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="city">Город</label>
+                                            <input type="text" id="city" name="city"
+                                                   class="form-control "
+                                                   value="">
+                                                                            </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="school">Школа</label>
+                                            <input type="text" id="school_name" name="school"
+                                                   class="form-control "
+                                                   value="">
+                                                                            </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="clas">Класс</label>
+                                            <select id="school_class_id" name="clas" class="form-control" required>
+                                                <option disabled selected>Выберите класс</option>
+                                                {% for choice in choices %}
+                                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    {% comment %} <div class="row">
+                        <div class="col-12">
+                            <h5 class="cabinet-title">Выбранные предметы</h5>
+                            <div class="cabinet-edit">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="subject_first">Предмет 1</label>
+                                            <select id="subject_first" name="subject_first" class="form-control" required>
+                                                <option disabled>Предмет 1</option>
+                                                                                            <option
+                                                         selected
+                                                                                                        value="4">Математика</option>
+                                                                                            <option
+                                                                                                        value="5">Биология</option>
+                                                                                            <option
+                                                                                                        value="6">Шет тілі</option>
+                                                                                            <option
+                                                                                                        value="7">География</option>
+                                                                                            <option
+                                                                                                        value="8">Дүниежүзі тарихы</option>
+                                                                                            <option
+                                                                                                        value="9">Қазақ тілі</option>
+                                                                                            <option
+                                                                                                        value="10">Орыс тілі</option>
+                                                                                            <option
+                                                                                                        value="11">Химия</option>
+                                                                                            <option
+                                                                                                        value="12">Физика</option>
+                                                                                            <option
+                                                                                                        value="13">Қазақ әдебиеті</option>
+                                                                                            <option
+                                                                                                        value="14">Орыс әдебиеті</option>
+                                                                                            <option
+                                                                                                        value="15">Адам. Қоғам. Құқық.</option>
+                                                                                            <option
+                                                                                                        value="18">Ағылшын тілі</option>
+                                                                                            <option
+                                                                                                        value="20">Информатика</option>
+                                                                                    </select>
+                                                                            </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="subject_second">Предмет 2</label>
+                                            <select id="subject_second" name="subject_second" class="form-control" required>
+                                                <option disabled>Предмет 2</option>
+                                                                                            <option
+                                                                                                        value="4">Математика</option>
+                                                                                            <option
+                                                                                                        value="5">Биология</option>
+                                                                                            <option
+                                                                                                        value="6">Шет тілі</option>
+                                                                                            <option
+                                                                                                        value="7">География</option>
+                                                                                            <option
+                                                                                                        value="8">Дүниежүзі тарихы</option>
+                                                                                            <option
+                                                                                                        value="9">Қазақ тілі</option>
+                                                                                            <option
+                                                         selected
+                                                                                                        value="10">Орыс тілі</option>
+                                                                                            <option
+                                                                                                        value="11">Химия</option>
+                                                                                            <option
+                                                                                                        value="12">Физика</option>
+                                                                                            <option
+                                                                                                        value="13">Қазақ әдебиеті</option>
+                                                                                            <option
+                                                                                                        value="14">Орыс әдебиеті</option>
+                                                                                            <option
+                                                                                                        value="15">Адам. Қоғам. Құқық.</option>
+                                                                                            <option
+                                                                                                        value="18">Ағылшын тілі</option>
+                                                                                            <option
+                                                                                                        value="20">Информатика</option>
+                                                                                    </select>
+                                                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+        
+                    <button type="submit" class="btn cabinet-btn">Сохранить</button>
+                </form>
+            </section>
+            <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        let reader = new FileReader();
+        
+                        reader.onload = function (e) {
+                            $('#user-image').attr('src', e.target.result);
+                        };
+        
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+            
+{% endblock %}

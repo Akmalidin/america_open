@@ -1,0 +1,245 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+<div class="overflow"></div>
+
+<div class="loader">
+    <div tabindex="0" aria-label="Loading" class="overlay is-active is-full-page" aria-busy="true">
+    <div class="vld-background"></div>
+    <div class="vld-icon">
+
+        <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" width="64" height="64" stroke="#fff">
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(1 1)" stroke-width="2">
+                    <circle stroke-opacity=".25" cx="18" cy="18" r="18"></circle>
+                    <path d="M36 18c0-9.94-8.06-18-18-18">
+                        <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18"
+                                          dur="0.8s" repeatCount="indefinite"></animateTransform>
+                    </path>
+                </g>
+            </g>
+        </svg>
+    </div>
+</div>
+</div>
+
+<div class="flex-fill">
+
+            <section class="section-slides">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {% for slider in slider %}
+                    <div class="swiper-slide swiper-slide-banner"
+                         style="background-image: url('{{ slider.bg_image.url }}')">
+                        <div class="slide-inner">
+                            <div class="container">
+                                <div class="row row-slide">
+                                    <div class="col-lg-8">
+                                        <div class="slide-left">
+                                            <h2 class="slide-title">{{slider.title}}</h2>
+                                            <div class="slide-lists">
+                                                <div
+                                                    class="slide-list">- {{slider.suptitle}}                                                </div>
+                                                <div
+                                                    class="slide-list">- {{slider.suptitle2}}                                                </div>
+                                                <div
+                                                    class="slide-list">- {{slider.suptitle3}}                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="slide-right">
+                                            <img lazy="loading" class="slide-right-image-1"
+                                                 src=".{{ slider.image.url }}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                        <section class="content" style="margin-top: 20px">
+        <h3 class="section-title">American какое преимущество?</h3>
+        <div class="content-lists">
+            <div class="row d-flex align-items-start justify-content-center">
+                
+                                    <div class="col-6 col-lg-4">
+                        <div class="content-list">
+                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-1.png' %}"
+                                 alt="">
+                            <h4 class="content-list-title">Учителя</h4>
+                            <p class="content-list-description">
+                                                                    - опытные современные преподаватели <br>
+                                                                    - инструменты исследования и авторы тестов <br>
+                                                                    - традиционные и интерактивные виды обучения <br>
+                                                            </p>
+                        </div>
+                    </div>
+                                    <div class="col-6 col-lg-4">
+                        <div class="content-list">
+                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-2.png' %}"
+                                 alt="">
+                            <h4 class="content-list-title">Личный кабинет</h4>
+                            <p class="content-list-description">
+                                                                    - расписание занятий <br>
+                                                                    - результаты теста <br>
+                                                                    - круглосуточная техническая поддержка <br>
+                                                            </p>
+                        </div>
+                    </div>
+                                    <div class="col-6 col-lg-4">
+                        <div class="content-list">
+                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-3.png' %}"
+                                 alt="">
+                            <h4 class="content-list-title">Видео уроки</h4>
+                            <p class="content-list-description">
+                                                                    - возможность подготовиться в любое время <br>
+                                                                    - простые и эффективные способы приготовления <br>
+                                                                    - интересный интерактив <br>
+                                                            </p>
+                        </div>
+                    </div>
+                                    <div class="col-6 col-lg-4">
+                        <div class="content-list">
+                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-4.png' %}"
+                                 alt="">
+                            <h4 class="content-list-title">Модуль тесты</h4>
+                            <p class="content-list-description">
+                                                                    - навыки высокого уровня <br>
+                                                                    - контроль качества подготовки <br>
+                                                                    - обработка ошибок <br>
+                                                            </p>
+                        </div>
+                    </div>
+                                    <div class="col-6 col-lg-4">
+                        <div class="content-list">
+                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-5.png' %}"
+                                 alt="">
+                            <h4 class="content-list-title">Конкурсный тест ЕНТ</h4>
+                            <p class="content-list-description">
+                                                                    - реальные вопросы ЕНТ <br>
+                                                                    - обновленная база данных <br>
+                                                                    - возможность подачи предметов индивидуально <br>
+                                                            </p>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="content">
+            <h3 class="section-title">Пакеты</h3>
+            <div class="courses-lists">
+                <div class="row mb-3">
+                    {% for paket in paket %}
+                        <div class="col-lg-4 my-3 mb-3">
+                            <div class="card card-package">
+                                                                    <img lazy="loading" src="{{ paket.image.url }}"
+                                         class="card-img-top course-image"
+                                         alt="">
+                                                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-2">{{paket.title}}</h5>
+                                    <a href="./packages/package/1.html"
+                                       class="button button-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                                    </div>
+            </div>
+        </section>
+    
+        <section class="content">
+            <h3 class="section-title section-title-speakers">Опытные преподаватели в новом направлении</h3>
+
+            <div class="swiper mySwiper-second">
+                <div class="swiper-wrapper">
+                    {% for teachers in teachers %}
+                    <div class="swiper-slide">
+                            <div class="col-lg-12">
+                                <div class="card teacher-card">
+                                    <img lazy="loading" src="{{ teachers.image.url }}"
+                                         class="card-img-top teacher-image"
+                                         alt="{{ teachers.name }}">
+                                    <div class="card-body teacher-card-body">
+                                        <h5 class="card-author">{{teachers.name}}</h5>
+                                        <p class="card-description">{{teachers.description}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    {% endfor %}
+                                    </div>
+
+                <div class="swiper-button-next">
+                    <img lazy="loading" src=".{% static '/images/teacher/next-icon.svg' %}" alt="">
+                </div>
+                <div class="swiper-button-prev">
+                    <img lazy="loading" src=".{% static '/images/teacher/next-icon.svg' %}" alt="">
+                </div>
+            </div>
+        </section>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'include/question.html' %}
+
+
+
+
+<!-- Scripts -->
+{% endblock %}
