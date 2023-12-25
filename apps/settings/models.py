@@ -21,6 +21,18 @@ class Settings(models.Model):
         max_length=255,
         verbose_name='Номер телефона сайта'
     )
+    instagram = models.URLField(
+        verbose_name='Ссылка на Instagram',
+        max_length=255, null=True, blank=True
+    )
+    tiktok = models.URLField(
+        verbose_name='Ссылка на Tiktok',
+        max_length=255, null=True, blank=True
+    )
+    youtube = models.URLField(
+        verbose_name='Ссылка на Youtube',
+        max_length=255, null=True, blank=True
+    )
     
     def __str__(self):
         return self.title
@@ -137,3 +149,9 @@ class UserProfile(models.Model):
     #     choices=subjects,
     #     verbose_name='Предметы'
     # )
+
+    def __str__(self):
+        return self.user.username
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'

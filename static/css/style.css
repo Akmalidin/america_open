@@ -1,5 +1,5 @@
 body {
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-size: 1.125rem;
     font-weight: 600;
     color: #303030;
@@ -71,7 +71,7 @@ a:hover {
 }
 
 .nav-link {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
 }
 
 .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
@@ -108,7 +108,7 @@ a:hover {
     justify-content: center;
     align-items: center;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -138,7 +138,7 @@ a:hover {
     align-items: center;
     justify-content: center;
 
-    font-family: "Exo2-500";
+    font-family: "Exo 2";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -167,7 +167,7 @@ a:hover {
 
 .dropdown-toggle, .dropdown-item, .dropdown-item.active {
     font-size: 1rem;
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-weight: 500;
     letter-spacing: 0.02em;
 }
@@ -319,7 +319,7 @@ a:hover {
 
 .slide-title {
     text-align: left;
-    font-family: Exo2-800;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 800;
     font-size: 37px;
@@ -331,7 +331,7 @@ a:hover {
 }
 
 .slide-description {
-    font-family: Exo2-400;
+    font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -349,7 +349,7 @@ a:hover {
 .slide-lists .slide-list {
     margin-bottom: 20px;
 
-    font-family: Exo2-400;
+    font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -377,7 +377,7 @@ a:hover {
     background: #2FB600;
     border-radius: 10px;
 
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -393,7 +393,7 @@ a:hover {
 }
 
 .slide-questions-bottom {
-    font-family: Exo2-400;
+    font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -498,7 +498,7 @@ a:hover {
 }
 
 .form-group label {
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -511,7 +511,7 @@ a:hover {
     border-radius: 6px;
     border: 1px solid #C3D0DC;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -543,7 +543,7 @@ textarea.form-control {
 
 .btn-auth {
     width: 100%;
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -584,7 +584,7 @@ textarea.form-control {
 }
 
 .forgot-password {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -631,7 +631,7 @@ select:focus, input:focus {
 }
 
 .tabs-title {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -688,7 +688,7 @@ select:focus, input:focus {
 }
 
 /*.card-title {*/
-/*    font-family: 'Exo2-700';*/
+/*    font-family: 'Exo 2';*/
 /*    font-style: normal;*/
 /*    font-weight: 700;*/
 /*    font-size: 18px;*/
@@ -698,7 +698,7 @@ select:focus, input:focus {
 /*}*/
 
 /*.card-text {*/
-/*    font-family: 'Exo2-700';*/
+/*    font-family: 'Exo 2';*/
 /*    font-style: normal;*/
 /*    font-weight: 700;*/
 /*    font-size: 20px;*/
@@ -721,7 +721,7 @@ select.form-control {
     border-radius: 2px;
     transition: 0.4s all ease;
 
-    font-family: 'Exo2-500';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -751,7 +751,7 @@ section.content {
 }
 
 .content-title {
-    font-family: Exo2-800;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 800;
     font-size: 42px;
@@ -784,7 +784,7 @@ section.content {
     align-items: center;
     justify-content: space-between;
 
-    font-family: 'Exo2-500';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -816,8 +816,7 @@ section.content {
 
 .accordion-body {
     padding: 10px 5px;
-
-    font-family: 'Exo2-400';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -861,7 +860,7 @@ section.content {
 }
 
 .accordion-li a {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
@@ -903,7 +902,7 @@ section.content {
 .btn-cabinet {
     min-width: 200px;
     height: 50px;
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -930,7 +929,7 @@ section.content {
 }
 
 .card-item-text {
-    font-family: 'Exo2-400';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -940,7 +939,7 @@ section.content {
 }
 
 .card-item-result-text {
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-weight: 600;
     color: #303030;
     margin-bottom: 8px;
@@ -974,7 +973,7 @@ section.content {
 }
 
 .course-title {
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -991,7 +990,7 @@ section.content {
     display: flex;
     align-items: center;
 
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
 
@@ -1004,7 +1003,7 @@ section.content {
 }
 
 .course-description-title {
-    font-family: 'Exo2-700';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     text-transform: uppercase;
@@ -1013,7 +1012,7 @@ section.content {
 }
 
 .course-description-text {
-    font-family: 'Exo2-500';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 500;
 
@@ -1028,7 +1027,7 @@ section.content {
 }
 
 .lesson {
-    font-family: 'Exo2-500';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 500;
 
@@ -1110,7 +1109,7 @@ section.content {
     align-items: center;
     justify-content: center;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -1178,7 +1177,7 @@ section.content {
 }
 
 .comment-author span {
-    font-family: 'Exo2-400';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -1194,7 +1193,7 @@ section.content {
     border-radius: 10px;
     padding: 20px;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1222,7 +1221,7 @@ section.content {
     align-items: center;
     justify-content: center;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -1239,7 +1238,7 @@ section.content {
 }
 
 .text {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1263,7 +1262,7 @@ section.content {
 }
 
 .comment-reply-title {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -1278,7 +1277,7 @@ section.content {
 }
 
 .btn-reply {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1310,7 +1309,7 @@ section.content {
 }
 
 .lesson-document-download {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -1342,7 +1341,7 @@ section.content {
 }
 
 .sidebar-item {
-    font-family: "Exo2-500";
+    font-family: "Exo 2";
     font-style: normal;
     font-weight: 500;
     font-size: 17px;
@@ -1418,7 +1417,7 @@ section.content {
 }
 
 .footer-bottom-text {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -1489,6 +1488,10 @@ a.footer-support-link:hover {
     background: #6666CC;
     transition: 0.3s ease all
 }
+.footer-item-social:hover a > i {
+    color: #fff !important;
+    transition: 0.3s ease all
+}
 
 .footer-item-social:hover svg path {
     fill: #fff;
@@ -1503,7 +1506,7 @@ a.footer-support-link:hover {
 }
 
 .footer-links-title {
-    font-family: Exo2-400;
+    font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
@@ -1513,7 +1516,7 @@ a.footer-support-link:hover {
 }
 
 .footer-socials-title {
-    font-family: Exo2-400;
+    font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
@@ -1527,7 +1530,7 @@ a.footer-support-link:hover {
 }
 
 .footer-support-link {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -1550,7 +1553,7 @@ a.footer-support-link:hover {
     outline: none;
 
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -1597,7 +1600,7 @@ a.footer-support-link:hover {
 }
 
 .copyright {
-    font-family: 'Exo2-300';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 300;
     font-size: 18px;
@@ -1634,7 +1637,7 @@ a.footer-support-link:hover {
 /* section style */
 .section-title {
     text-align: center;
-    font-family: Exo2-800;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 800;
     font-size: 45px;
@@ -1658,7 +1661,7 @@ a.footer-support-link:hover {
 .content-list-title {
     margin-bottom: 15px;
 
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -1668,7 +1671,7 @@ a.footer-support-link:hover {
 }
 
 .content-list-description {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -1693,7 +1696,7 @@ a.footer-support-link:hover {
 }
 
 .card-title {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
@@ -1704,7 +1707,7 @@ a.footer-support-link:hover {
 }
 
 .card-text {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1715,7 +1718,7 @@ a.footer-support-link:hover {
 }
 
 .card-price {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -1725,7 +1728,7 @@ a.footer-support-link:hover {
 }
 
 .button {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -1806,7 +1809,7 @@ a.footer-support-link:hover {
 }
 
 .card-author {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -1816,7 +1819,7 @@ a.footer-support-link:hover {
 }
 
 .card-rating {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1830,7 +1833,7 @@ a.footer-support-link:hover {
 }
 
 .card-description {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -1858,7 +1861,7 @@ a.footer-support-link:hover {
 }
 
 .question-main-title {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
@@ -1867,7 +1870,7 @@ a.footer-support-link:hover {
 }
 
 .question-main-text {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -1896,7 +1899,7 @@ a.footer-support-link:hover {
     align-items: center;
     user-select: none;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -1980,7 +1983,7 @@ a.footer-support-link:hover {
 }
 
 .breadcrumb-title {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -1990,7 +1993,7 @@ a.footer-support-link:hover {
 }
 
 .breadcrumb-item {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
@@ -2029,7 +2032,7 @@ a.footer-support-link:hover {
 }
 
 .course-content {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -2040,7 +2043,7 @@ a.footer-support-link:hover {
 }
 
 .course-description {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
@@ -2098,7 +2101,7 @@ a.footer-support-link:hover {
     background: transparent;
     border: 1px solid #6666CC;
     color: #6666CC;
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-size: 14px;
     line-height: 1.5;
     margin-right: 8px
@@ -2131,7 +2134,7 @@ a.footer-support-link:hover {
 }
 
 .cabinet-username {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -2141,7 +2144,7 @@ a.footer-support-link:hover {
 }
 
 .cabinet-subtitle {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2153,7 +2156,7 @@ a.footer-support-link:hover {
 
 
 .cabinet-description {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -2174,7 +2177,7 @@ a.footer-support-link:hover {
 
     border-radius: 12px;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2203,7 +2206,7 @@ a.footer-support-link:hover {
 }
 
 .cabinet-title {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -2247,7 +2250,7 @@ a.footer-support-link:hover {
     align-items: center;
     justify-content: center;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -2272,7 +2275,7 @@ a.footer-support-link:hover {
 .section-subtitle {
     text-align: center;
 
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -2301,7 +2304,7 @@ a.footer-support-link:hover {
 }
 
 .card-subject .card-title {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -2315,7 +2318,7 @@ a.footer-support-link:hover {
 }
 
 .button-subject {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -2343,7 +2346,7 @@ a.footer-support-link:hover {
 }
 
 .card-body-test .card-title {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
@@ -2362,7 +2365,7 @@ a.footer-support-link:hover {
 }
 
 .card-body-text {
-    font-family: Raleway-Regular;
+    font-family: 'Raleway';
 
     font-style: normal;
     font-weight: 400;
@@ -2384,7 +2387,7 @@ a.footer-support-link:hover {
 }
 
 .ubt-modal-title {
-    font-family: Exo2-700;
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 700;
     font-size: 28px;

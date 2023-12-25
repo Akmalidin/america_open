@@ -1,0 +1,98 @@
+{% extends 'include/homepage.html' %} {% block title %} Курсы {% endblock %} {% load static %} {% block content %} 
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Курсы</li>
+          </ol>
+        </nav>
+        <h3 class="breadcrumb-title">Курсы</h3>
+
+        <section class="content" style="padding-top: 20px">
+          <div class="courses-lists">
+            <div class="row mb-3">
+              {% for courses in courses %}
+              <div class="col-lg-4 my-3">
+                <div class="card">
+                  <img
+                    src="{{ courses.image.url }}"
+                    class="card-img-top course-image"
+                    alt=""
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{courses.course_name}}</h5>
+                    <p class="card-text">
+                      Длительность {{courses.course_time}} мес.
+                    </p>
+                    <p class="card-price">{{ courses.course_price }} сом</p>
+                    <a href="" class="button button-outline">Подробнее</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="pagination">
+                  <div
+                    class="prev disabled"
+                    aria-disabled="true"
+                    aria-label="« Предыдущий"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.2561 15.5894C12.5815 15.264 12.5815 14.7363 12.2561 14.4109L7.84534 10.0002L12.2561 5.58941C12.5815 5.264 12.5815 4.73633 12.2561 4.41091C11.9307 4.0855 11.403 4.0855 11.0776 4.41091L6.07757 9.41091C5.75214 9.73633 5.75214 10.264 6.07757 10.5894L11.0776 15.5894C11.403 15.9149 11.9307 15.9149 12.2561 15.5894Z"
+                        fill="#C3D0DC"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <div class="page-numbers">
+                    <div class="page-number active" aria-current="page">1</div>
+                    <a
+                      class="page-number"
+                      href="https://daiyndal.kz/courses?page=2"
+                      >2</a
+                    >
+                  </div>
+
+                  <a
+                    class="next"
+                    href="https://daiyndal.kz/courses?page=2"
+                    rel="next"
+                    aria-label="Следующий »"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.74392 15.5894C7.41851 15.264 7.41851 14.7363 7.74392 14.4109L12.1547 10.0002L7.74392 5.58941C7.4185 5.264 7.4185 4.73633 7.74392 4.41091C8.06934 4.0855 8.597 4.0855 8.92242 4.41091L13.9224 9.41091C14.2479 9.73633 14.2479 10.264 13.9224 10.5894L8.92242 15.5894C8.597 15.9149 8.06934 15.9149 7.74392 15.5894Z"
+                        fill="#6666CC"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

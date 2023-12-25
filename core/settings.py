@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     #apps
     'apps.settings',
+    'apps.courses',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
@@ -135,7 +136,7 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
-
+# Email settings for sending emails
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

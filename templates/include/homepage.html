@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ settings.title }}</title>
+    
+    <title>{% block title %} {{ settings.title }} {% endblock %}</title>
 
     <!-- Csrf token -->
     <meta name="csrf-token" content="IPm4NiTYMph5awdcGN7IM4yPrDb1caiBnLM6mYLe">
@@ -15,6 +15,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{% static './css/fonts.css' %}"/>
+    <link rel="stylesheet" href="{% static './fonts/fontawesome/fontawesome.css' %}"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}"/>
