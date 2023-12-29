@@ -1,0 +1,1200 @@
+{% extends 'include/homepage.html' %}{% block title %} {{ course.course_name }} {% endblock %} {% load static %} {% block content%}
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="{% url 'courses' %}">Курсы</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ course.course_name }}</li>
+          </ol>
+        </nav>
+
+        <h3 class="breadcrumb-title">{{ course.course_name }}</h3>
+
+        <section class="content" style="padding-top: 20px; padding-bottom: 0">
+          <div class="courses-lists">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="card card-client mb-4">
+                  <img
+                    src="{{ course.image.url }}"
+                    class="card-img-top course-image"
+                    alt=""
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ course.course_name }}</h5>
+                    <p class="card-text">Длительность {{course.time}} мес.</p>
+                    <a href="{% url 'buy_course' course.id %}" class="button button-outline">Купить</a>
+                  </div>
+                </div>
+
+                <div class="card card-mobile mb-1">
+                  <div class="card-header">
+                    <img
+                      class="card-mobile-img"
+                      src="{{ course.image.url }}"
+                      alt=""
+                    />
+                    <div class="card-body card-mobile-body">
+                      <h5 class="card-title">{{ course.course_name }}</h5>
+                      <p class="card-text">Длительность {{course.time}} мес.</p>
+                      <a href="#" class="button button-outline">Купить</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-8 my-3 my-lg-0">
+                <div class="course-main">
+                  <h4 class="course-content">О курсе</h4>
+                  <p class="course-description">
+                    {{course.course_description}}
+                  </p>
+                  <hr />
+                  <h4 class="course-content">Содержание</h4>
+                  <div class="accordion">
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion0"
+                        style="cursor: pointer"
+                      >
+                        Кіріспе
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion0"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/101/lesson/347"
+                            >
+                              Кіріспе
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/modules/101/test"
+                            >
+                              Сдача теста
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion1"
+                        style="cursor: pointer"
+                      >
+                        1-модуль. Тірі ағзалардың қызметі: экожүйе және жасуша
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion1"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/30/lesson/9"
+                            >
+                              1-сабақ. Экожүйелер
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/30/lesson/10"
+                            >
+                              2-сабақ. Тірі организмдерді жүйелеу
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/30/lesson/11"
+                            >
+                              3-сабақ. Жасушалық биология. Су және органикалық
+                              заттар.
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/30/lesson/12"
+                            >
+                              4-сабақ. Заттардың тасымалдануы
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/module/30/lesson/13"
+                            >
+                              5-6 сабақ. Тірі организмдердің қоректенуі. Тыныс
+                              алу.
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a
+                              href="https://daiyndal.kz/courses/16/modules/30/test"
+                            >
+                              Сдача теста
+                              <img
+                                src="./Биология_files/open-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion2"
+                        style="cursor: pointer"
+                      >
+                        2-модуль. Тіршіліктің реттелуі және түрлілігі: қозғалыс,
+                        тұқымқуалаушылық және биотехнология
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion2"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              7-8 сабақ. Бөліп шығару. Қозғалыс.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              9-сабақ. Координация және реттелу.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              10-сабақ. Тұқымқуалаушылық және өзгергіштік.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              11-сабақ. Көбею. Өсу және даму.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              12-сабақ. Микробиология және биотехнология.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion3"
+                        style="cursor: pointer"
+                      >
+                        3-модуль. Анатомия. Жасушалық және молекулалық биология.
+                        Тірі ағзалардың көптүрлілігі мен қоректенуі
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion3"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Жасушалық және молекулалық биология
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тірі ағзалардың көптүрлілігі
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Қоректену
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Заттардың тасымалдануы
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion4"
+                        style="cursor: pointer"
+                      >
+                        4-модуль. Анатомия. Тыныс алу және бөліп шығару.
+                        Заттардың тасымалдануы. Қозғалыс және биофизика
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion4"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тыныс алу. Бөліп шығару.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Қозғалыс. Биофизика.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Координация және реттелу
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Көбею. Өсу және даму.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion5"
+                        style="cursor: pointer"
+                      >
+                        5-модуль. Анатомия. Биологиялық үйлесімділік: биосфера,
+                        популяция, көбею және өзара әрекеттесу
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion5"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тұқымқуалаушылық және өзгергіштік заңдылықтары
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Биосфера, экожүйе, популяция. Адам қызметінің
+                              қоршаған ортаға әсері
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion6"
+                        style="cursor: pointer"
+                      >
+                        6-модуль. Тірі ағзалардың көптүрлілігі. Қоректену.
+                        Заттар тасымалы.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion6"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Жасушалық биология. Тірі ағзалардың көптүрлілігі
+                              биосфера және экожүйе.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Адам іс-әрекетінің қоршаған ортаға әсері.
+                              Қоректену
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Заттар тасымалы. Тыныс алу.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion7"
+                        style="cursor: pointer"
+                      >
+                        7-модуль. Бөліп шығару. Координация және реттелу.
+                        Молекулалық биология.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion7"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Бөліп шығару. Координация және реттелу.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Молекулалық биология. Жасушалық цикл
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion8"
+                        style="cursor: pointer"
+                      >
+                        8-модуль. Жасушалық цикл. Микробиология және
+                        биотехнология. Эволюциялық даму.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion8"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тұқымқуалаушылық пен өзгергіштік заңдылықтары
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Микробиология және биотехнология. Көбею. Өсу және
+                              Даму.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Эволюциялық даму
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion9"
+                        style="cursor: pointer"
+                      >
+                        9-модуль. Биохимия. Қоректену. Бөліп шығару.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion9"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Молекулалық биология және биохимия
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Жасушалық биология
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Қоректену.Заттардың тасымалдануы.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тыныс алу
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Бөліп шығару
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion10"
+                        style="cursor: pointer"
+                      >
+                        10-модуль. Эволюциялық даму. Биомедицина және
+                        биоинформатика. Биотехнология.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion10"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Жасушалық цикл
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тұқымқуалаушылық пен өзгергіштік заңдылықтары
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Эволюциялық даму. Селекция негіздері. Тірі
+                              организмдердің көптүрлілігі.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Координация және реттеу
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Қозғалыс. Биомедицина және биоинформатика
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Биотехнология
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion11"
+                        style="cursor: pointer"
+                      >
+                        11-модуль. Заттардың тасымалдануы. Тұқымқуалаушылық пен
+                        өзгергіштік заңдылықтары.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion11"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Молекулярлық биология және био-химия
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Қоректену
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Заттардың тасымалдануы
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Координация және реттелу
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Көбею. Өсу және даму
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Тұқымқуалаушылық пен өзгергіштік заңдылықтары
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="panel panel-default accordion-item">
+                      <div
+                        class="panel-heading accordion-heading"
+                        data-acc-link="accordion12"
+                        style="cursor: pointer"
+                      >
+                        12-модуль. Биотехнология. Экология және адам
+                        іс-әрекетінің қоршаған ортаға әсері.
+                        <svg
+                          width="17"
+                          height="17"
+                          viewBox="0 0 17 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="2.16211"
+                            y="6.80872"
+                            width="11.313"
+                            height="2.37077"
+                            rx="1.18538"
+                            transform="rotate(45 2.16211 6.80872)"
+                            fill="#909090"
+                          ></rect>
+                          <rect
+                            x="16.4854"
+                            y="8.48511"
+                            width="11.313"
+                            height="2.28276"
+                            rx="1.14138"
+                            transform="rotate(135 16.4854 8.48511)"
+                            fill="#909090"
+                          ></rect>
+                        </svg>
+                      </div>
+                      <div
+                        class="panel-body accordion-body"
+                        data-acc-content="accordion12"
+                        style="display: none"
+                      >
+                        <ul class="accordion-ul">
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Жасушалық биология. Биотехнология
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Биомедицина және биоинформатика
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Биосфера. Экожүйе. Популяция.
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Экология және адам іс-әрекетінің қоршаған ортаға
+                              әсері
+                              <img
+                                src="./Биология_files/lock-icon.svg"
+                                alt=""
+                              />
+                            </a>
+                          </li>
+                          <li class="accordion-li">
+                            <a href="javascript: void(0)">
+                              Сдача теста
+                              <img src="./Биология_files/lock-icon.svg" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'include/question.html' %} {% endblock %}

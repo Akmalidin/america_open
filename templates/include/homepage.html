@@ -78,14 +78,21 @@
                 },
             },
         });
+        
+
+        function openSpeakerSendCommentModal(speakerId, courseId) {
+            $("#speaker-id").val(speakerId);
+            $("#course-id").val(courseId);
+            $('#speakerSendCommentModal').modal('show');
+        }
     </script>
     <script>
         $('#navbarSupportedContent').on('show.bs.collapse', function () {
-            $('body').css' %}('overflow-y', 'hidden')
+            $('body').css('overflow-y', 'hidden')
         })
     
         $('#navbarSupportedContent').on('hide.bs.collapse', function () {
-            $('body').css' %}('overflow-y', 'auto')
+            $('body').css('overflow-y', 'auto')
         })
     
         function activeTab(activeTab = 'login') {
@@ -131,7 +138,98 @@
             })
         }
     </script>
+    <script>
+        function payCourse(course_id) {
+            $(".loader").addClass("loading");
+            let _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: 'https://daiyndal.kz/courses/course/16/pay',
+                method: 'post',
+                statusCode: {
+                    401: function () {
+                        $('.modal').modal('hide')
+                        $('#loginForm').modal('show')
+                    }
+                },
+                data: {
+                    course_id: course_id,
+                    _token: _token,
+                },
+                success: function (res) {
+                    $(".loader").removeClass("loading");
+                    if (res.data.url) {
+                        window.open(res.data.url, '_top');
+                    }
+                },
+                error: function (err) {
+                    $(".loader").removeClass("loading");
+                    let response_text = JSON.parse(err.responseText);
+                }
+            })
+        }
 
+        $('.accordion').accordion({
+            multiOpen: true,
+            duration: 300
+        });
+
+        function openSpeakerSendCommentModal(speakerId, courseId) {
+            $("#speaker-id").val(speakerId);
+            $("#course-id").val(courseId);
+            $('#speakerSendCommentModal').modal('show');
+        }
+
+        $(function () {
+            $('#speakerSendCommentForm').submit(function (e) {
+                e.preventDefault();
+
+                let comment = $(this).find("#comment").val();
+                let speakerId = parseInt($(this).find('#speaker-id').val());
+                let courseId = parseInt($(this).find('#course-id').val());
+                let rate = $(this).find('[name="rate"]:checked').val();
+
+                let _token = $('meta[name="csrf-token"]').attr('content');
+                $(".loader").addClass("loading");
+
+                clearInvalidFeedback()
+
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: "POST",
+                    method: "POST",
+                    data: {
+                        'comment': comment,
+                        'speaker_id': speakerId,
+                        'course_id': courseId,
+                        'rate': rate,
+                        '_token': _token
+                    },
+                    success: function (res) {
+                        $(".loader").removeClass("loading");
+                        if (res && res.success) {
+                            alertModal('Отправлено успешно!');
+                            setTimeout(() => {
+                                window.location.reload()
+                            }, 1500)
+                        } else {
+                            alertWarningModal(res.error);
+                        }
+                    },
+                    error: function (err) {
+                        $(".loader").removeClass("loading");
+                        let response_text = JSON.parse(err.responseText);
+                        if (response_text.errors && typeof response_text.errors == 'object') {
+                            Object.entries(response_text.errors).forEach(([key, value]) => {
+                                $('#error-send-' + key).text(value[0]);
+                                $('#error-send-' + key).css('display', 'block');
+                                $('#send-' + key).addClass('is-invalid');
+                            })
+                        }
+                    }
+                });
+            });
+        })
+    </script>
 
 </body>
 </html>

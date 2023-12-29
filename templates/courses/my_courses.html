@@ -1,4 +1,4 @@
-{% extends 'include/homepage.html' %} {% block title %} Курсы {% endblock %} {% load static %} {% block content %} 
+{% extends 'include/homepage.html' %} {% block title %} Мои Курсы {% endblock %} {% load static %} {% block content %} 
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -8,32 +8,34 @@
             <li class="breadcrumb-item">
               <a href="{% url 'index' %}">Главная страница</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Курсы</li>
+            <li class="breadcrumb-item active" aria-current="page">Мои Курсы</li>
           </ol>
         </nav>
-        <h3 class="breadcrumb-title">Курсы</h3>
+        <h3 class="breadcrumb-title">Мои Курсы</h3>
 
         <section class="content" style="padding-top: 20px">
           <div class="courses-lists">
             <div class="row mb-3">
-              {% for courses in courses %}
+              {% for user_courses  in user_courses  %}    
               <div class="col-lg-4 my-3">
                 <div class="card">
                   <img
-                    src="{{ courses.image.url }}"
+                    src="{{ user_courses.course.image.url }}"
                     class="card-img-top course-image"
                     alt=""
                   />
                   <div class="card-body">
-                    <h5 class="card-title">{{courses.course_name}}</h5>
+                    <h5 class="card-title">{{user_courses.course.course_name}}</h5>
                     <p class="card-text">
-                      Длительность {{courses.course_time}} мес.
+                      Длительность {{user_courses.course.time}} мес.
                     </p>
-                    <p class="card-price">{{ courses.course_price }} сом</p>
-                    <a href="{% url 'course' slug=courses.slug %}" class="button button-outline">Подробнее</a>
+                    <a href="{% url 'courses' %}" class="button button-outline">Открыть</a>
                   </div>
                 </div>
               </div>
+              {% empty %}
+                <h3 class="breadcrumb-title">Пока нет ни одного курса!</h3><br>
+                <h3 class="breadcrumb-title">Если вы купили курс то ожидайте принятия!</h3>
               {% endfor %}
             </div>
             <div class="row">
