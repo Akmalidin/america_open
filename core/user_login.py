@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate,login
 from .EmailBackEnd import EmailBackEnd
-from django.core.files.base import ContentFile
 from apps.settings.models import UserProfile
 from django.shortcuts import get_object_or_404
 from apps.settings.models import Settings
+from django.contrib.auth.decorators import login_required
 def REGISTER(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -32,7 +32,7 @@ def REGISTER(request):
         if User.objects.filter(username=username).exists():
            messages.warning(request,'Username are Already exists !')
            return redirect('register')
-        user = User(
+        user = User.objects.create(
             username=username,
             email=email,
             first_name=first_name,
@@ -42,18 +42,20 @@ def REGISTER(request):
             user=user,
             phone_number=phone_number,
             school=school,
-            profile_photo=profile_photo,
             place_learn=place_learn,
             region=region,
             city=city,
             clas=clas,
             birthday=birthday,
         )
-        if profile_photo:
-            user_profile.profile_photo.save(profile_photo.name, profile_photo)
         user.set_password(password)
         user.save()
         user_profile.save()
+        if profile_photo:
+            user_profile.profile_photo.save(profile_photo.name, profile_photo)
+        
+        user_profile.user = user
+        
         return redirect('login')
        
     return render(request, 'registration/register.html')
@@ -72,10 +74,12 @@ def DO_LOGIN(request):
            messages.error(request,'Email and Password Are Invalid !')
     return redirect('login')
     
-
+@login_required
 def PROFILE(request):
-    return render(request, 'registration/profile.html')
-
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    settings = Settings.objects.latest("id")
+    return render(request, 'registration/profile.html', locals())
+@login_required
 def PROFILE_UPDATE(request):
     if request.method == "POST":
         user = request.user
@@ -123,7 +127,7 @@ def PROFILE_UPDATE(request):
         user_profile.save()
         messages.success(request,'Profile Are Successfully Updated. ')
         return redirect('view_profile')
-
+@login_required
 def VIEW_PROFILE(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     settings = Settings.objects.latest("id")

@@ -430,19 +430,7 @@
         margin-right: 1.5rem;
     }
 
-    .navbar-toggler.collapsed .navbar-toggler-icon {
-        transition: 0.4s ease;
-        background-image: url(/images/burger-icon.svg);
-    }
-
-    .navbar-toggler .navbar-toggler-icon {
-        transition: 0.4s ease;
-        background-image: url(/images/black-close-icon.svg);
-    }
-
-    .navbar-light .navbar-toggler-close {
-        background-image: url(/images/black-close-icon.svg) !important;
-    }
+    
 
     .card-client {
         display: none;

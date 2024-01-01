@@ -1,6 +1,6 @@
 {% extends 'registration/base.html' %}
 {% block content %}
-
+{% load static %}
 <!-- PAGE TITLE
     ================================================== -->
     <header class="py-8 py-md-11" style="background-image: none;">
@@ -58,10 +58,9 @@
                     </div>
                     <!-- Phone number -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            Phone Number
-                        </label>
-                        <input type="number" class="form-control" id="modalSignupUsername1" placeholder="+99655356574" name="phone_number">
+                        <label for="phone">Телефон номер</label>
+                        <input type="text" class="form-control phone" id="phone"
+                            placeholder="+996(777)-777-77-77" required name="phone_number" value="{{user_profile.phone_number}}">
                     </div>
 
                     {% comment %} School {% endcomment %}

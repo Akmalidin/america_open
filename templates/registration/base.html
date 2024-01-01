@@ -58,13 +58,11 @@
     <script src="{% static './libs/quill/dist/quill.min.js' %}"></script>
     <script src="{% static './libs/smooth-scroll/dist/smooth-scroll.min.js' %}"></script>
     <script src="{% static './libs/typed.js/lib/typed.min.js' %}"></script>
-
-    <!-- Map -->
-    <script src='../../../api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src="{% static '/js/mask.input.js' %}"></script>
 
     <!-- Theme JS -->
     <script src="{% static './js/theme.min.js' %}"></script>
-
+    <script>$('.phone').mask("+996 (xxx)-xxx-xxx");</script>
 
 </body>
 

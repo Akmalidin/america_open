@@ -128,22 +128,8 @@ class UserProfile(models.Model):
     profile_photo = models.ImageField(upload_to='profile_photos/', blank=True, null=True)
     place_learn = models.CharField(max_length=255, verbose_name='Место учебы', blank=True, null=True)
     region = models.CharField(max_length=255, verbose_name='Область', blank=True, null=True)
-    city = models.CharField(max_length=255, verbose_name='Город', blank=True, null=True)
-    classes = [
-        ('1_class', '1 класс'),
-        ('2_class', '2 класс'),
-        ('3_class', '3 класс'),
-        ('4_class', '4 класс'),
-        ('5_class', '5 класс'),
-        ('6_class', '6 класс'),
-        ('7_class', '7 класс'),
-        ('8_class', '8 класс'),
-        ('9_class', '9 класс'),
-        ('10_class', '10 класс'),
-        ('11_class', '11 класс'),
-    ]
-    
-    clas = models.CharField( choices=classes, verbose_name='Класс', max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=255, verbose_name='Город', blank=True, null=True)    
+    clas = models.CharField(verbose_name='Класс', max_length=255, blank=True, null=True)
     birthday = models.CharField(max_length=255, verbose_name='Дата рождения', blank=True, null=True)
     # subject_1 = models.CharField(
     #     choices=subjects,

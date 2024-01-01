@@ -29,11 +29,15 @@ class Course(models.Model):
         verbose_name_plural = 'Группы курсов'
 
 class UserCourse(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Courses, on_delete=models.CASCADE)
-    access_granted = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE, verbose_name='Курсы')
+    access_granted = models.BooleanField(default=False, verbose_name='Разрешено')
     def __str__(self):
-        return f'{self.user.username} - {self.course} - {self.access_granted}'
+        return self.user.username
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Проверяем, создается ли объект или обновляется
+            self.access_granted = False  # Устанавливаем значение по умолчанию только при создании объекта
+        super().save(*args, **kwargs)
     class Meta:
         verbose_name = 'Разрешение для пользователя на курс'
         verbose_name_plural = 'Разрешения для пользователей на курсы'

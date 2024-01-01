@@ -1,6 +1,7 @@
 {% extends 'include/homepage.html' %}
 {% load static %}
 {% block content %}
+<div class="container-fluid">
 <section class="content" style="padding-top: 20px;">
     <div class="row">
         <div class="col-12">
@@ -26,7 +27,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <h5 class="cabinet-subtitle">Класс</h5>
-                                    <p class="cabinet-description">{{user_profile.clas}}</p>
+                                    <p class="cabinet-description">{{user_profile.clas}} Класс</p>
                                 </div>
                             </div>
 
@@ -66,5 +67,5 @@
         </div>
     </div>
 </section>
-{% include 'include/question.html' %}
+</div>
 {% endblock %}

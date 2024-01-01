@@ -2070,14 +2070,6 @@ a.footer-support-link:hover {
     width: 36px
 }
 
-.pagination .prev {
-    margin-right: 20px
-}
-
-.pagination .next {
-    margin-left: 20px
-}
-
 .pagination .next:hover, .pagination .prev:hover {
     background: #5454AE;
 }

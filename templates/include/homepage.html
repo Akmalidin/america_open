@@ -30,6 +30,19 @@
             background: #FFF8EF;
             border-radius: 6px
         }
+        .navbar-toggler.collapsed .navbar-toggler-icon {
+            transition: 0.4s ease;
+            background-image: url({% static '/images/burger-icon.svg' %});
+        }
+    
+        .navbar-toggler .navbar-toggler-icon {
+            transition: 0.4s ease;
+            background-image: url({% static '/images/black-close-icon.svg' %});
+        }
+    
+        .navbar-light .navbar-toggler-close {
+            background-image: url({% static '/images/black-close-icon.svg' %}) !important;
+        }
     </style>
     <link rel="stylesheet" href="{% static './css/media.css' %}"/>
 </head>
@@ -37,6 +50,7 @@
     {% include 'include/navbar.html' %}
     {% block content %}
     {% endblock %}
+    {% include 'include/question.html' %}
     {% include 'include/footer.html' %}
     <script src="{% static '/js/jquery.min.js' %}"></script>
 <script src="{% static '/js/mask.input.js' %}"></script>

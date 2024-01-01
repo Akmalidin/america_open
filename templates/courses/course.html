@@ -30,7 +30,15 @@
                   <div class="card-body">
                     <h5 class="card-title">{{ course.course_name }}</h5>
                     <p class="card-text">Длительность {{course.time}} мес.</p>
-                    <a href="{% url 'buy_course' course.id %}" class="button button-outline">Купить</a>
+                    {% if request.user.is_authenticated %}
+                      {% if user_course.access_granted %}
+                              <a href="{% url 'index' %}" class="button button-outline">Перейти к курсу</a>
+                      {% else %}
+                      <a href="{% url 'buy_course' course.id %}" class="button button-outline">Купить</a>
+                      {% endif %}
+                      {% else %}
+                          <a href="{% url 'register' %}" class="button button-outline">Зарегистрируйтесь, чтобы купить курс</a>
+                    {% endif %}
                   </div>
                 </div>
 
@@ -1196,5 +1204,4 @@
     </div>
   </div>
 </div>
-
-{% include 'include/question.html' %} {% endblock %}
+{% endblock %}
