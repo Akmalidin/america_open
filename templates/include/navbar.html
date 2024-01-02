@@ -16,13 +16,13 @@
 
             <a class="navbar-brand logo-link" href="{% url 'index' %}">
                 <img class="client-logo" src="{{settings.logo.url}}" width='139px' alt="{{settings.title}}">
-                <img class="mobile-logo" src="{{settings.logo.url}}" width='139px' height='37px' alt="{{settings.title}}">
+                <img class="mobile-logo" src="{{settings.logo.url}}" width='139px !important' alt="{{settings.title}}">
             </a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-collapse-header mb-3">
                     <a class="navbar-brand logo-link" href="{% url 'index' %}">
-                        <img class="mobile-logo" src="{{settings.logo.url}}" width='139px' height='37px' alt="{{settings.title}}">
+                        <img class="mobile-logo" src="{{settings.logo.url}}" width='139px !important' alt="{{settings.title}}">
                     </a>
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -112,8 +112,8 @@
                             
                 <div class="mobile-login" onclick="openLogin()">
                     <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="19" cy="19" r="18" fill="#E5E6E9"/>
-                        <rect x="1" y="1" width="36" height="36" rx="18" fill="#6666CC" stroke="#6666CC"
+                        <circle cx="19" cy="19" r="18" fill="#11b798"/>
+                        <rect x="1" y="1" width="36" height="36" rx="18" fill="#11b798" stroke="#11b798"
                               stroke-width="2"/>
                         <g clip-path="url(#clip0_515_691)">
                             <path
