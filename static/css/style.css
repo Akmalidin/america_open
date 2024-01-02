@@ -31,7 +31,7 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 1px; /*Закругление ползунка*/
-    background-color: #6666CC; /*Цвет ползунка*/
+    background-color: #10af91; /*Цвет ползунка*/
     height: 100px;
     cursor: pointer;
 }
@@ -100,7 +100,7 @@ a:hover {
 }
 
 .auth-button {
-    background: #6666CC;
+    background: #10af91;
     border-radius: 2px;
 
     display: flex;
@@ -122,7 +122,7 @@ a:hover {
 }
 
 .auth-button:hover {
-    background: #5454AE;
+    background: #0ca085;
 }
 
 /*.auth-buttons a {*/
@@ -555,11 +555,11 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #6666CC;
+    border: 1px solid #10af91;
     box-sizing: border-box;
     transition: 0.4s all ease;
 
-    background: #6666CC;
+    background: #10af91;
     border-radius: 12px;
     cursor: pointer;
 }
@@ -578,7 +578,7 @@ textarea.form-control {
 
 .btn-auth:hover {
     transition: 0.4s all ease;
-    background: #6666CC;
+    background: #10af91;
     color: #fff;
     box-shadow: 0px 18px 28px rgba(102, 102, 204, 0.4);
 }
@@ -588,12 +588,12 @@ textarea.form-control {
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    border-bottom: 1px solid #6666CC;
+    border-bottom: 1px solid #10af91;
 
     display: block;
     width: max-content;
 
-    color: #6666CC;
+    color: #10af91;
     margin: 30px auto 0;
     text-align: center;
     transition: 0.3s all;
@@ -621,7 +621,7 @@ select:focus, input:focus {
 }
 
 select:focus, input:focus {
-    border: 1px solid #6666CC !important;
+    border: 1px solid #10af91 !important;
 }
 
 .tabs {
@@ -717,7 +717,7 @@ select.form-control {
 }
 
 .btn-default {
-    border: 1px solid #6666CC;
+    border: 1px solid #10af91;
     border-radius: 2px;
     transition: 0.4s all ease;
 
@@ -727,7 +727,7 @@ select.form-control {
     font-size: 16px;
 
     text-align: center;
-    color: #6666CC;
+    color: #10af91;
     padding: 8px 20px;
 }
 
@@ -737,8 +737,8 @@ select.form-control {
 
 .btn-default:hover {
     transition: 0.4s all ease;
-    background-color: #6666CC;
-    border-color: #6666CC;
+    background-color: #10af91;
+    border-color: #10af91;
     color: #fff;
 }
 
@@ -774,7 +774,7 @@ section.content {
 
     background: #FFFFFF;
 
-    border: 1px solid #6666CC;
+    border: 1px solid #10af91;
 }
 
 
@@ -796,7 +796,7 @@ section.content {
 }
 
 .accordion-heading.acc-open {
-    background: #6666CC;
+    background: #10af91;
     color: #fff;
 }
 
@@ -896,7 +896,7 @@ section.content {
     height: 150px;
     border-radius: 6px;
     object-fit: cover;
-    background: #6666CC;
+    background: #10af91;
 }
 
 .btn-cabinet {
@@ -909,9 +909,9 @@ section.content {
     text-align: center;
 
     color: #FFFFFF;
-    background: #6666CC;
+    background: #10af91;
     border-radius: 6px;
-    border: 2px solid #6666CC;
+    border: 2px solid #10af91;
     box-sizing: border-box;
     transition: 0.4s ease all;
 }
@@ -919,7 +919,7 @@ section.content {
 .btn-cabinet:hover {
     transition: 0.4s ease all;
     background: #F6F6F6;
-    color: #6666CC;
+    color: #10af91;
 }
 
 .cabinet-label {
@@ -1103,7 +1103,7 @@ section.content {
     min-width: 220px;
     height: 50px;
 
-    background: #6666CC;
+    background: #10af91;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -1117,12 +1117,12 @@ section.content {
     text-align: center;
     color: #FFFFFF;
     transition: 0.4s ease all;
-    border: 1px solid #6666CC;
+    border: 1px solid #10af91;
 }
 
 .btn-lesson:hover {
     transition: 0.4s ease all;
-    color: #6666CC;
+    color: #10af91;
     background: transparent;
 }
 
@@ -1132,7 +1132,7 @@ section.content {
 }
 
 .btn-lesson:hover svg path {
-    fill: #6666CC
+    fill: #10af91
 }
 
 .comment {
@@ -1215,7 +1215,7 @@ section.content {
 }
 
 .btn-send-reply {
-    background: #6666CC;
+    background: #10af91;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -1315,14 +1315,14 @@ section.content {
     font-size: 18px;
     line-height: 130%;
 
-    color: #6666CC;
+    color: #10af91;
     border-bottom: 1px solid transparent;
     transition: 0.4s all;
 }
 
 .lesson-document-download:hover {
-    color: #6666CC;
-    border-bottom: 1px solid #6666CC;
+    color: #10af91;
+    border-bottom: 1px solid #10af91;
 }
 
 /* lesson end */
@@ -1485,7 +1485,7 @@ a.footer-support-link:hover {
 }
 
 .footer-item-social:hover {
-    background: #6666CC;
+    background: #10af91;
     transition: 0.3s ease all
 }
 .footer-item-social:hover a > i {
@@ -1548,7 +1548,7 @@ a.footer-support-link:hover {
     min-width: 168px;
     height: 51px;
 
-    background: #6666CC;
+    background: #10af91;
     border-radius: 2px;
     outline: none;
 
@@ -1734,7 +1734,7 @@ a.footer-support-link:hover {
     font-size: 18px;
     line-height: 150%;
 
-    color: #6666CC;
+    color: #10af91;
     padding: 12px 16px;
     transition: 0.4s all;
     cursor: pointer;
@@ -1747,7 +1747,7 @@ a.footer-support-link:hover {
 .button-outline {
     width: 100%;
 
-    border: 1px solid #6666CC;
+    border: 1px solid #10af91;
     border-radius: 2px;
 }
 
@@ -1905,13 +1905,13 @@ a.footer-support-link:hover {
     font-size: 15px;
     line-height: 115%;
 
-    color: #6666CC;
+    color: #10af91;
     cursor: pointer;
     transition: none;
 }
 
 .custom-checkbox + label span a {
-    color: #6666CC !important;
+    color: #10af91 !important;
 }
 
 .custom-checkbox + label span {
@@ -1925,7 +1925,7 @@ a.footer-support-link:hover {
 }
 
 .custom-checkbox + label > a:hover {
-    border-bottom: 1px solid #6666CC;
+    border-bottom: 1px solid #10af91;
     text-decoration-line: none;
 }
 
@@ -1936,7 +1936,7 @@ a.footer-support-link:hover {
     height: 24px;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 2px solid #6666CC;
+    border: 2px solid #10af91;
     border-radius: 100%;
     margin-right: 0.5em;
     background-repeat: no-repeat;
@@ -1945,14 +1945,14 @@ a.footer-support-link:hover {
 }
 
 .custom-checkbox:checked + label::before {
-    border-color: #6666CC;
+    border-color: #10af91;
     background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.75 3.99992L3.58 6.82992L9.25 1.16992' stroke='%236666CC' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.75 3.99992L3.58 6.82992L9.25 1.16992' stroke='%2310af91' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 
 /* стили при наведении курсора на checkbox */
 .custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
-    border-color: #6666CC;
+    border-color: #10af91;
 }
 
 /* стили для активного состояния чекбокса (при нажатии на него) */
@@ -2091,8 +2091,8 @@ a.footer-support-link:hover {
 
 .pagination .page-numbers .page-number {
     background: transparent;
-    border: 1px solid #6666CC;
-    color: #6666CC;
+    border: 1px solid #10af91;
+    color: #10af91;
     font-family: 'Raleway';
     font-size: 14px;
     line-height: 1.5;
@@ -2165,7 +2165,7 @@ a.footer-support-link:hover {
 }
 
 .cabinet-btn {
-    background: #6666CC;
+    background: #10af91;
 
     border-radius: 12px;
 
@@ -2232,7 +2232,7 @@ a.footer-support-link:hover {
 }
 
 .slide-button {
-    background: #6666CC;
+    background: #10af91;
 
     box-shadow: 0px 24px 34px rgba(102, 102, 204, 0.4);
     border-radius: 12px;
@@ -2344,7 +2344,7 @@ a.footer-support-link:hover {
     font-size: 22px;
     line-height: 150%;
 
-    color: #6666CC;
+    color: #10af91;
     margin-bottom: 5px;
 }
 
