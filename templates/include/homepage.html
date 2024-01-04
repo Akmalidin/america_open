@@ -7,11 +7,8 @@
     
     <title>{% block title %} {{ settings.title }} {% endblock %}</title>
 
-    <!-- Csrf token -->
-    <meta name="csrf-token" content="IPm4NiTYMph5awdcGN7IM4yPrDb1caiBnLM6mYLe">
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static '/favicon.svg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{% static './css/fonts.css' %}"/>
@@ -43,6 +40,18 @@
         .navbar-light .navbar-toggler-close {
             background-image: url({% static '/images/black-close-icon.svg' %}) !important;
         }
+        .navbar-light .navbar-toggler-icon {
+            background-image: url({% static '"/images/burger-icon.svg"' %}');
+        }
+        .dropdown-toggle::after {
+            background-image: url({% static '"/images/dropdown-icon.svg"' %});
+        }
+        select.form-control {
+            background: url({% static "'/images/arrow-down.svg'" %}) no-repeat right 11px center;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            background-image: url({% static '"/images/breadcrumb-icon.svg"' %}');
+        }
     </style>
     <link rel="stylesheet" href="{% static './css/media.css' %}"/>
 </head>
@@ -57,6 +66,7 @@
 <script src="{% static '/plugins/sweetalert2/sweetalert2.js' %}"></script>
 <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static '/js/script.js' %}"></script>
+<script src="{% static '/js/jquery.accordion.js' %}"></script>
 
     <script src="{% static '/js/swiper-bundle.min.js' %}"></script>
     <script>
@@ -132,117 +142,13 @@
             activeTab('register')
             $('#myModal').modal('show')
         }
-    
-        function alertModal(text = "", timer = 1500) {
-            Swal.fire({
-                text: text ? text : "Сәтті аяқталды!",
-                padding: '2em',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: timer
-            })
-        }
-    
-        function alertWarningModal(text = "") {
-            Swal.fire({
-                text: text ? `${text}` : "Қате!",
-                padding: '2em',
-                icon: 'warning',
-                showConfirmButton: true,
-            })
-        }
     </script>
     <script>
-        function payCourse(course_id) {
-            $(".loader").addClass("loading");
-            let _token = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: 'https://daiyndal.kz/courses/course/16/pay',
-                method: 'post',
-                statusCode: {
-                    401: function () {
-                        $('.modal').modal('hide')
-                        $('#loginForm').modal('show')
-                    }
-                },
-                data: {
-                    course_id: course_id,
-                    _token: _token,
-                },
-                success: function (res) {
-                    $(".loader").removeClass("loading");
-                    if (res.data.url) {
-                        window.open(res.data.url, '_top');
-                    }
-                },
-                error: function (err) {
-                    $(".loader").removeClass("loading");
-                    let response_text = JSON.parse(err.responseText);
-                }
-            })
-        }
-
         $('.accordion').accordion({
-            multiOpen: true,
+            collapsible: true,
+            active: false,
             duration: 300
         });
-
-        function openSpeakerSendCommentModal(speakerId, courseId) {
-            $("#speaker-id").val(speakerId);
-            $("#course-id").val(courseId);
-            $('#speakerSendCommentModal').modal('show');
-        }
-
-        $(function () {
-            $('#speakerSendCommentForm').submit(function (e) {
-                e.preventDefault();
-
-                let comment = $(this).find("#comment").val();
-                let speakerId = parseInt($(this).find('#speaker-id').val());
-                let courseId = parseInt($(this).find('#course-id').val());
-                let rate = $(this).find('[name="rate"]:checked').val();
-
-                let _token = $('meta[name="csrf-token"]').attr('content');
-                $(".loader").addClass("loading");
-
-                clearInvalidFeedback()
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: "POST",
-                    method: "POST",
-                    data: {
-                        'comment': comment,
-                        'speaker_id': speakerId,
-                        'course_id': courseId,
-                        'rate': rate,
-                        '_token': _token
-                    },
-                    success: function (res) {
-                        $(".loader").removeClass("loading");
-                        if (res && res.success) {
-                            alertModal('Отправлено успешно!');
-                            setTimeout(() => {
-                                window.location.reload()
-                            }, 1500)
-                        } else {
-                            alertWarningModal(res.error);
-                        }
-                    },
-                    error: function (err) {
-                        $(".loader").removeClass("loading");
-                        let response_text = JSON.parse(err.responseText);
-                        if (response_text.errors && typeof response_text.errors == 'object') {
-                            Object.entries(response_text.errors).forEach(([key, value]) => {
-                                $('#error-send-' + key).text(value[0]);
-                                $('#error-send-' + key).css('display', 'block');
-                                $('#send-' + key).addClass('is-invalid');
-                            })
-                        }
-                    }
-                });
-            });
-        })
     </script>
 
 </body>

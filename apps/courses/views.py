@@ -50,4 +50,7 @@ def my_courses(request):
     user = request.user  # Убедитесь, что пользователь аутентифицирован
     user_courses = UserCourse.objects.filter(user=request.user, access_granted=True)
     settings = Settings.objects.latest('id')
+    paginator = Paginator(user_courses, 9)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     return render(request, 'courses/my_courses.html', locals())

@@ -66,10 +66,6 @@ a:hover {
     border-color: transparent;
 }
 
-.navbar-light .navbar-toggler-icon {
-    background-image: url("/images/burger-icon.svg");
-}
-
 .nav-link {
     font-family: 'Exo 2';
 }
@@ -185,7 +181,6 @@ a:hover {
     content: "";
     width: 15px;
     height: 8px;
-    background-image: url('/images/dropdown-icon.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -713,7 +708,6 @@ select.form-control {
     appearance: none;
 
     overflow: hidden;
-    background: url('/images/arrow-down.svg') no-repeat right 11px center;
 }
 
 .btn-default {
@@ -2016,7 +2010,6 @@ a.footer-support-link:hover {
 
     width: 24px;
     height: 24px;
-    background-image: url("/images/breadcrumb-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;

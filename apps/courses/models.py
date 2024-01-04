@@ -31,7 +31,7 @@ class Course(models.Model):
 class UserCourse(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, verbose_name='Курсы')
-    access_granted = models.BooleanField(default=False, verbose_name='Разрешено')
+    access_granted = models.BooleanField(verbose_name='Разрешено', default=False)
     def __str__(self):
         return self.user.username
     def save(self, *args, **kwargs):
