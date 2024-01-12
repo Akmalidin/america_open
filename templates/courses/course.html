@@ -1,4 +1,4 @@
-{% extends 'include/homepage.html' %}{% block title %} {{ course.course_name }} {% endblock %} {% load static %} {% block content%}
+{% extends 'include/homepage.html' %} {% load i18n %} {% block title %} {{ course.course_name }} {% endblock %} {% load static %} {% block content%}
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -6,10 +6,10 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{% url 'index' %}">Главная страница</a>
+              <a href="{% url 'index' %}">{% trans 'Главная' %}</a>
             </li>
             <li class="breadcrumb-item">
-              <a href="{% url 'courses' %}">Курсы</a>
+              <a href="{% url 'courses' %}">{% trans 'Курсы' %}</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">{{ course.course_name }}</li>
           </ol>
@@ -29,15 +29,15 @@
                   />
                   <div class="card-body">
                     <h5 class="card-title">{{ course.course_name }}</h5>
-                    <p class="card-text">Длительность {{course.time}} мес.</p>
+                    <p class="card-text">{% trans 'Длительность' %} {{course.time}} {% trans 'мес.' %}</p>
                     {% if request.user.is_authenticated %}
                       {% if user_course.access_granted %}
-                              <a href="{% url 'index' %}" class="button button-outline">Перейти к курсу</a>
+                              <a href="{% url 'index' %}" class="button button-outline">{% trans 'Перейти к курсу' %}</a>
                       {% else %}
-                      <a href="{% url 'buy_course' course.id %}" class="button button-outline">Купить</a>
+                      <a href="{% url 'buy_course' course.id %}" class="button button-outline">{% trans 'Купить' %}</a>
                       {% endif %}
                       {% else %}
-                          <a href="{% url 'register' %}" class="button button-outline">Зарегистрируйтесь, чтобы купить курс</a>
+                          <a href="{% url 'register' %}" class="button button-outline">{% trans 'Зарегистрируйтесь, чтобы купить курс' %}</a>
                     {% endif %}
                   </div>
                 </div>
@@ -51,15 +51,15 @@
                     />
                     <div class="card-body card-mobile-body">
                       <h5 class="card-title">{{ course.course_name }}</h5>
-                      <p class="card-text">Длительность {{course.time}} мес.</p>
+                      <p class="card-text">{% trans 'Длительность'%} {{course.time}} {% trans 'мес.' %}</p>
                       {% if request.user.is_authenticated %}
                         {% if user_course.access_granted %}
-                                <a href="{% url 'index' %}" class="button button-outline">Перейти к курсу</a>
+                                <a href="{% url 'index' %}" class="button button-outline">{% trans 'Перейти к курсу' %}</a>
                         {% else %}
-                        <a href="{% url 'buy_course' course.id %}" class="button button-outline">Купить</a>
+                        <a href="{% url 'buy_course' course.id %}" class="button button-outline">{% trans 'Купить' %}</a>
                         {% endif %}
                         {% else %}
-                            <a href="{% url 'register' %}" class="button button-outline">Зарегистрируйтесь, чтобы купить курс</a>
+                            <a href="{% url 'register' %}" class="button button-outline">{% trans 'Зарегистрируйтесь, чтобы купить курс' %}</a>
                       {% endif %}
                     </div>
                   </div>
@@ -68,12 +68,12 @@
 
               <div class="col-lg-8 my-3 my-lg-0">
                 <div class="course-main">
-                  <h4 class="course-content">О курсе</h4>
+                  <h4 class="course-content">{% trans 'О курсе' %}</h4>
                   <p class="course-description">
                     {{course.course_description}}
                   </p>
                   <hr />
-                  <h4 class="course-content">Содержание</h4>
+                  <h4 class="course-content">{% trans 'Содержание' %}</h4>
                   <div class="accordion">
                     <div class="panel panel-default accordion-item">
                       <div class="panel-heading accordion-heading" data-acc-link="accordion0" style="cursor: pointer">

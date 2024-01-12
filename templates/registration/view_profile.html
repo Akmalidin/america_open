@@ -1,4 +1,5 @@
 {% extends 'include/homepage.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
 <div class="container-fluid">
@@ -22,33 +23,33 @@
                             <h4 class="cabinet-username">{{user_profile.user.first_name}} {{user_profile.user.last_name}}</h4>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h5 class="cabinet-subtitle">Школа</h5>
+                                    <h5 class="cabinet-subtitle">{% trans 'Школа' %}</h5>
                                     <p class="cabinet-description">{{user_profile.school}}</p>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h5 class="cabinet-subtitle">Класс</h5>
-                                    <p class="cabinet-description">{{user_profile.clas}} Класс</p>
+                                    <h5 class="cabinet-subtitle">{% trans 'Класс' %}</h5>
+                                    <p class="cabinet-description">{{user_profile.clas}} {% trans 'Класс' %}</p>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h5 class="cabinet-subtitle">Предметы по выбору</h5>
-                                    <p class="cabinet-description">Физика, Математика</p>
+                                    <h5 class="cabinet-subtitle">{% trans 'Предметы по выбору' %}</h5>
+                                    <p class="cabinet-description">{% trans 'Физика, Математика' %}</p>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-lg-6">
-                                    <h5 class="cabinet-subtitle">Телефон номер</h5>
+                                    <h5 class="cabinet-subtitle">{% trans 'Телефон номер' %}</h5>
                                     {% if user_profile.phone_number != ''%}
                                         <p class="cabinet-description">{{ user_profile.phone_number }}</p>
                                     {% else %}
-                                        <p class="cabinet-description">Номер не указан</p>
+                                        <p class="cabinet-description">{% trans 'Номер не указан' %}</p>
                                     {% endif %}
                                 </div>
                                 <div class="col-lg-6">
-                                    <h5 class="cabinet-subtitle">Эл. почта</h5>
+                                    <h5 class="cabinet-subtitle">{% trans 'Эл. почта' %}</h5>
                                     <p class="cabinet-description">{{user_profile.user.email}}</p>
                                 </div>
                             </div>
@@ -56,7 +57,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="cabinet-buttons">
-                                        <a class="btn cabinet-btn" href="{% url 'profile' %}">Редактировать</a>
+                                        <a class="btn cabinet-btn" href="{% url 'profile' %}">{% trans 'Редактировать' %}</a>
                                     </div>
                                 </div>
                             </div>

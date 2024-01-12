@@ -1,20 +1,22 @@
 {% extends 'registration/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'Вход' %} {% endblock %}
 {% block content %}
 
 <!-- PAGE TITLE
     ================================================== -->
     <header class="py-8 py-md-11" style="background-image: none;">
         <div class="container text-center py-xl-2">
-            <h1 class="display-4 fw-semi-bold mb-0">Login</h1>
+            <h1 class="display-4 fw-semi-bold mb-0">{% trans 'Вход' %}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-scroll justify-content-center">
                     <li class="breadcrumb-item">
                         <a class="text-gray-800" href="{% url 'index' %}">
-                            Home
+                            {% trans 'Главная' %}
                         </a>
                     </li>
                     <li class="breadcrumb-item text-gray-800 active" aria-current="page">
-                        Login
+                        {% trans 'Вход' %}
                     </li>
                 </ol>
             </nav>
@@ -30,7 +32,7 @@
         <div class="row gx-0">
             <div class="col-md-7 col-xl-4 mx-auto">
                 <!-- Login -->
-                <h3 class="mb-6">Log In to Your Skola Account!</h3>
+                <h3 class="mb-6">{% trans 'Войдите в свой аккаунт!' %}</h3>
                 {% include 'include/msg.html' %}
                 <!-- Form Login -->
                 <form class="mb-5" method="POST" action={% url 'doLogin' %}>
@@ -38,15 +40,15 @@
                     <!-- Email -->
                     <div class="form-group mb-5">
                         <label for="modalSigninEmail1">
-                            Email
+                            {% trans 'Email' %}
                         </label>
-                        <input type="email" class="form-control" id="modalSigninEmail1" placeholder="creativelayers" name='email'>
+                        <input type="email" class="form-control" id="modalSigninEmail1" placeholder="johndoe@american.com" name='email'>
                     </div>
 
                     <!-- Password -->
                     <div class="form-group mb-5">
                         <label for="modalSigninPassword1">
-                            Password
+                            {% trans 'Пароль' %}
                         </label>
                         <input type="password" class="form-control" id="modalSigninPassword1" placeholder="**********" name="password">
                     </div>
@@ -54,19 +56,19 @@
                     <div class="d-flex align-items-center mb-5 font-size-sm">
 
                         <div class="ms-auto">
-                            <a class="text-gray-800" href="{% url 'password_reset' %}">Forgot Password</a>
+                            <a class="text-gray-800" href="{% url 'password_reset' %}">{% trans 'Забыл пароль?' %}</a>
                         </div>
                     </div>
 
                     <!-- Submit -->
                     <button class="btn btn-block btn-primary" type="submit">
-                        LOGIN
+                        {% trans 'Вход' %}
                     </button>
                 </form>
 
                 <!-- Text -->
                 <p class="mb-0 font-size-sm text-center">
-                    Don't have an account? <a class="text-underline" href="{% url 'register' %}">Sign up</a>
+                    {% trans "Нет аккаунта?" %} <a class="text-underline" href="{% url 'register' %}">{% trans 'Зарегистрироваться' %}</a>
                 </p>
             </div>
         </div>

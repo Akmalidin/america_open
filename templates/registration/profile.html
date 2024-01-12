@@ -1,4 +1,5 @@
 {% extends 'include/homepage.html' %}
+{% load i18n %}
 {% block content %}
 {% load static %}
     
@@ -8,7 +9,7 @@
                         {% csrf_token %}
                         <div class="row mb-5">
                             <div class="col-12">
-                                <h5 class="cabinet-title">Личные данные</h5>
+                                <h5 class="cabinet-title">{% trans 'Личные данные' %}</h5>
                                 <div class="cabinet-edit">
                                     <div class="row">
                                         <div class="col-lg-3">
@@ -22,7 +23,7 @@
                                                 {% endif %}
                                                 <div class="cabinet-upload-block">
                                                     <label class="btn btn-default"
-                                                for="upload-image">Загрузить изображение</label>
+                                                for="upload-image">{% trans 'Загрузить изображение' %}</label>
                                             <input id="upload-image" type="file" name="profile_photo"
                                                 onchange="readURL(this)" hidden="hidden"/>
                                                 </div>
@@ -33,7 +34,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="full_name">Username</label>
+                                                            <label for="full_name">{% trans 'Имя пользователя' %}</label>
                                                             <input name="username" type="text" class="form-control"
                                                                 id="full_name"
                                                                 value="{{user.username}}" readonly>
@@ -41,23 +42,23 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="full_name">Ваше Имя</label>
+                                                            <label for="full_name">{% trans 'Ваше Имя' %}</label>
                                                             <input name="first_name" type="text" class="form-control"
-                                                                id="full_name" placeholder="Ваше Имя" required
+                                                                id="full_name" placeholder="{% trans 'Ваше Имя' %}" required
                                                                 value="{{user.first_name}}">
                                                                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="full_name">Ваше фамилия</label>
+                                                            <label for="full_name">{% trans 'Ваше фамилия' %}</label>
                                                             <input name="last_name" type="text" class="form-control"
-                                                                id="full_name" placeholder="Ваше фамилия" required
+                                                                id="full_name" placeholder="{% trans 'Ваше фамилия' %}" required
                                                                 value="{{user.last_name}}">
                                                                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="phone">Телефон номер</label>
+                                                            <label for="phone">{% trans 'Номер телефона' %}</label>
                                                             <input type="text" class="form-control phone" id="phone"
                                                                 placeholder="+996(777)-777-77-77" required name="phone_number" value="{{user_profile.phone_number}}">
                                                                                                         </div>
@@ -66,14 +67,14 @@
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="birthday">Дата рождения</label>
+                                                            <label for="birthday">{% trans 'Дата рождения' %}</label>
                                                             <input name="birthday" type="date" class="form-control" id="birthday"
-                                                                placeholder="Дата рождения" value="{{user_profile.birthday}}">
+                                                                placeholder="{% trans 'Дата рождения' %}" value="{{user_profile.birthday}}">
                                                                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="email">Эл. почта</label>
+                                                            <label for="email">{% trans 'Эл. почта' %}</label>
                                                             <input type="text" class="form-control" id="email" name="email"
                                                                 placeholder="E-mail" value="{{user.email}}" readonly>
                                                                                                         </div>
@@ -88,13 +89,13 @@
             
                         <div class="row">
                             <div class="col-12">
-                                <h5 class="cabinet-title">Место учебы</h5>
+                                <h5 class="cabinet-title">{% trans 'Место учебы' %}</h5>
                                 <div class="cabinet-edit">
                                     <div class="row">
                                         
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="region">Облаc</label>
+                                                <label for="region">{% trans 'Облаcть' %}</label>
                                                 <input type="text" id="region" name="region"
                                                     class="form-control"
                                                     value="{{user_profile.region}}">
@@ -103,7 +104,7 @@
                                         
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="city">Город</label>
+                                                <label for="city">{% trans 'Город' %}</label>
                                                 <input type="text" id="city" name="city"
                                                     class="form-control "
                                                     value="{{user_profile.city}}">
@@ -112,7 +113,7 @@
                                         
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="school">Школа</label>
+                                                <label for="school">{% trans 'Школа' %}</label>
                                                 <input type="text" id="school_name" name="school"
                                                     class="form-control "
                                                     value="{{user_profile.school}}">
@@ -121,7 +122,7 @@
                                         
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="clas">Класс</label>
+                                                <label for="clas">{% trans 'Класс' %}</label>
                                                 <input type="number" id="clas" name="clas"
                                                     class="form-control "
                                                     value="{{user_profile.clas}}">
@@ -216,7 +217,7 @@
                             </div>
                         </div> {% endcomment %}
             
-                        <button type="submit" class="btn cabinet-btn">Сохранить</button>
+                        <button type="submit" class="btn cabinet-btn">{% trans 'Сохранить' %}</button>
                     </form>
                 </div>
             </section>

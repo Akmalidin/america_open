@@ -1,4 +1,4 @@
-{% extends 'include/homepage.html' %} {% block title %} Мои Курсы {% endblock %} {% load static %} {% block content %} 
+{% extends 'include/homepage.html' %} {% load i18n %} {% block title %} {% trans 'Мои Курсы' %} {% endblock %} {% load static %} {% block content %} 
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -6,12 +6,12 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{% url 'index' %}">Главная страница</a>
+              <a href="{% url 'index' %}">{% trans 'Главная' %}</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Мои Курсы</li>
+            <li class="breadcrumb-item active" aria-current="page">{% trans 'Мои Курсы' %}</li>
           </ol>
         </nav>
-        <h3 class="breadcrumb-title">Мои Курсы</h3>
+        <h3 class="breadcrumb-title">{% trans 'Мои Курсы' %}</h3>
 
         <section class="content" style="padding-top: 20px">
           <div class="courses-lists">
@@ -27,17 +27,17 @@
                   <div class="card-body">
                     <h5 class="card-title">{{user_courses.course.course_name}}</h5>
                     <p class="card-text">
-                      Длительность {{user_courses.course.time}} мес.
+                      {% trans 'Длительность' %} {{user_courses.course.time}} {% trans 'мес.' %}
                     </p>
-                    <a href="{% url 'courses' %}" class="button button-outline">Открыть</a>
+                    <a href="{% url 'courses' %}" class="button button-outline">{% trans 'Открыть' %}</a>
                   </div>
                 </div>
               </div>
               {% empty %}
               <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="breadcrumb-title">Пока нет ни одного курса!</h3>
-                    <h3 class="breadcrumb-title">Если вы купили курс то ожидайте принятия!</h3>
+                    <h3 class="breadcrumb-title">{% trans 'Пока нет ни одного курса!' %}</h3>
+                    <h3 class="breadcrumb-title">{% trans 'Если вы купили курс то ожидайте принятия!' %}</h3>
                 </div>
             </div>
               {% endfor %}

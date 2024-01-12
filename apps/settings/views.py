@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Settings, Slider, Paket, Teachers, UserProfile
 # Create your views here.
 def index(request):
@@ -8,7 +8,9 @@ def index(request):
     teachers = Teachers.objects.all()
     return render(request, 'index.html', locals())
 
-
-
+def packet(request, slug):
+    paket = get_object_or_404(Paket, slug=slug)
+    settings = Settings.objects.latest('id')
+    return render(request, 'packages.html', locals())
 
 

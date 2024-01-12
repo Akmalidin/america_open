@@ -1,0 +1,491 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-12 00:07+0600\n"
+"PO-Revision-Date: 2024-01-12 00:09+0600\n"
+"Last-Translator: Akmal Madakimov <admin@admin.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\courses\urls.py:6
+msgid "course/<slug:slug>/"
+msgstr "course/<slug:slug>/"
+
+#: .\apps\courses\urls.py:7
+msgid "buy/<int:course_id>/"
+msgstr "buy/<int:course_id>/"
+
+#: .\apps\courses\urls.py:8
+msgid "my_courses/"
+msgstr "my_courses/"
+
+#: .\core\settings.py:130
+msgid "English"
+msgstr "EN"
+
+#: .\core\settings.py:131
+msgid "Russian"
+msgstr "RU"
+
+#: .\core\urls.py:30
+msgid "admin/"
+msgstr "admin/"
+
+#: .\core\urls.py:34
+msgid "accounts/"
+msgstr "accounts/"
+
+#: .\templates\courses\course.html:9 .\templates\courses\courses.html:9
+#: .\templates\courses\my_courses.html:9 .\templates\index.html:3
+#: .\templates\registration\login.html:15
+#: .\templates\registration\password_reset_confirm.html:14
+#: .\templates\registration\password_reset_form.html:14
+#: .\templates\registration\register.html:15
+msgid "Главная"
+msgstr "Home"
+
+#: .\templates\courses\course.html:12 .\templates\courses\courses.html:1
+#: .\templates\courses\courses.html:11 .\templates\courses\courses.html:14
+#: .\templates\include\footer.html:32
+msgid "Курсы"
+msgstr "Courses"
+
+#: .\templates\courses\course.html:32 .\templates\courses\course.html:54
+#: .\templates\courses\courses.html:30 .\templates\courses\my_courses.html:30
+msgid "Длительность"
+msgstr "Duration"
+
+#: .\templates\courses\course.html:32 .\templates\courses\course.html:54
+#: .\templates\courses\courses.html:30 .\templates\courses\my_courses.html:30
+msgid "мес."
+msgstr "month."
+
+#: .\templates\courses\course.html:35 .\templates\courses\course.html:57
+msgid "Перейти к курсу"
+msgstr "Go to the course"
+
+#: .\templates\courses\course.html:37 .\templates\courses\course.html:59
+msgid "Купить"
+msgstr "Buy"
+
+#: .\templates\courses\course.html:40 .\templates\courses\course.html:62
+msgid "Зарегистрируйтесь, чтобы купить курс"
+msgstr "Register and start learning!"
+
+#: .\templates\courses\course.html:71
+msgid "О курсе"
+msgstr "About the course"
+
+#: .\templates\courses\course.html:76
+msgid "Содержание"
+msgstr "Contents"
+
+#: .\templates\courses\courses.html:36 .\templates\index.html:161
+msgid "Подробнее"
+msgstr "More"
+
+#: .\templates\courses\my_courses.html:1
+#: .\templates\courses\my_courses.html:11
+#: .\templates\courses\my_courses.html:14
+msgid "Мои Курсы"
+msgstr "My courses"
+
+#: .\templates\courses\my_courses.html:32
+msgid "Открыть"
+msgstr "Open"
+
+#: .\templates\courses\my_courses.html:39
+msgid "Пока нет ни одного курса!"
+msgstr "There are no courses yet!"
+
+#: .\templates\courses\my_courses.html:40
+msgid "Если вы купили курс то ожидайте принятия!"
+msgstr "If you bought the course, then expect acceptance!"
+
+#: .\templates\include\footer.html:12
+msgid "Платформа подготовки к ЕНТ"
+msgstr "Preparation for ENT"
+
+#: .\templates\include\footer.html:15
+msgid "Мы в социальных сетях:"
+msgstr "We are in social networks:"
+
+#: .\templates\include\footer.html:29
+msgid "Разделы сайта"
+msgstr "Sites sections"
+
+#: .\templates\include\footer.html:36 .\templates\include\navbar.html:41
+msgid "Сдача ЕНТ"
+msgstr "Change the ENT"
+
+#: .\templates\include\footer.html:41
+msgid "Сервис"
+msgstr "Service"
+
+#: .\templates\include\footer.html:44
+msgid "О проекте"
+msgstr "About the project"
+
+#: .\templates\include\footer.html:48 .\templates\include\footer.html:86
+msgid "Обратная связь"
+msgstr "Feedback"
+
+#: .\templates\include\footer.html:53 .\templates\include\footer.html:97
+msgid "Публичный договор-оферта"
+msgstr "Public Office Agreement"
+
+#: .\templates\include\footer.html:58 .\templates\include\footer.html:100
+msgid "Политика конфиденциальности"
+msgstr "Privacy Policy"
+
+#: .\templates\include\footer.html:74
+msgid "Ежедневно с 8:00 до 22:00"
+msgstr "Daily with 8:00 to 22:00"
+
+#: .\templates\include\footer.html:81
+msgid "Служба поддержки"
+msgstr "Support"
+
+#: .\templates\include\msg.html:6 .\templates\include\msg.html:13
+#: .\templates\include\msg.html:20
+#, python-format
+msgid " %(message)s "
+msgstr ""
+
+#: .\templates\include\navbar.html:102 .\templates\index.html:100
+msgid "Личный кабинет"
+msgstr "Personal Area"
+
+#: .\templates\include\navbar.html:106
+msgid "Мои курсы"
+msgstr "My courses"
+
+#: .\templates\include\navbar.html:110
+msgid "Мои тесты"
+msgstr "My tests"
+
+#: .\templates\include\navbar.html:114
+msgid "Выйти из аккаунта"
+msgstr "Logout"
+
+#: .\templates\include\navbar.html:127 .\templates\registration\login.html:3
+#: .\templates\registration\login.html:10
+#: .\templates\registration\login.html:19
+#: .\templates\registration\login.html:65
+msgid "Вход"
+msgstr "Login"
+
+#: .\templates\include\question.html:7
+msgid "У вас остались вопросы?"
+msgstr "Do you have any questions left?"
+
+#: .\templates\include\question.html:8
+msgid "По этой ссылке"
+msgstr "By this link"
+
+#: .\templates\include\question.html:8
+msgid "вы можете получить ответы на все вопросы."
+msgstr "You can get answers to all questions."
+
+#: .\templates\index.html:80
+msgid "American какое преимущество?"
+msgstr "American as a advantage?"
+
+#: .\templates\index.html:88
+msgid "Учителя"
+msgstr "Teachers"
+
+#: .\templates\index.html:90
+msgid "опытные современные преподаватели"
+msgstr "Experienced modern teachers"
+
+#: .\templates\index.html:91
+msgid "инструменты исследования и авторы тестов"
+msgstr "Research tools and authors of tests"
+
+#: .\templates\index.html:92
+msgid "традиционные и интерактивные виды обучения"
+msgstr "Traditional and interactive types of learning"
+
+#: .\templates\index.html:102
+msgid "расписание занятий"
+msgstr "Timetable of classes"
+
+#: .\templates\index.html:103
+msgid "результаты теста"
+msgstr "Results of the test"
+
+#: .\templates\index.html:104
+msgid "круглосуточная техническая поддержка"
+msgstr "24 -hour technical support"
+
+#: .\templates\index.html:112
+msgid "Видео уроки"
+msgstr "Video lessons"
+
+#: .\templates\index.html:114
+msgid "возможность подготовиться в любое время "
+msgstr "the opportunity to prepare at any time"
+
+#: .\templates\index.html:115
+msgid "простые и эффективные способы приготовления "
+msgstr "Simple and effective methods of preparation"
+
+#: .\templates\index.html:116
+msgid "интересный интерактив "
+msgstr "An interesting interactive"
+
+#: .\templates\index.html:124
+msgid "Модуль тесты"
+msgstr "Module of tests"
+
+#: .\templates\index.html:126
+msgid "навыки высокого уровня "
+msgstr "high level skills"
+
+#: .\templates\index.html:127
+msgid "контроль качества подготовки "
+msgstr "quality control of preparation"
+
+#: .\templates\index.html:128
+msgid "обработка ошибок "
+msgstr "Error handling"
+
+#: .\templates\index.html:136
+msgid "Конкурсный тест ЕНТ"
+msgstr "UNT Competitive Test"
+
+#: .\templates\index.html:138
+msgid "реальные вопросы ЕНТ "
+msgstr "Real questions of ENT"
+
+#: .\templates\index.html:139
+msgid "обновленная база данных "
+msgstr "Updated database"
+
+#: .\templates\index.html:140
+msgid "возможность подачи предметов индивидуально "
+msgstr "the possibility of submitting items individually"
+
+#: .\templates\index.html:149
+msgid "Пакеты"
+msgstr "Packages"
+
+#: .\templates\index.html:171
+msgid "Опытные преподаватели в новом направлении"
+msgstr "Experienced teachers in a new direction"
+
+#: .\templates\registration\login.html:35
+#: .\templates\registration\password_reset_confirm.html:31
+#: .\templates\registration\password_reset_form.html:30
+msgid "Войдите в свой аккаунт!"
+msgstr "Sign in to your account!"
+
+#: .\templates\registration\login.html:43
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\registration\login.html:51
+#: .\templates\registration\register.html:99
+msgid "Пароль"
+msgstr "Password"
+
+#: .\templates\registration\login.html:59
+msgid "Забыл пароль?"
+msgstr "Forgot password?"
+
+#: .\templates\registration\login.html:71
+msgid "Нет аккаунта?"
+msgstr "Don't have an account?"
+
+#: .\templates\registration\login.html:71
+msgid "Зарегистрироваться"
+msgstr "Sign up"
+
+#: .\templates\registration\password_reset_complete.html:8
+msgid "Пароль был изменен"
+msgstr "The password was changed"
+
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Вы можете войти сейчас"
+msgstr "You can login now"
+
+#: .\templates\registration\password_reset_complete.html:10
+#: .\templates\registration\register.html:121
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\registration\password_reset_confirm.html:9
+#: .\templates\registration\password_reset_confirm.html:18
+#: .\templates\registration\password_reset_form.html:9
+#: .\templates\registration\password_reset_form.html:18
+msgid "Забыли пароль"
+msgstr "Forgot password?"
+
+#: .\templates\registration\password_reset_confirm.html:45
+#: .\templates\registration\password_reset_form.html:47
+msgid "Отправить ссылку на подтверждение"
+msgstr "Send a link"
+
+#: .\templates\registration\password_reset_done.html:8
+msgid "Сброс пароля"
+msgstr "Password reset"
+
+#: .\templates\registration\password_reset_done.html:9
+msgid "Мы отправили вам по почте инструкции для сброса вашего пароля"
+msgstr "We sent you an email with instructions for resetting your password"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"Если вы не получили ссылку, то попробуйте проверить/ввести правильную "
+"электронную почту или проверьте папку спама"
+msgstr ""
+"If you did not receive the link, please check your email or check your spam "
+"folder"
+
+#: .\templates\registration\profile.html:12
+msgid "Личные данные"
+msgstr "Personal data"
+
+#: .\templates\registration\profile.html:26
+msgid "Загрузить изображение"
+msgstr "Upload image"
+
+#: .\templates\registration\profile.html:37
+#: .\templates\registration\register.html:41
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\templates\registration\profile.html:45
+#: .\templates\registration\profile.html:47
+msgid "Ваше Имя"
+msgstr "First name"
+
+#: .\templates\registration\profile.html:53
+#: .\templates\registration\profile.html:55
+msgid "Ваше фамилия"
+msgstr "Last name"
+
+#: .\templates\registration\profile.html:61
+msgid "Номер телефона"
+msgstr "Phone number"
+
+#: .\templates\registration\profile.html:70
+#: .\templates\registration\profile.html:72
+msgid "Дата рождения"
+msgstr "Birth Day"
+
+#: .\templates\registration\profile.html:77
+#: .\templates\registration\view_profile.html:52
+msgid "Эл. почта"
+msgstr "Email"
+
+#: .\templates\registration\profile.html:92
+msgid "Место учебы"
+msgstr "The place of study"
+
+#: .\templates\registration\profile.html:98
+msgid "Облаcть"
+msgstr "Possess"
+
+#: .\templates\registration\profile.html:107
+msgid "Город"
+msgstr "Region"
+
+#: .\templates\registration\profile.html:116
+#: .\templates\registration\register.html:70
+#: .\templates\registration\view_profile.html:26
+msgid "Школа"
+msgstr "School"
+
+#: .\templates\registration\profile.html:125
+#: .\templates\registration\register.html:77
+#: .\templates\registration\view_profile.html:30
+#: .\templates\registration\view_profile.html:31
+msgid "Класс"
+msgstr "Class"
+
+#: .\templates\registration\profile.html:221
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\templates\registration\register.html:3
+#: .\templates\registration\register.html:10
+#: .\templates\registration\register.html:19
+msgid "Регистрация"
+msgstr "Sign up"
+
+#: .\templates\registration\register.html:33
+msgid "Зарегистрируйтесь и начните учиться!"
+msgstr "Register and start learning!"
+
+#: .\templates\registration\register.html:48
+msgid "Имя"
+msgstr "First name"
+
+#: .\templates\registration\register.html:55
+msgid "Фамилия"
+msgstr "last name"
+
+#: .\templates\registration\register.html:61
+#: .\templates\registration\view_profile.html:44
+msgid "Телефон номер"
+msgstr "Phone number"
+
+#: .\templates\registration\register.html:83
+msgid "День рождения"
+msgstr "Birth Day"
+
+#: .\templates\registration\register.html:91
+msgid "Электронная почта"
+msgstr "Email"
+
+#: .\templates\registration\register.html:107
+msgid "Фото профиля"
+msgstr "Profile image"
+
+#: .\templates\registration\register.html:114
+msgid "ЗАРЕГИСТРИРОВАТЬСЯ"
+msgstr "SIGN UP"
+
+#: .\templates\registration\register.html:121
+msgid "Уже есть аккаунт?"
+msgstr "Already have an account?"
+
+#: .\templates\registration\view_profile.html:37
+msgid "Предметы по выбору"
+msgstr "Subjects for selection"
+
+#: .\templates\registration\view_profile.html:38
+msgid "Физика, Математика"
+msgstr "Physics, Math"
+
+#: .\templates\registration\view_profile.html:48
+msgid "Номер не указан"
+msgstr "Number not specified"
+
+#: .\templates\registration\view_profile.html:60
+msgid "Редактировать"
+msgstr "Change"
+
+#, fuzzy
+#~ msgid "Главная страница"
+#~ msgstr "Home"
+
+#~ msgid "{{message}}"
+#~ msgstr "{{message}}"
+
+#~ msgid "Login"
+#~ msgstr "Login"

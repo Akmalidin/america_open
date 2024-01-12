@@ -25,12 +25,12 @@ def REGISTER(request):
         
     # check email
         if User.objects.filter(email=email).exists():
-           messages.warning(request,'Email are Already Exists !')
+           messages.warning(request,'Данный Email уже существует !')
            return redirect('register')
 
         # check username
         if User.objects.filter(username=username).exists():
-           messages.warning(request,'Username are Already exists !')
+           messages.warning(request,'Имя пользователя уже существует ! Выберите другой.')
            return redirect('register')
         user = User.objects.create(
             username=username,
@@ -71,7 +71,7 @@ def DO_LOGIN(request):
            login(request,user)
            return redirect('index')
         else:
-           messages.error(request,'Email and Password Are Invalid !')
+           messages.error(request,'Email / пароль введены неверно !')
     return redirect('login')
     
 @login_required
@@ -125,7 +125,7 @@ def PROFILE_UPDATE(request):
             user_profile.birthday = birthday
         user.save()
         user_profile.save()
-        messages.success(request,'Profile Are Successfully Updated. ')
+        messages.success(request,'Профиль успешно обновлен. ')
         return redirect('view_profile')
 @login_required
 def VIEW_PROFILE(request):

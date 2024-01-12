@@ -1,5 +1,4 @@
-{% extends 'include/homepage.html' %} {% block title %} Курсы {% endblock %} {%
-load static %} {% block content %}
+{% extends 'include/homepage.html' %} {% load i18n %} {% block title %} {% trans 'Курсы' %} {% endblock %} {%load static %} {% block content %}
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -7,12 +6,12 @@ load static %} {% block content %}
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{% url 'index' %}">Главная страница</a>
+              <a href="{% url 'index' %}"> {% trans 'Главная' %} </a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Курсы</li>
+            <li class="breadcrumb-item active" aria-current="page">{% trans 'Курсы' %}</li>
           </ol>
         </nav>
-        <h3 class="breadcrumb-title">Курсы</h3>
+        <h3 class="breadcrumb-title">{% trans 'Курсы' %}</h3>
 
         <section class="content" style="padding-top: 20px">
           <div class="courses-lists">
@@ -28,13 +27,13 @@ load static %} {% block content %}
                   <div class="card-body">
                     <h5 class="card-title">{{courses.course_name}}</h5>
                     <p class="card-text">
-                      Длительность {{courses.course_time}} мес.
+                      {% trans 'Длительность' %} {{courses.time}} {% trans 'мес.' %}
                     </p>
                     <p class="card-price">{{ courses.course_price }} сом</p>
                     <a
                       href="{% url 'course' slug=courses.slug %}"
                       class="button button-outline"
-                      >Подробнее</a
+                      >{% trans 'Подробнее' %}</a
                     >
                   </div>
                 </div>

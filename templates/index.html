@@ -1,5 +1,6 @@
 {% extends 'include/homepage.html' %}
-{% block title %} Главная {% endblock %}
+{% load i18n %}
+{% block title %} {% trans 'Главная' %} {% endblock %}
 {% load static %}
 {% block content %}
 <div class="overflow"></div>
@@ -33,6 +34,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     {% for slider in slider %}
+                    
                     <div class="swiper-slide swiper-slide-banner"
                          style="background-image: url('{{ slider.bg_image.url }}')">
                         <div class="slide-inner">
@@ -54,7 +56,7 @@
                                     <div class="col-lg-4">
                                         <div class="slide-right">
                                             <img lazy="loading" class="slide-right-image-1"
-                                                 src=".{{ slider.image.url }}" alt="">
+                                                 src="{{ slider.image.url }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -75,67 +77,67 @@
             <div class="row">
                 <div class="col-lg-12">
                         <section class="content" style="margin-top: 20px">
-        <h3 class="section-title">American какое преимущество?</h3>
+        <h3 class="section-title">{% trans 'American какое преимущество?' %}</h3>
         <div class="content-lists">
             <div class="row d-flex align-items-start justify-content-center">
                 
                                     <div class="col-6 col-lg-4">
                         <div class="content-list">
-                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-1.png' %}"
+                            <img lazy="loading" class="content-list-icon" src="{% static '/images/content-icons/content-icon-1.png' %}"
                                  alt="">
-                            <h4 class="content-list-title">Учителя</h4>
+                            <h4 class="content-list-title">{% trans 'Учителя' %}</h4>
                             <p class="content-list-description">
-                                                                    - опытные современные преподаватели <br>
-                                                                    - инструменты исследования и авторы тестов <br>
-                                                                    - традиционные и интерактивные виды обучения <br>
+                                                                    - {% trans 'опытные современные преподаватели'%} <br>
+                                                                    - {% trans 'инструменты исследования и авторы тестов'%} <br>
+                                                                    - {% trans 'традиционные и интерактивные виды обучения'%} <br>
                                                             </p>
                         </div>
                     </div>
                                     <div class="col-6 col-lg-4">
                         <div class="content-list">
-                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-2.png' %}"
+                            <img lazy="loading" class="content-list-icon" src="{% static '/images/content-icons/content-icon-2.png' %}"
                                  alt="">
-                            <h4 class="content-list-title">Личный кабинет</h4>
+                            <h4 class="content-list-title">{% trans 'Личный кабинет' %}</h4>
                             <p class="content-list-description">
-                                                                    - расписание занятий <br>
-                                                                    - результаты теста <br>
-                                                                    - круглосуточная техническая поддержка <br>
+                                                                    - {% trans 'расписание занятий'%} <br>
+                                                                    - {% trans 'результаты теста'%} <br>
+                                                                    - {% trans 'круглосуточная техническая поддержка'%} <br>
                                                             </p>
                         </div>
                     </div>
                                     <div class="col-6 col-lg-4">
                         <div class="content-list">
-                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-3.png' %}"
+                            <img lazy="loading" class="content-list-icon" src="{% static '/images/content-icons/content-icon-3.png' %}"
                                  alt="">
-                            <h4 class="content-list-title">Видео уроки</h4>
+                            <h4 class="content-list-title">{% trans 'Видео уроки' %}</h4>
                             <p class="content-list-description">
-                                                                    - возможность подготовиться в любое время <br>
-                                                                    - простые и эффективные способы приготовления <br>
-                                                                    - интересный интерактив <br>
+                                                                    - {% trans 'возможность подготовиться в любое время '%}<br>
+                                                                    - {% trans 'простые и эффективные способы приготовления '%}<br>
+                                                                    - {% trans 'интересный интерактив '%}<br>
                                                             </p>
                         </div>
                     </div>
                                     <div class="col-6 col-lg-4">
                         <div class="content-list">
-                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-4.png' %}"
+                            <img lazy="loading" class="content-list-icon" src="{% static '/images/content-icons/content-icon-4.png' %}"
                                  alt="">
-                            <h4 class="content-list-title">Модуль тесты</h4>
+                            <h4 class="content-list-title">{% trans 'Модуль тесты' %}</h4>
                             <p class="content-list-description">
-                                                                    - навыки высокого уровня <br>
-                                                                    - контроль качества подготовки <br>
-                                                                    - обработка ошибок <br>
+                                                                    - {% trans 'навыки высокого уровня '%}<br>
+                                                                    - {% trans 'контроль качества подготовки '%}<br>
+                                                                    - {% trans 'обработка ошибок '%}<br>
                                                             </p>
                         </div>
                     </div>
                                     <div class="col-6 col-lg-4">
                         <div class="content-list">
-                            <img lazy="loading" class="content-list-icon" src=".{% static '/images/content-icons/content-icon-5.png' %}"
+                            <img lazy="loading" class="content-list-icon" src="{% static '/images/content-icons/content-icon-5.png' %}"
                                  alt="">
-                            <h4 class="content-list-title">Конкурсный тест ЕНТ</h4>
+                            <h4 class="content-list-title">{% trans 'Конкурсный тест ЕНТ' %}</h4>
                             <p class="content-list-description">
-                                                                    - реальные вопросы ЕНТ <br>
-                                                                    - обновленная база данных <br>
-                                                                    - возможность подачи предметов индивидуально <br>
+                                                                    - {% trans 'реальные вопросы ЕНТ '%}<br>
+                                                                    - {% trans 'обновленная база данных '%}<br>
+                                                                    - {% trans 'возможность подачи предметов индивидуально '%}<br>
                                                             </p>
                         </div>
                     </div>
@@ -143,43 +145,8 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <section class="content">
-            <h3 class="section-title">Пакеты</h3>
+            <h3 class="section-title">{% trans 'Пакеты' %}</h3>
             <div class="courses-lists">
                 <div class="row mb-3">
                     {% for paket in paket %}
@@ -190,8 +157,8 @@
                                          alt="">
                                                                 <div class="card-body">
                                     <h5 class="card-title text-center mb-2">{{paket.title}}</h5>
-                                    <a href="./packages/package/1.html"
-                                       class="button button-outline">Подробнее</a>
+                                    <a href="{% url 'packet' slug=paket.slug %}"
+                                       class="button button-outline">{% trans 'Подробнее' %}</a>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +168,7 @@
         </section>
     
         <section class="content">
-            <h3 class="section-title section-title-speakers">Опытные преподаватели в новом направлении</h3>
+            <h3 class="section-title section-title-speakers">{% trans 'Опытные преподаватели в новом направлении' %}</h3>
 
             <div class="swiper mySwiper-second">
                 <div class="swiper-wrapper">
@@ -223,10 +190,10 @@
                                     </div>
 
                 <div class="swiper-button-next">
-                    <img lazy="loading" src=".{% static '/images/teacher/next-icon.svg' %}" alt="">
+                    <img lazy="loading" src="{% static '/images/teacher/next-icon.svg' %}" alt="">
                 </div>
                 <div class="swiper-button-prev">
-                    <img lazy="loading" src=".{% static '/images/teacher/next-icon.svg' %}" alt="">
+                    <img lazy="loading" src="{% static '/images/teacher/next-icon.svg' %}" alt="">
                 </div>
             </div>
         </section>

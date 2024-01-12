@@ -1,22 +1,58 @@
 from django.contrib import admin
-
 from .models import Settings, Slider, Paket, Teachers, UserProfile
+from modeltranslation.admin import TranslationAdmin
+from modeltranslation.translator import register, TranslationOptions
 # Register your models here.
+# ----------------------------Settings---------------------------#
+@register(Settings)
+class SettingsTranslationOptions(TranslationOptions):
+    fields = ['description']
+    hide_default_language = True
 @admin.register(Settings)
-class SettingsAdmin(admin.ModelAdmin):
+class SettingsAdmin(TranslationAdmin):
     list_display = ('title', 'description', 'logo', 'email', 'phone')
+
+# ----------------------------Settings End---------------------------#
+
+# ----------------------------Slider---------------------------#
+@register(Slider)
+class SliderTranslationOptions(TranslationOptions):
+    fields = ('title', 'suptitle', 'suptitle2', 'suptitle3')
 @admin.register(Slider)
-class SliderAdmin(admin.ModelAdmin):
+class SliderAdmin(TranslationAdmin):
     list_display = ('title', 'bg_image', 'image', 'suptitle')
+
+# ----------------------------Slider End---------------------------#
+
+
+# ----------------------------PAKET---------------------------#
+@register(Paket)
+class PaketTranslationOptions(TranslationOptions):
+    fields = ['title']
+    required_languages = ('en',)
 @admin.register(Paket)
-class PaketAdmin(admin.ModelAdmin):
+class PaketAdmin(TranslationAdmin):
     list_display = ('title', 'image', 'ent')
+    list_display_links = ('title', 'ent')
+    prepopulated_fields = {"slug": ("title", )}
+# ----------------------------PAKET End---------------------------#
+
+
+# ----------------------------Teachers---------------------------#
+@register(Teachers)
+class TeachersTranslationOptions(TranslationOptions):
+    fields = ['description']
 @admin.register(Teachers)
-class TeachersAdmin(admin.ModelAdmin):
+class TeachersAdmin(TranslationAdmin):
     list_display = ('name', 'image', 'description')
+# ----------------------------Teachers End---------------------------#
+
+
+
 # @admin.register(Subject)
-# class SubjectAdmin(admin.ModelAdmin):
+# class SubjectAdmin(TranslationAdmin):
 #     list_display = ['name']
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'phone_number', 'school', 'profile_photo')
+

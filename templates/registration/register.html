@@ -1,26 +1,26 @@
 {% extends 'registration/base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'Регистрация'%} {% endblock %}
 {% block content %}
 {% load static %}
 <!-- PAGE TITLE
     ================================================== -->
     <header class="py-8 py-md-11" style="background-image: none;">
         <div class="container text-center py-xl-2">
-            <h1 class="display-4 fw-semi-bold mb-0">Register</h1>
+            <h1 class="display-4 fw-semi-bold mb-0">{% trans 'Регистрация'%}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-scroll justify-content-center">
                     <li class="breadcrumb-item">
                         <a class="text-gray-800" href="{% url 'index' %}">
-                            Home
+                            {% trans 'Главная'%}
                         </a>
                     </li>
                     <li class="breadcrumb-item text-gray-800 active" aria-current="page">
-                        Register
+                        {% trans 'Регистрация'%}
                     </li>
                 </ol>
             </nav>
         </div>
-        <!-- Img -->
-        <img class="d-none img-fluid" src="...html" alt="...">
     </header>
 
 
@@ -30,93 +30,93 @@
         <div class="row gx-0">
             <div class="col-md-7 col-xl-4 mx-auto">
                 <!-- Register -->
-                <h3 class="mb-6">Sign Up and Start Learning!</h3>
+                <h3 class="mb-6">{% trans 'Зарегистрируйтесь и начните учиться!' %}</h3>
                 {% include 'include/msg.html' %}
                 <!-- Form Register -->
                 <form class="mb-5" method="POST" action={% url 'register' %} enctype="multipart/form-data">
                     {% csrf_token %}
                     <!-- Username -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            Username
+                        <label for="username">
+                            {% trans 'Имя пользователя' %}
                         </label>
-                        <input type="text" class="form-control" id="modalSignupUsername1" placeholder="John" name="username">
+                        <input type="text" class="form-control" id="username" placeholder="John" name="username">
                     </div>
                     <!-- First name -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            First Name
+                        <label for="first_name">
+                            {% trans 'Имя' %}
                         </label>
-                        <input type="text" class="form-control" id="modalSignupUsername1" placeholder="John" name="first_name">
+                        <input type="text" class="form-control" id="first_name" placeholder="John" name="first_name">
                     </div>
                     <!-- Last name -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            Last Name
+                        <label for="last_name">
+                            {% trans 'Фамилия' %}
                         </label>
-                        <input type="text" class="form-control" id="modalSignupUsername1" placeholder="John" name="last_name">
+                        <input type="text" class="form-control" id="last_name" placeholder="John" name="last_name">
                     </div>
                     <!-- Phone number -->
                     <div class="form-group mb-5">
-                        <label for="phone">Телефон номер</label>
+                        <label for="phone">{% trans 'Телефон номер'%}</label>
                         <input type="text" class="form-control phone" id="phone"
                             placeholder="+996(777)-777-77-77" required name="phone_number" value="{{user_profile.phone_number}}">
                     </div>
 
                     {% comment %} School {% endcomment %}
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            School
+                        <label for="school">
+                            {% trans 'Школа'%}
                         </label>
-                        <input type="text" class="form-control" id="modalSignupUsername1" placeholder="School" name="school">
+                        <input type="text" class="form-control" id="school" placeholder="School" name="school">
                     </div>
 
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            Class
+                        <label for="clas">
+                            {% trans 'Класс' %}
                         </label>
-                        <input type="number" class="form-control" id="modalSignupUsername1" placeholder="Class" name="clas">
+                        <input type="number" class="form-control" id="clas" placeholder="Class" name="clas">
                     </div>
                     <div class="form-group mb-5">
-                        <label for="modalSignupUsername1">
-                            Birth Day
+                        <label for="bitrh_day">
+                            {% trans 'День рождения' %}
                         </label>
-                        <input type="date" class="form-control" id="modalSignupUsername1" placeholder="birthday" name="birthday">
+                        <input type="date" class="form-control" id="bitrh_day" placeholder="birthday" name="birthday">
                     </div>
 
                     <!-- Email -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupEmail1">
-                            Email
+                        <label for="email">
+                            {% trans 'Электронная почта' %}
                         </label>
-                        <input type="email" class="form-control" id="modalSignupEmail1" placeholder="johndoe@creativelayers.com" name="email">
+                        <input type="email" class="form-control" id="email" placeholder="johndoe@creativelayers.com" name="email">
                     </div>
 
                     <!-- Password -->
                     <div class="form-group mb-5">
-                        <label for="modalSignupPassword3">
-                            Password
+                        <label for="password">
+                            {% trans 'Пароль' %}
                         </label>
-                        <input type="password" class="form-control" id="modalSignupPassword3" placeholder="**********" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="**********" name="password">
                     </div>
                     {% comment %} User Image {% endcomment %}
                     <div class="form-group mb-5">
-                        <label for="modalSignupPassword3">
-                            Photo
+                        <label for="profile_photo">
+                            {% trans 'Фото профиля' %}
                         </label>
-                        <input type="file" class="form-control" id="modalSignupPassword3" placeholder="Photo for profile" name="profile_photo">
+                        <input type="file" class="form-control" id="profile_photo" placeholder="Photo for profile" name="profile_photo">
                     </div>
 
                     <!-- Submit -->
                     <button class="btn btn-block btn-primary" type="submit">
-                        SIGN UP
+                        {% trans 'ЗАРЕГИСТРИРОВАТЬСЯ' %}
                     </button>
 
                 </form>
 
                 <!-- Text -->
                 <p class="mb-0 font-size-sm text-center">
-                    Already have an account? <a class="text-underline" href="{% url 'doLogin' %}">Log In</a>
+                    {% trans 'Уже есть аккаунт?' %} <a class="text-underline" href="{% url 'doLogin' %}">{% trans 'Войти' %}</a>
                 </p>
             </div>
         </div>

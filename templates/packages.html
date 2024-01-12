@@ -1,0 +1,96 @@
+{% extends "include/homepage.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %} {{paket.title}} {% endblock %}
+{% block content %}
+<div class="flex-fill">
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">Главная страница</a>
+        </li>
+                    <li class="breadcrumb-item">
+                <a href="{% url 'courses' %}">Курсы</a>
+            </li>
+                                                <li class="breadcrumb-item active" aria-current="page">{{paket.title}}</li>
+    </ol>
+</nav>
+
+<h3 class="breadcrumb-title">
+    {{paket.title}}
+</h3>
+
+    <section class="content" style="padding-top: 20px; padding-bottom: 0">
+        <div class="courses-lists">
+            <div class="row">
+                <div class="col-lg-4">
+
+                    <div class="card card-client mb-4">
+                                                    <img src="{{paket.image.url}}" class="card-img-top course-image"
+                                 alt="">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">{{paket.title}}</h5>
+                            <p class="card-text">Количество возможностей для сдачи ЕНТ:: {{paket.ent}}</p>
+                            {% if request.user.is_authenticated %}
+                                
+                            {% else %}
+                            <p class="card-price">{{paket.price}} сом</p>
+                                <a href="#"
+                                   class="button button-outline">Купить</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card card-mobile mb-1">
+                        <div class="card-header">
+                                                            <img class="card-mobile-img" src="{{paket.image.url}}" alt="">
+                            
+                            <div class="card-body card-mobile-body">
+                                <h5 class="card-title">{{paket.title}}</h5>
+                                <p class="card-text">Количество возможностей для сдачи ЕНТ: {{paket.ent}}</p>
+                                                                    <p class="card-price">{{paket.price}}</p>
+                                                            </div>
+                        </div>
+                                                    <div class="card-footer">
+                                <a href="#"
+                                   class="button button-outline">Купить</a>
+                            </div>
+                                            </div>
+                </div>
+
+                <div class="col-lg-8 my-3 my-lg-0">
+                    <div class="course-main">
+                        <h4 class="course-content"> Возможности пакета {{paket.title}}</h4>
+
+                        <p class="course-description">
+                            <ul>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span dir="ltr" lang="KZ" style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Барлық пәннен оқу материалдарының видеожазбасы</span></span></span></span></li>
+</ul>
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span dir="ltr" lang="KZ" style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp; &nbsp; &nbsp; х&nbsp;&nbsp; Оқытушылармен тікелей эфир<br />
+&nbsp; &nbsp; &nbsp; х&nbsp;&nbsp; Оқушылар чатында кері байланыс<br />
+&nbsp; &nbsp; &nbsp; х&nbsp;&nbsp; Ата-аналар чаты</span></span></span></span><br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span dir="ltr" lang="KZ" style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp; &nbsp; &nbsp;&nbsp;</span></span></span></span>
+
+
+                        </p>
+
+                        <p class="course-description">
+                            Количество возможностей для сдачи ЕНТ: {{paket.ent}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

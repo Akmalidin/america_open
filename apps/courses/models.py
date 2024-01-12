@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Courses(models.Model):
     image = models.ImageField(upload_to='courses/', verbose_name='Фото курса')
     course_name = models.CharField(max_length=20, verbose_name='Название курса')

@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils.translation import gettext as _
-
+from django.utils.translation import gettext, gettext_lazy as _
 # Create your models here.
 class Settings(models.Model):
     title = models.CharField(
@@ -93,7 +92,11 @@ class Paket(models.Model):
         verbose_name = 'Количество возможностей для сдачи ЕНТ:',
         help_text = 'В цифрах: 12'
     )
-    
+    price = models.IntegerField(
+        verbose_name = 'Цена тарифа',
+        null=True, blank=True
+    )
+    slug = models.SlugField(verbose_name='Авто URL', max_length=255, unique=True)
     def __str__(self):
         return self.title
     class Meta:
@@ -131,10 +134,6 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=255, verbose_name='Город', blank=True, null=True)    
     clas = models.CharField(verbose_name='Класс', max_length=255, blank=True, null=True)
     birthday = models.CharField(max_length=255, verbose_name='Дата рождения', blank=True, null=True)
-    # subject_1 = models.CharField(
-    #     choices=subjects,
-    #     verbose_name='Предметы'
-    # )
 
     def __str__(self):
         return self.user.username
