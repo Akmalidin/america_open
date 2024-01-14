@@ -2212,7 +2212,6 @@ a.footer-support-link:hover {
 /* ubt styles */
 
 .ubt-banner {
-    background-image: url('/images/ubt/banner-background-min.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

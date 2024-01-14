@@ -1,0 +1,98 @@
+{% extends 'include/homepage.html' %} {% block title %} ЕНТ {% endblock %} {% load static %} {% load i18n %} {% block content %}
+<section class="section-slides">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide ubt-banner" style="background-image: url('{{slider.bg_image.url}}')">
+            <div class="slide-inner w-100">
+              <div class="container">
+                <div class="row row-slide">
+                  <div class="col-10 col-md-7 col-lg-5">
+                    <div class="slide-left">
+                      <h2 class="slide-title ubt-banner-title">{{slider.title}}</h2>
+                      <div class="slide-description">
+                        {{slider.description}}
+                      </div>
+                      <button
+                        type="button"
+                        class="btn slide-button mt-4"
+                      >
+                        {% trans 'Сдача полного ЕНТ' %}
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-2 col-md-5 col-lg-7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="content ubt-content">
+          <p class="section-subtitle">{% trans 'Сдача тестов по отдельным предметам'%} </p>
+          <h3 class="section-title">{% trans 'Основные предметы' %}</h3>
+
+          <div class="courses-lists">
+            <div class="row mb-3">
+              {% for subject in subjects  %}
+              {% if subject.btn == True %}
+              <div class="col-6 col-lg-4 my-3">
+                <div  class="card card-subject"  style="background-image: url({{subject.image.url}});  ">
+                  <div class="card-body"></div>
+                  <div class="card-footer">
+                    <h5 class="card-title subject-title">
+                      {{subject.title}}
+                    </h5>
+                    <a href="#" class="button button-subject">Сдача</a>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+
+        <section class="content profile-content">
+          <h3 class="section-title">{% trans 'Профильные темы' %}</h3>
+
+          <div class="courses-lists">
+            <div class="row mb-3">
+                {% for subjects in subjects %}
+                <div class="col-6 col-lg-3 my-3">
+                    <div
+                    class="card card-subject"
+                    style="
+                        background-image: url({{subjects.image.url}});
+                    "
+                    >
+                    <div class="card-body"></div>
+                    <div class="card-footer">
+                        <h5 class="card-title subject-title">{{subjects.title}}</h5>
+                        <a
+                        onclick="createTest(4)"
+                        href="javascript: void(0)"
+                        class="button button-subject"
+                        >Сдача</a
+                        >
+                    </div>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

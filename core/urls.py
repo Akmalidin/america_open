@@ -29,8 +29,11 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
+    # apps urls
     path("", include("apps.settings.urls")),
     path("courses/", include("apps.courses.urls")),
+    path('lessons/', include('apps.lessons.urls')),
+    path('ent/', include('apps.ent.urls')),
     path(_('accounts/'), include('django.contrib.auth.urls')),
     # accounts
     path('accounts/register', user_login.REGISTER, name='register'),
