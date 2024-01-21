@@ -1,0 +1,1361 @@
+
+.testing-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testing-info .title {
+    font-family: Raleway-Regular;
+    font-size: 48px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.testing-info .certificate-text, .testing-info .warning {
+    font-family: Raleway-Regular;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #FFFFFF;
+}
+
+.testing-info .warning {
+    margin-bottom: 50px;
+}
+
+.testing-info .certificate-text {
+    margin-bottom: 30px;
+}
+
+.testing-info .certificate-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+
+}
+
+.testing-info .warning span.test-passing {
+    color: #EA474A;
+}
+
+.testing-info .default-btn {
+    width: 220px;
+    height: 50px;
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    line-height: 1.2;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.testing-info .text {
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #BABABA;
+}
+
+.testing-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.testing-body .timer {
+    background: #333333;
+}
+
+.testing-body .mistake {
+    background: #000000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.testing-body .timer, .testing-body .mistake {
+    border-radius: 6px;
+    margin-bottom: 20px;
+    padding: 25px 20px 20px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mistake .title {
+    color: #FFFFFF;
+}
+
+.timer .title {
+    color: #fff;
+}
+
+.timer .title, .mistake .title {
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+
+.timer .text-time, .mistake .text-number {
+    font-size: 20px;
+    line-height: 1.2;
+    display: flex;
+}
+
+.timer .text-time {
+    font-family: Raleway-Regular;
+    color: #fff;
+}
+
+.mistake .text-number {
+    font-family: Raleway-Regular;
+    font-weight: 700;
+}
+
+.timer .text-time span {
+    font-family: Raleway-Regular;
+    width: 50px;
+}
+
+.timer .text-time span,
+.mistake .text-number span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Raleway-Regular;
+    font-style: normal;
+    font-weight: 400;
+
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.course-questions-block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.course-questions-block .questions-block-left {
+    padding: 30px 25px 40px 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    width: calc(100% - 350px);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-questions-block .questions-block-right {
+    padding: 25px 25px 30px 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    width: 320px;
+    margin-left: 30px;
+}
+
+.questions-item .question-text {
+    display: flex;
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #434242;
+    margin-bottom: 20px;
+}
+
+.questions-item .question-text * {
+    font-family: Raleway-Regular;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #434242;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.questions-item .answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.answers .answer-item {
+    background: #FFFFFF;
+    border: 0.5px solid #B8B8B8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    min-height: 50px;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.answer-item.user-answer {
+    border: 2px solid black;
+}
+
+.answers .answer-item:hover {
+    color: #ffff;
+    transition-duration: 0.3s;
+    background-color: #6666CC;
+}
+
+.answers .answer-item:hover .answer-text, .answers .answer-item:hover .answer-text * {
+    color: #FFFFFF;
+}
+
+.answers .answer-item .answer-var {
+    background: #E9EEF3;
+    border-radius: 4px;
+    min-width: 48px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #434242;
+}
+
+.answers .answer-item .answer-text * {
+    color: #434242;
+}
+
+.answers .answer-item .answer-text {
+    height: 100%;
+    font-family: Raleway-Regular;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #434242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px 5px 20px;
+    white-space: normal;
+}
+
+.questions-block-left .question-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.question-footer .left, .question-footer .right {
+    background: #E9EEF3;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.question-footer .left:hover, .question-footer .right:hover {
+    transition-duration: 0.3s;
+    background-color: #E9EEF3;
+}
+
+.question-footer .center {
+    display: flex;
+    flex-direction: row;
+    color: #434242;
+}
+
+.question-footer .center span {
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #434242;
+}
+
+.questions-block-right .title {
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #020204;
+    margin-bottom: 15px;
+}
+
+.questions-block-right .answer-numbers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.answers .answered {
+    background: #6666CC !important;
+    color: #FFFFFF !important;
+}
+
+.answers .answer-item.failed .answer-text {
+    color: #FFFFFF !important;
+}
+
+.answers .failed {
+    background: #EA474A !important;
+    color: #FFFFFF !important;
+}
+
+.answer-numbers .answer-number.success.answered, .answer-numbers .answer-number.failed.answered {
+    border-color: currentColor;
+}
+
+.answer-numbers .answer-number.failed {
+    border-color: #EA474A;
+}
+
+.answer-numbers .answer-number.success {
+    border-color: #2CC93C;
+}
+
+.answers .success {
+    background: #2CC93C !important;
+    color: #FFFFFF !important;
+}
+
+.answers .answered .answer-text, .answers .answered .answer-text *, .answers .failed, .answers .failed .answer-text *,
+.answers .success .answer-text, .answers .success .answer-text * {
+    color: #FFFFFF !important;
+}
+
+/*.answers .answered .answer-text {*/
+/*    color: white !important;*/
+/*}*/
+
+.answer-numbers .answer-number {
+    background: transparent;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-right: 7px;
+
+    width: 40px;
+    height: 40px;
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #558CBE;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    border: 1px solid #558CBE;
+}
+
+.answer-numbers .answer-number:hover {
+    transition-duration: 0.3s;
+    background-color: #6666CC;
+    color: #FFFFFF;
+}
+
+/*.answer-numbers .answer-number:nth-child(6n) {*/
+/*    margin-right: unset;*/
+/*}*/
+
+/*.answer-numbers .answer-number:nth-child(6n) {*/
+/*    margin-right: unset;*/
+/*}*/
+
+.answer-numbers .answered {
+    background: #6666CC !important;
+    color: #FFFFFF !important;
+}
+
+.answer-numbers .failed {
+    background: #EA474A;
+    color: #FFFFFF;
+}
+
+.answer-numbers .success {
+    background: #2CC93C;
+    color: #FFFFFF;
+}
+
+.questions-block-right .default-btn {
+    background: #6666CC;
+    border-radius: 12px;
+
+    margin-top: 40px;
+    width: 100%;
+    height: 50px;
+
+    color: #fff;
+}
+
+.questions-block-right.optimize .default-btn {
+    margin-top: 0;
+}
+
+.questions-block-right.optimize .title {
+    margin-bottom: 0;
+}
+
+.questions-block-right.optimize.show-subject-number .title {
+    margin-bottom: 15px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.prev-next-btn-disabled {
+    background: #A6A6A6 !important;
+    cursor: not-allowed !important;
+    color: white !important;
+}
+
+.prev-next-btn-disabled svg rect {
+    fill: white !important;
+
+}
+
+.testing-result {
+    background: #F8F8F8;
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 30px 30px 40px 30px;
+}
+
+.result-title {
+    font-family: Exo2-700;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 48px;
+
+    color: #2FB600;
+    margin-bottom: 15px;
+}
+
+.btn-result {
+    height: 56px;
+    background: #6666CC;
+
+    box-shadow: 0px 24px 34px rgba(102, 102, 204, 0.4);
+    border-radius: 12px;
+
+    font-family: Raleway-Regular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s all;
+}
+
+button.btn-result {
+    margin-bottom: 5px;
+}
+
+.buttons .btn-result {
+    margin-right: 15px;
+}
+
+.btn-result:hover {
+    color: #fff;
+}
+
+.testing-result-certificate {
+    margin-top: 100px;
+}
+
+.testing-result .result-message {
+    font-family: Raleway-Regular;
+    font-size: 20px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    color: #303030;
+    margin-bottom: 10px;
+}
+
+.testing-result .incorrect-answer {
+    color: #E21B1B;
+}
+
+.testing-result .correct-answer {
+    color: #2CC93C;
+}
+
+.testing-result .buttons {
+    display: flex;
+    margin-top: 15px;
+    flex-direction: row;
+}
+
+.testing-result .buttons .next-lesson {
+    margin-left: 10px;
+}
+
+.testing-result .buttons .default-btn {
+    width: 188px;
+    margin-right: 10px;
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.testing-result .buttons .white-btn {
+    width: 220px;
+    font-family: Raleway-Regular;
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.profile-image .profile-image-text {
+    font-family: Gilroy-700;
+    font-size: 18px;
+    line-height: 130%;
+    color: #303030;
+}
+
+.prev-tests {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.prev-tests .title {
+    font-family: Raleway-Regular;
+    font-size: 36px;
+    line-height: 130%;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.prev-tests-block {
+    overflow: auto;
+}
+
+.prev-tests-table tbody {
+    background: #2C2C2C;
+    border-radius: 6px;
+}
+
+.prev-tests-table thead tr th {
+    padding-left: 20px;
+    padding-bottom: 15px;
+    font-family: Raleway-Regular;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #909090;
+}
+
+.prev-tests-table tbody tr {
+    border-top: 1px solid #494949;
+}
+
+.prev-tests-table tbody tr:first-child {
+    border-top: unset;
+}
+
+.prev-tests-table tbody tr td .current_answer {
+    color: #EA474A;
+}
+
+.prev-tests-table tbody tr td {
+    padding: 10px 10px 10px 20px;
+    font-family: Raleway-Regular;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.prev-tests-table tbody tr td .default-btn {
+    width: 220px;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.prev-tests-table tbody tr td {
+    border-right: 1px solid #494949;
+}
+
+.prev-tests-table tbody tr td:last-child {
+    border-right: unset;
+}
+
+.md-btn {
+    width: 220px;
+}
+
+.testing-result .result-message.result-green {
+    color: #2FB600 !important;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+@media (max-width: 1590px) {
+    .timer .title, .mistake .title {
+        font-size: calc(16px + (4 + 4 * 0.7) * ((100vw - 360px) / 1590));
+    }
+
+    .timer .text-time, .mistake .text-number {
+        font-weight: 400;
+        font-size: calc(16px + (4 + 4 * 0.7) * ((100vw - 360px) / 1590));
+    }
+
+    .questions-item .question-text * {
+        font-size: calc(16px + (2 + 2 * 0.7) * ((100vw - 360px) / 1590));
+    }
+}
+
+@media (max-width: 1200px) {
+    .reach-left .title {
+        font-size: 50px;
+    }
+
+    .reach-left .text {
+        font-size: 24px;
+    }
+
+    section.reach {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    .reach-right .reach-form {
+
+        padding: 40px 35px 35px;
+    }
+
+    .reach-form .title {
+        font-size: 20px;
+    }
+
+    .info-block .text {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    section.info {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        background-size: cover;
+        /*background-size: contain;*/
+    }
+
+    .info-block .text {
+        font-size: 36px;
+    }
+
+    /*.teacher .name {*/
+    /*    font-size: 44px;*/
+    /*}*/
+    /*.teacher .work {*/
+    /*    font-size: 38px;*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+    /*.info .teacher {*/
+    /*    margin-bottom: 40px;*/
+    /*}*/
+    .section-title {
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+
+    .reach-block {
+        flex-direction: column;
+    }
+
+    section.reach {
+        padding-top: 100px;
+        padding-bottom: 70px;
+    }
+
+    .reach-right, .reach-left {
+        width: 100%;
+    }
+
+    .reach-left {
+        margin-bottom: 35px;
+    }
+
+    .reach-left .title {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .reach-left .text {
+        font-size: 22px;
+    }
+
+    .course-card-body .title {
+        font-size: 24px;
+    }
+
+    .course-card-body .price {
+        font-size: 18px;
+    }
+
+    .lesson-document .title, .task-header .title, .task-body .title, .user-tasks-body .title {
+        font-size: 22px;
+    }
+
+    .comment-enter .title, .comment-items .title {
+        font-size: 22px;
+    }
+
+    .left-task .title, .right-task .title {
+        font-size: 18px;
+    }
+
+    .course-buy .title {
+        margin-bottom: 15PX;
+    }
+
+    .course-buy .price {
+        margin-bottom: 25px;
+    }
+
+    .course-buy .price, .course-buy .price .old-price {
+        font-size: 40px;
+    }
+
+    .testing-result-certificate {
+        margin-top: 80px;
+
+    }
+
+    .certificates {
+        padding-top: 80px;
+    }
+
+    .certificates .title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-block .text {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+
+    .info-block .description {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    section.courses {
+        padding-bottom: 70px;
+    }
+
+    section.course, section.lesson {
+        padding-top: 30px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .course-items {
+        flex-direction: column;
+    }
+
+    .course-card {
+        margin-right: unset;
+        width: 100%;
+    }
+
+    .course-card-body {
+        margin-top: 15px;
+    }
+
+    .course-card-body .author {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .course-card-body .title {
+        font-size: 22px;
+    }
+
+    .course-card-body .price {
+        font-size: 18px;
+    }
+
+    .course-card .btn-open {
+        height: 50px;
+        font-size: 18px;
+
+    }
+
+    .questions .section-title {
+        margin-bottom: 15px;
+
+    }
+
+    .accordion {
+        font-size: 18px;
+        padding: 10px 5px 10px 20px
+    }
+
+    .panel .answer {
+        font-size: 16px;
+        padding: 1px 20px 10px;
+    }
+
+    /*.course-info .md-title {*/
+    /*    margin-top: 30px;*/
+    /*    font-size: 30px;*/
+    /*}*/
+    .course-info .lesson-video {
+        height: auto;
+    }
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile .profile-image {
+        align-items: center;
+        justify-content: center;
+        margin-right: unset;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .profile .profile-image img {
+        border-radius: 50%;
+
+    }
+
+    .profile .profile-image .text {
+        display: none;
+    }
+
+    section.info {
+        padding-top: 80px;
+    }
+
+    .testing-info .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .testing-info .warning, .testing-info .certificate-text {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .testing-info {
+        padding: 20px 15px 30px 15px;
+    }
+
+    .testing-body .timer {
+        padding: 25px 20px 15px 15px;
+        margin-bottom: 100px;
+    }
+
+    .course-questions-block {
+        flex-direction: column;
+    }
+
+    .course-questions-block .questions-block-left, .questions-block-right {
+        width: 100%;
+    }
+
+    /*.course-questions-block .questions-block-left {*/
+    /*    padding: 30px 15px 30px 15px;*/
+    /*}*/
+    .testing-body .timer {
+        padding: 25px 20px 15px 15px;
+        margin-bottom: 10px;
+    }
+
+    .course-questions-block .questions-block-right {
+        width: 100%;
+        margin-left: unset;
+        margin-top: 40px;
+    }
+
+    .questions-item .question-text {
+        font-size: 16px;
+    }
+
+    .answers .answer-item .answer-var {
+        font-family: Raleway-Regular;
+        font-size: 18px;
+        line-height: 1.4;
+        color: #303030;
+    }
+
+    .answers .answer-item .answer-text {
+        font-family: Raleway-Regular;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .testing-result {
+        padding: 30px;
+    }
+
+    .testing-result .result-message {
+        margin-bottom: 10px;
+    }
+
+    .testing-result .testing-result {
+        padding: 30px;
+        font-size: 18px;
+    }
+
+    .profile-image-text {
+        display: none;
+    }
+
+    .reach-left .title {
+        font-size: 30px;
+    }
+
+    .reach-left .text {
+        font-size: 18px;
+    }
+
+    .reach-right .reach-form {
+        padding: 30px 25px 25px;
+    }
+
+    .reach-form .title {
+        font-size: 18px;
+    }
+
+    .reach-form .default-form {
+        height: 45px;
+    }
+
+    .lesson-task {
+        padding-bottom: 30px;
+    }
+
+    .lesson-task .line {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-task-block {
+        flex-direction: column;
+    }
+
+    .form-task .line {
+        display: none;
+    }
+
+    .form-task-block .left-task, .form-task-block .right-task {
+        width: 100%;
+    }
+
+    .form-task-block .right-task {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .course-info .body .description, .lesson .description {
+        font-size: 16px;
+    }
+
+    .task-header .description {
+        font-size: 16px;
+    }
+
+    .lesson-comments {
+        padding-top: 70px;
+    }
+
+    section.lesson {
+        padding-top: unset;
+    }
+
+    .user-tasks-block .left-user-tasks {
+        margin-right: 10px;
+    }
+
+    .prev-tests {
+        margin-top: 30px;
+    }
+
+    .prev-tests .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .dropdown-user-menu {
+        min-width: auto;
+    }
+
+    .dropdown-menu .user-icon {
+        margin-right: unset;
+    }
+
+    .lesson-watched form button {
+        width: 100%;
+        font-size: 18px;
+        height: 60px;
+    }
+
+    .lesson-watched form button svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+    }
+
+    .course-info {
+        flex-direction: column;
+        padding: unset;
+    }
+
+    .course-info .img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .course-info .body {
+        margin-left: unset;
+    }
+
+    .course-info .body .title {
+        font-size: 24px;
+    }
+
+    .course-buy {
+        margin-top: 20px;
+    }
+
+    .course-buy .title, .course-buy .price, .course-buy .price .old-price {
+        font-size: 24px;
+    }
+
+    .course-buy .title {
+        margin-bottom: 10px;
+    }
+
+    .course-buy .price {
+        margin-bottom: 30px;
+    }
+
+    .module-block .md-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .module {
+        flex-direction: column;
+    }
+
+    .module .number {
+        width: 120px;
+        font-size: 16px;
+    }
+
+    .module .title {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    .module-block .accordion-panel > div {
+        padding: 10px 10px 20px 10px;
+    }
+
+    .module-block .accordion-header {
+        padding-right: 10px;
+    }
+
+    .module-link {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .progress-block {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .progress-info .text, .progress-info .progress-percent {
+        font-size: 18px;
+    }
+
+    .progress-modules {
+        flex-direction: column;
+    }
+
+    .progress-modules .progress-module {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .progress-modules .progress-module:first-child {
+        margin-bottom: 10px;
+
+    }
+
+    .testing-result-certificate {
+        margin-top: 60px;
+    }
+
+    .testing-result-certificate .testing-info {
+        padding: 0;
+    }
+
+    .reach-form .default-input {
+        height: 45px;
+
+    }
+
+    .certificate-items .certificate-item {
+        padding: 10px 10px 10px 15px;
+    }
+
+    .certificate-items .certificate-item .default-btn {
+        width: 180px;
+
+    }
+
+    .certificate-items .certificate-item .horizontal-line {
+        margin-top: -10px;
+        margin-bottom: -10px;
+
+    }
+
+    .certificates {
+        padding-top: 50px;
+    }
+
+    .certificates .title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .timer .title, .mistake .title {
+        margin-bottom: 10px;
+    }
+
+
+    section.courses, section.questions {
+        padding-bottom: 50px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .accordion {
+        font-size: 16px;
+    }
+
+    .panel .answer {
+        font-size: 14px;
+    }
+
+    .course-info {
+        padding: 20px 0px;
+    }
+
+    .course-info .description {
+        font-size: 14px;
+    }
+
+    section.course, section.lesson {
+        padding-bottom: 80px;
+    }
+
+    .lesson-items .lesson-item {
+        padding: 15px 20px 15px 15px;
+        margin-bottom: 15px;
+    }
+
+    .lesson-item a, .lesson-item .lesson-link {
+        font-size: 14px;
+    }
+
+    .comment-input .btn-send-comment {
+        width: 100%;
+    }
+
+    .comment-enter .title, .comment-items .title {
+        font-size: 18px;
+    }
+
+    .comment-body .comment-user {
+        font-size: 16px;
+    }
+
+    .comment-body .comment-text {
+        font-size: 14px;
+    }
+
+    .questions-accordion .accordion {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .questions-accordion .panel .answer {
+        font-size: 14px;
+    }
+
+    .profile {
+        padding: 30px 15px;
+    }
+
+    section.info {
+        padding-top: 70px;
+    }
+
+    .testing-result .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .testing-result .buttons .next-lesson {
+        margin-left: unset;
+
+    }
+
+    .testing-result .buttons .default-btn, .testing-result .buttons .white-btn {
+        width: 100%;
+
+    }
+
+    .testing-result .buttons .default-btn {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .testing-result .buttons .default-btn .white-btn {
+        margin-top: 10px;
+    }
+
+    .testing-result .buttons button {
+        width: 100%;
+    }
+
+    .testing-result .result-message {
+        font-size: 16px;
+    }
+
+    .lesson-document .title, .task-header .title, .task-body .title, .user-tasks-body .title {
+        font-size: 18px;
+    }
+
+    .comment-enter .title, .comment-items .title {
+        font-size: 18px;
+    }
+
+    .left-task .title, .right-task .title {
+        font-size: 16px;
+    }
+
+    .task-file {
+        margin-bottom: 15px;
+    }
+
+    .task-file-uploaded {
+        margin-bottom: 15px;
+    }
+
+    .form-task-block .right-task {
+        margin-top: 5px;
+    }
+
+    .right-task .title {
+        margin-bottom: 5px;
+    }
+
+    .right-user-tasks .name {
+        font-size: 16px;
+    }
+
+
+    .files .user-file span.filename, .files .user-file span.download, .right-user-tasks .user-task .comment {
+        font-size: 14px;
+    }
+
+    .right-user-tasks .user-task .files .user-file {
+        padding: 10px;
+    }
+
+    .right-user-tasks .name {
+        margin-bottom: 10px;
+    }
+
+    .right-user-tasks .result {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .right-user-tasks .result .message {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .certificates {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 540.98px) {
+    .certificate-items {
+        width: 100%;
+    }
+
+    .certificate-items .certificate-item-head {
+        display: none;
+
+    }
+
+    .certificate-items .certificate-item {
+        flex-direction: column;
+
+    }
+
+    .certificate-items .certificate-item .horizontal-line {
+        display: none;
+    }
+
+    .certificate-items .certificate-item .default-btn {
+        width: 100%;
+        margin-top: 15px;
+        height: 50px;
+    }
+
+    .certificate-item .name, .certificate-item .link {
+        width: 100%;
+    }
+
+    .certificate-item .name {
+        display: flex;
+        justify-content: center;
+
+    }
+
+}
+
+@media (max-width: 400.98px) {
+    .info-block .text {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 360.98px) {
+    .info-block .text {
+        font-size: 26px;
+    }
+}

@@ -7,3 +7,6 @@ def index(request):
     slider = Slider.objects.latest("id")
     subjects = Subjects.objects.all()
     return render(request, 'ent.html', locals())
+
+def test(request):
+    return render(request, 'tests/test.html', locals())
