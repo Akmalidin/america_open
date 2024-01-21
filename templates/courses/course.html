@@ -32,7 +32,6 @@
                     <p class="card-text">{% trans 'Длительность' %} {{course.time}} {% trans 'мес.' %}</p>
                     {% if request.user.is_authenticated %}
                       {% if user_course.access_granted %}
-                              <a href="{% url 'index' %}" class="button button-outline">{% trans 'Перейти к курсу' %}</a>
                       {% else %}
                       <a href="{% url 'buy_course' course.id %}" class="button button-outline">{% trans 'Купить' %}</a>
                       {% endif %}
@@ -75,9 +74,10 @@
                   <hr />
                   <h4 class="course-content">{% trans 'Содержание' %}</h4>
                   <div class="accordion">
+                    
                     <div class="panel panel-default accordion-item">
                       <div class="panel-heading accordion-heading" data-acc-link="accordion0" style="cursor: pointer">
-                        Кіріспе
+                        Вход
                         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="2.16211" y="6.80872" width="11.313" height="2.37077" rx="1.18538" transform="rotate(45 2.16211 6.80872)" fill="#909090"></rect>
                           <rect x="16.4854" y="8.48511" width="11.313" height="2.28276" rx="1.14138" transform="rotate(135 16.4854 8.48511)" fill="#909090"></rect>
@@ -87,7 +87,7 @@
                         <ul class="accordion-ul">
                           <li class="accordion-li">
                             <a href="https://daiyndal.kz/courses/16/module/101/lesson/347">
-                              Кіріспе
+                              Вход
                               <img src="{% static 'images/open-icon.svg' %}" alt=""/>
                             </a>
                           </li>
@@ -100,85 +100,42 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="panel panel-default accordion-item">
-                      <div class="panel-heading accordion-heading" data-acc-link="accordion1" style="cursor: pointer">
-                        1-модуль. Тірі ағзалардың қызметі: экожүйе және жасуша
-                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="2.16211" y="6.80872" width="11.313" height="2.37077" rx="1.18538" transform="rotate(45 2.16211 6.80872)" fill="#909090"></rect>
-                          <rect x="16.4854" y="8.48511" width="11.313" height="2.28276" rx="1.14138" transform="rotate(135 16.4854 8.48511)" fill="#909090"></rect>
-                        </svg>
+                    
+                    {% for modul in modules %}
+                      <div class="panel panel-default accordion-item">
+                          <div class="panel-heading accordion-heading" data-acc-link="modul{{ modul.id }}" style="cursor: pointer">
+                              {{ modul.title }}
+                              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <rect x="2.16211" y="6.80872" width="11.313" height="2.37077" rx="1.18538" transform="rotate(45 2.16211 6.80872)" fill="#909090"></rect>
+                                  <rect x="16.4854" y="8.48511" width="11.313" height="2.28276" rx="1.14138" transform="rotate(135 16.4854 8.48511)" fill="#909090"></rect>
+                              </svg>
+                          </div>
+
+                          {% for lesson in modul.lesson_set.all %}
+                          <div class="panel-body accordion-body" data-acc-content="modul{{ modul.id }}" style="display: none">
+                              <ul class="accordion-ul">
+                                {% if user_course.access_granted %}
+                                  <li class="accordion-li">
+                                      <a href="{% url 'lesson_detail' lesson.id %}">
+                                          {{ lesson.title }}
+                                          <img src="{% static 'images/open-icon.svg' %}" alt="" />
+                                      </a>
+                                  </li>
+                                  {% else %}
+                                  <li class="accordion-li">
+                                    <a href="#">
+                                        {{ lesson.title }}
+                                        <img src="{% static 'images/closed-icon.svg' %}" alt="" />
+                                    </a>
+                                </li>
+                                  {% endif %}
+                              </ul>
+                          </div>
+                          {% endfor %}
                       </div>
-                      <div  class="panel-body accordion-body"  data-acc-content="accordion1"  style="display: none">
-                        <ul class="accordion-ul">
-                          <li class="accordion-li">
-                            <a  href="https://daiyndal.kz/courses/16/module/30/lesson/9">
-                              1-сабақ. Экожүйелер
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a
-                              href="https://daiyndal.kz/courses/16/module/30/lesson/10"
-                            >
-                              2-сабақ. Тірі организмдерді жүйелеу
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a
-                              href="https://daiyndal.kz/courses/16/module/30/lesson/11"
-                            >
-                              3-сабақ. Жасушалық биология. Су және органикалық
-                              заттар.
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a
-                              href="https://daiyndal.kz/courses/16/module/30/lesson/12"
-                            >
-                              4-сабақ. Заттардың тасымалдануы
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a
-                              href="https://daiyndal.kz/courses/16/module/30/lesson/13"
-                            >
-                              5-6 сабақ. Тірі организмдердің қоректенуі. Тыныс
-                              алу.
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a
-                              href="https://daiyndal.kz/courses/16/modules/30/test"
-                            >
-                              Сдача теста
-                              <img
-                                src="{% static 'images/open-icon.svg' %}"
-                                alt=""
-                              />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                  {% endfor %}
+
+
                   </div>
                 </div>
               </div>

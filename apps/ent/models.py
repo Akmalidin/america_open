@@ -7,10 +7,18 @@ class Slider(models.Model):
     title = models.CharField(verbose_name="Загаловок",max_length=100)
     description = models.CharField(verbose_name='Описание', max_length=200)
 
+    class Meta:
+        verbose_name = 'Слайдер'
+        verbose_name_plural = 'Слайдеры'
+
 class Subjects(models.Model):
     image = models.ImageField(verbose_name="Фото предмета", upload_to='ent/subjects/')
     title = models.CharField(verbose_name="Имя предмета", max_length=100)
     btn = models.BooleanField(verbose_name="Основной предмет", default=False)
+
+    class Meta:
+        verbose_name = 'Предмет'
+        verbose_name_plural = 'Предметы'
 
 class Test(models.Model):
     title = models.CharField(verbose_name="Название теста", max_length=100)

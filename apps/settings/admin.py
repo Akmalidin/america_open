@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Settings, Slider, Paket, Teachers, UserProfile
 from modeltranslation.admin import TranslationAdmin
 from modeltranslation.translator import register, TranslationOptions
+# ----------------------------Unregistered Models End---------------------------#
 # Register your models here.
 # ----------------------------Settings---------------------------#
 @register(Settings)
@@ -11,7 +12,6 @@ class SettingsTranslationOptions(TranslationOptions):
 @admin.register(Settings)
 class SettingsAdmin(TranslationAdmin):
     list_display = ('title', 'description', 'logo', 'email', 'phone')
-
 # ----------------------------Settings End---------------------------#
 
 # ----------------------------Slider---------------------------#
