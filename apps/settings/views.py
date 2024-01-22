@@ -13,4 +13,22 @@ def packet(request, slug):
     settings = Settings.objects.latest('id')
     return render(request, 'packages.html', locals())
 
+# def choose_paket(request):
+#     # Получение списка тарифов
+#     pakets = Paket.objects.all()
 
+#     if request.method == 'POST':
+#         # Обработка выбора тарифа
+#         paket_slug = request.POST.get('selected_paket_slug')
+#         selected_paket = Paket.objects.get(slug=paket_slug)
+
+#         # Сохранение выбранного тарифа в профиле пользователя
+#         user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+#         user_profile.selected_paket = selected_paket
+#         user_profile.save()
+
+#     # Получение профиля пользователя (если он существует)
+#     user_profile = UserProfile.objects.filter(user=request.user).first()
+
+#     # Передача списка тарифов и выбранного тарифа в контекст шаблона
+#     return render(request, 'choose_paket.html', locals())

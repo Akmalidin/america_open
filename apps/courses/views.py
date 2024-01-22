@@ -4,6 +4,7 @@ from apps.settings.models import Settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.core.paginator import Paginator
+from apps.lessons.models import Moduls, Lesson
 # Create your views here.
 
 def courses(request):
@@ -17,7 +18,8 @@ def courses(request):
 def show_course(request, slug):
     course = get_object_or_404(Courses, slug=slug)
     settings = Settings.objects.latest('id')
-
+    modules = Moduls.objects.filter(course=course)
+    lessons = Lesson.objects.filter(module__in=modules)
     if request.user.is_authenticated:
         if UserCourse.objects.filter(user=request.user, course=course).exists():
             user_course = UserCourse.objects.get(user=request.user, course=course)

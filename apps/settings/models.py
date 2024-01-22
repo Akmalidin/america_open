@@ -1,4 +1,5 @@
 from django.db import models
+from apps.lessons.models import Moduls
 from django.utils.translation import gettext, gettext_lazy as _
 # Create your models here.
 class Settings(models.Model):
@@ -97,6 +98,7 @@ class Paket(models.Model):
         null=True, blank=True
     )
     slug = models.SlugField(verbose_name='Авто URL', max_length=255, unique=True)
+    # modules = models.ManyToManyField(Moduls, blank=True, verbose_name='Доступные модули')
     def __str__(self):
         return self.title
     class Meta:
@@ -134,6 +136,7 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=255, verbose_name='Город', blank=True, null=True)    
     clas = models.CharField(verbose_name='Класс', max_length=255, blank=True, null=True)
     birthday = models.CharField(max_length=255, verbose_name='Дата рождения', blank=True, null=True)
+    # selected_paket = models.ForeignKey(Paket, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

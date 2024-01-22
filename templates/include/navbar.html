@@ -109,10 +109,13 @@
                                    href="{% url 'view_profile' %}">
                                     {% trans 'Мои тесты' %}
                                 </a>
-                                <a class="dropdown-item "
-                                   href="{% url 'logout' %}">
+                                <form action="{% url 'logout' %}" method="post" id="logout-form">
+                                    {% csrf_token %}
+                                <button class="dropdown-item "
+                                   type="submit">
                                     {% trans 'Выйти из аккаунта' %}
-                                </a>
+                                </button>
+                            </form>
                             </div>
                         </div>               
             </div>

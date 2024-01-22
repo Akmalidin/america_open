@@ -1,12 +1,17 @@
 from django import forms
-from .models import Comment, Homework
-
+from .models import Comment, CommentReply
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('text',)
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'rows': 5}),
+        }
 
-class HomeworkForm(forms.ModelForm):
+class CommentReplyForm(forms.ModelForm):
     class Meta:
-        model = Homework
-        fields = ('file',)
+        model = CommentReply
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'rows': 3}),
+        }
