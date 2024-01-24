@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator 
 from django.contrib.auth.models import User
 from apps.courses.models import Courses
 # Create your models here.
@@ -16,6 +17,13 @@ class Lesson(models.Model):
     module = models.ForeignKey(Moduls, on_delete=models.CASCADE, verbose_name="Модуль")
     title = models.CharField(max_length=200, verbose_name="Тема урока")
     description = models.TextField(verbose_name="Описание")
+    video = models.FileField(
+        upload_to="lessons/videos/",
+        verbose_name="Видео",
+        null=True,
+        blank=True,
+        validators=[FileExtensionValidator(allowed_extensions=['mp4'])],
+    )
     video_url = models.TextField(
     verbose_name="Ссылка на видео",
     help_text="""Вставьте ссылку из ютуба код Embed
@@ -23,7 +31,8 @@ class Lesson(models.Model):
     <br>Перейдите на страницу видео на YouTube.
     <br>Нажмите на кнопку 'Поделиться' под видео.
     <br>Выберите 'Встроить'
-    <br>Скопируйте предоставленный код и вставьте его в ваш HTML-код."""
+    <br>Скопируйте предоставленный код и вставьте его в ваш HTML-код.""",
+    blank=True, null=True
 )
     file = models.FileField(upload_to="lessons/files/", verbose_name="Файл для конспекта", null=True, blank=True)
     file2 = models.FileField(upload_to="lessons/files/", verbose_name="Файл для презентации", null=True, blank=True)
