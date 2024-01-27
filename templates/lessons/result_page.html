@@ -1,0 +1,11 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block title %} Результат экзамена {% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>Результат экзамена</h1>
+  {% for message in messages %}
+    <p>{{ message|safe }}</p>
+  {% endfor %}
+  </div>
+{% endblock %}

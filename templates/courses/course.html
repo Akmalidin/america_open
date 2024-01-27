@@ -75,32 +75,6 @@
                   <h4 class="course-content">{% trans 'Содержание' %}</h4>
                   <div class="accordion">
                     
-                    <div class="panel panel-default accordion-item">
-                      <div class="panel-heading accordion-heading" data-acc-link="accordion0" style="cursor: pointer">
-                        Вход
-                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="2.16211" y="6.80872" width="11.313" height="2.37077" rx="1.18538" transform="rotate(45 2.16211 6.80872)" fill="#909090"></rect>
-                          <rect x="16.4854" y="8.48511" width="11.313" height="2.28276" rx="1.14138" transform="rotate(135 16.4854 8.48511)" fill="#909090"></rect>
-                        </svg>
-                      </div>
-                      <div class="panel-body accordion-body" data-acc-content="accordion0" style="display: none">
-                        <ul class="accordion-ul">
-                          <li class="accordion-li">
-                            <a href="https://daiyndal.kz/courses/16/module/101/lesson/347">
-                              Вход
-                              <img src="{% static 'images/open-icon.svg' %}" alt=""/>
-                            </a>
-                          </li>
-                          <li class="accordion-li">
-                            <a href="https://daiyndal.kz/courses/16/modules/101/test">
-                              Сдача теста
-                              <img src="{% static 'images/open-icon.svg' %}" alt=""/>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    
                     {% for modul in modules %}
                       <div class="panel panel-default accordion-item">
                           <div class="panel-heading accordion-heading" data-acc-link="modul{{ modul.id }}" style="cursor: pointer">
@@ -114,26 +88,33 @@
                           {% for lesson in modul.lesson_set.all %}
                           <div class="panel-body accordion-body" data-acc-content="modul{{ modul.id }}" style="display: none">
                               <ul class="accordion-ul">
-                                {% if user_course.access_granted %}
-                                  <li class="accordion-li">
-                                      <a href="{% url 'lesson_detail' lesson.id %}">
-                                          {{ lesson.title }}
-                                          <img src="{% static 'images/open-icon.svg' %}" alt="" />
-                                      </a>
-                                  </li>
+                                  {% if user_course.access_granted %}
+                                      <li class="accordion-li">
+                                          <a href="{% url 'lesson_detail' lesson.id %}">
+                                              {{ lesson.title }}
+                                              <img src="{% static 'images/open-icon.svg' %}" alt="" />
+                                          </a>
+                                      </li>
+                                          <li class="accordion-li">
+                                            <a href="{% url 'exam_view' moduls_id=modul.id  %}">
+                                              Тест
+                                              <img src="{% static 'images/open-icon.svg' %}" alt="" />
+                                          </a>
+                                          </li>
+
                                   {% else %}
-                                  <li class="accordion-li">
-                                    <a href="#">
-                                        {{ lesson.title }}
-                                        <img src="{% static 'images/closed-icon.svg' %}" alt="" />
-                                    </a>
-                                </li>
+                                      <li class="accordion-li">
+                                          <a href="#">
+                                              {{ lesson.title }}
+                                              <img src="{% static 'images/closed-icon.svg' %}" alt="" />
+                                          </a>
+                                      </li>
                                   {% endif %}
                               </ul>
                           </div>
+                      {% endfor %}
                           {% endfor %}
-                      </div>
-                  {% endfor %}
+                      
 
 
                   </div>
