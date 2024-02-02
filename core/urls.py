@@ -28,6 +28,7 @@ urlpatterns = [
 ]
 urlpatterns += i18n_patterns(
     path(_('admin/'), admin.site.urls),
+    path('custom/', include('admin_soft.urls')),
     path('rosetta/', include('rosetta.urls')),
     # apps urls
     path("", include("apps.settings.urls")),

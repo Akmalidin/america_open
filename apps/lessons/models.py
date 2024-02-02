@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator 
 from django.contrib.auth.models import User
 from apps.courses.models import Courses
+from django import forms
 # Create your models here.
 
 class Moduls(models.Model):
@@ -71,20 +72,23 @@ class CommentReply(models.Model):
         ordering = ['-created_at']
 
 class Question(models.Model):
-    moduls=models.ForeignKey(Moduls,on_delete=models.CASCADE, verbose_name="Модуль")
-    marks=models.PositiveIntegerField()
-    question=models.CharField(max_length=600)
-    option1=models.CharField(max_length=200)
-    option2=models.CharField(max_length=200)
-    option3=models.CharField(max_length=200)
-    option4=models.CharField(max_length=200)
-    cat=(('Option1','Option1'),('Option2','Option2'),('Option3','Option3'),('Option4','Option4'))
-    answer=models.CharField(max_length=200,choices=cat)
-    is_attempted = models.BooleanField(default=False)
-
+    moduls = models.ForeignKey(Moduls, on_delete=models.CASCADE, related_name='questions', verbose_name="Модуль")
+    question = models.TextField(verbose_name='Вопрос')
+    option1 = models.CharField(max_length=200, verbose_name='Вариант ответа 1')
+    option2 = models.CharField(max_length=200, verbose_name='Вариант ответа 2')
+    option3 = models.CharField(max_length=200, verbose_name='Вариант ответа 3')
+    option4 = models.CharField(max_length=200, verbose_name='Вариант ответа 4')
+    cat = (('Option1', 'Вариант ответа 1'), ('Option2', 'Вариант ответа 2'), ('Option3', 'Вариант ответа 3'), ('Option4', 'Вариант ответа 4'))
+    answer = models.CharField(max_length=8, choices=cat)
+    is_attempted = models.BooleanField(default=True, blank=True)
+    
     class Meta:
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
+
+    def __str__(self):
+        return self.question
+
 
 
 class Result(models.Model):
@@ -92,4 +96,16 @@ class Result(models.Model):
     exam = models.ForeignKey(Moduls,on_delete=models.CASCADE)
     marks = models.PositiveIntegerField()
     date = models.DateTimeField(auto_now=True)
+
+class UserAnswer(models.Model):
+    question = models.ForeignKey('Question', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chosen_answer = models.CharField(max_length=255)
+    is_correct = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.user.username}'s answer for {self.question}: {self.chosen_answer}"
     
+    class Meta:
+        verbose_name = 'Ответ на вопрос'
+        verbose_name_plural = 'Ответы на вопросы'

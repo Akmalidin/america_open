@@ -18,6 +18,6 @@ class CoursesAdmin(TranslationAdmin):
 
 
 class UserCourseAdmin(admin.ModelAdmin):
-    list_display = ('user', 'course', 'access_granted')  # Определение полей для отображения в списке объектов
+    list_display = ('user', 'phone_number', 'course', 'access_granted')  # Определение полей для отображения в списке объектов
     list_filter = ('user', 'course', 'access_granted')
 admin.site.register(UserCourse, UserCourseAdmin)

@@ -33,12 +33,18 @@ class UserCourse(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, verbose_name='Курсы')
     access_granted = models.BooleanField(verbose_name='Разрешено', default=False)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+
     def __str__(self):
-        return self.user.username
+        return f"{self.user.username} ({self.phone_number})"
+
     def save(self, *args, **kwargs):
+        from apps.settings.models import UserProfile
         if not self.pk:  # Проверяем, создается ли объект или обновляется
             self.access_granted = False  # Устанавливаем значение по умолчанию только при создании объекта
+            user_profile = UserProfile.objects.get(user=self.user)
+            self.phone_number = user_profile.phone_number
         super().save(*args, **kwargs)
     class Meta:
-        verbose_name = 'Разрешение для пользователя на курс'
-        verbose_name_plural = 'Разрешения для пользователей на курсы'
+        verbose_name = 'Разрешение на курс'
+        verbose_name_plural = 'Разрешения на курсы'

@@ -1,5 +1,6 @@
 from django import forms
-from .models import Comment, CommentReply
+from django.db import models
+from .models import Comment, CommentReply, Question
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment

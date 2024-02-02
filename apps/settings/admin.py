@@ -3,6 +3,8 @@ from .models import Settings, Slider, Paket, Teachers, UserProfile
 from modeltranslation.admin import TranslationAdmin
 from modeltranslation.translator import register, TranslationOptions
 # ----------------------------Unregistered Models End---------------------------#
+from django.contrib.auth.models import User, Group
+admin.site.unregister(Group)
 # Register your models here.
 # ----------------------------Settings---------------------------#
 @register(Settings)
