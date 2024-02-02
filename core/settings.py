@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1','89.23.112.178']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
+    'ckeditor',
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'apps.courses',
     'apps.lessons',
     'apps.ent',
+    'admin_soft',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
@@ -142,7 +144,7 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static/']
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 

@@ -29,7 +29,9 @@
                     <p class="card-text">
                       {% trans 'Длительность' %} {{user_courses.course.time}} {% trans 'мес.' %}
                     </p>
-                    <a href="{% url 'courses' %}" class="button button-outline">{% trans 'Открыть' %}</a>
+                      <a href="{% url 'course' slug=user_courses.course.slug %}" class="button button-outline">
+                        {% trans 'Открыть' %}
+                      </a>
                   </div>
                 </div>
               </div>

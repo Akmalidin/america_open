@@ -20,15 +20,16 @@
       <div class="timer">
         <div class="title">Вы проходите тест</div>
         <div class="text-time">
-          Осталось времени: <span id="time">59:35</span>
+          Осталось времени:<span id="time">2:59:35</span>
         </div>
       </div>
       <div class="course-questions-block">
         <div class="questions-block-left">
           <div class="questions">
-            <form method="post" action="{% url 'exam_submit_view' %}">
-              {% csrf_token %} {% for question in questions %}
-            <div class="questions-item" style="{% if forloop.first %}display: block;{% else %}display: none;{% endif %}">
+            <form method="post" action="{% url 'exam_submit_view' %}" id="examForm">
+              {% csrf_token %}
+              {% for question in questions %}
+            <div class="questions-item" data-right-num-questions="{{ question.id }}" style="{% if forloop.first %}display: block;{% else %}display: none;{% endif %}">
               <div class="question-text">
                 {{ question.question }}
               </div>
@@ -124,7 +125,9 @@
         <div class="questions-block-right">
           <div class="title">Список вопросов</div>
           <div class="answer-numbers">
-            <div class="answer-number">1</div>
+            {% for question in questions %}
+              <div class="answer-number" data-right-num-questions="{{ question.id }}">{{ forloop.counter }}</div>
+            {% endfor %}
           </div>
           <button class="btn default-btn">Закончить тест</button>
         </div>
@@ -163,48 +166,117 @@
 
   let currentSlide = 0; // Current slide index
 
-function showSlide(slideIndex) {
-  const slides = document.querySelectorAll('.questions-item');
-  const numQuestions = document.getElementById('current_question_number').getAttribute('data-num-questions');
-  
-  // Hide all slides
-  slides.forEach((slide) => {
-    slide.style.display = 'none';
+  function showSlide(slideIndex) {
+    const slides = document.querySelectorAll('.questions-item');
+    const numQuestions = document.getElementById('current_question_number').getAttribute('data-num-questions');
+    
+    // Hide all slides
+    slides.forEach((slide) => {
+      slide.style.display = 'none';
+    });
+    
+    // Show the specified slide
+    slides[slideIndex].style.display = 'block';
+    
+    // Update the current slide index
+    currentSlide = slideIndex;
+    
+    // Update the current question number
+    const currentQuestionNumber = document.getElementById('current_question_number');
+    currentQuestionNumber.textContent = (slideIndex + 1) + ' / ' + numQuestions;
+  }
+
+  // Initial setup
+  showSlide(currentSlide);
+
+  // Function to navigate to the next slide
+  function nextSlide() {
+    if (currentSlide < totalSlides - 1) {
+      showSlide(currentSlide + 1);
+    }
+  }
+
+  // Function to navigate to the previous slide
+  function prevSlide() {
+    if (currentSlide > 0) {
+      showSlide(currentSlide - 1);
+    }
+  }
+
+  // Update totalSlides with the total number of questions
+  const totalSlides = document.querySelectorAll('.questions-item').length;
+
+  // Event listeners for navigation buttons
+  document.querySelector('.left').addEventListener('click', prevSlide);
+  document.querySelector('.right').addEventListener('click', nextSlide);
+
+    // Установка даты завершения обратного отсчета
+    var countDownDate = new Date().getTime() + 2 * 60 * 60 * 1000 + 59 * 60 * 1000 + 35 * 1000;
+
+    // Обновление таймера каждую секунду
+    var x = setInterval(function() {
+        // Получение текущей даты и времени
+        var now = new Date().getTime();
+
+        // Разница между текущей датой и временем и датой завершения обратного отсчета
+        var distance = countDownDate - now;
+
+        // Расчет часов, минут и секунд
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Вывод оставшегося времени в формате "часы:минуты:секунды"
+        document.getElementById("time").innerHTML = hours + ":" + minutes + ":" + seconds;
+
+        // Если обратный отсчет закончился, перенаправляем пользователя
+        if (distance < 0) {
+            clearInterval(x);
+            window.location.href = "/courses";
+        }
+    }, 1000);
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let answerNumbers = document.querySelectorAll('.answer-number');
+      let currentQuestionNumber = document.getElementById('current_question_number');
+      let numQuestions = parseInt(currentQuestionNumber.getAttribute('data-num-questions'));
+      let currentQuestion = parseInt(currentQuestionNumber.getAttribute('data-current-question'));
+      let questionsItems = document.querySelectorAll('.questions-item');
+
+      answerNumbers.forEach(number => {
+          number.addEventListener('click', function() {
+              let questionId = parseInt(number.textContent);  // Получаем номер вопроса из текста .answer-number
+
+              questionsItems.forEach((item, index) => {
+                  if (index + 1 === questionId) {
+                      item.style.display = 'block';
+                  } else {
+                      item.style.display = 'none';
+                  }
+              });
+
+              currentQuestion = questionId;
+              currentQuestionNumber.textContent = `${currentQuestion} / ${numQuestions}`;
+              currentQuestionNumber.setAttribute('data-current-question', currentQuestion);
+          });
+      });
   });
-  
-  // Show the specified slide
-  slides[slideIndex].style.display = 'block';
-  
-  // Update the current slide index
-  currentSlide = slideIndex;
-  
-  // Update the current question number
-  const currentQuestionNumber = document.getElementById('current_question_number');
-  currentQuestionNumber.textContent = (slideIndex + 1) + ' / ' + numQuestions;
-}
 
-// Initial setup
-showSlide(currentSlide);
+  let answerNum = document.querySelectorAll('.answer-number');
 
-// Function to navigate to the next slide
-function nextSlide() {
-  if (currentSlide < totalSlides - 1) {
-    showSlide(currentSlide + 1);
-  }
-}
-
-// Function to navigate to the previous slide
-function prevSlide() {
-  if (currentSlide > 0) {
-    showSlide(currentSlide - 1);
-  }
-}
-
-// Update totalSlides with the total number of questions
-const totalSlides = document.querySelectorAll('.questions-item').length;
-
-// Event listeners for navigation buttons
-document.querySelector('.left').addEventListener('click', prevSlide);
-document.querySelector('.right').addEventListener('click', nextSlide);
+    answerNum.forEach(numbers_item => {
+        numbers_item.addEventListener('click', function() {
+            const questionId = numbers_item.dataset.questionId;
+    
+            // Deselect the previously selected answer for this question
+            const previouslySelected = document.querySelector(`.answer-number[data-right-num-questions="${questionId}"].answered`);
+            if (previouslySelected) {
+                previouslySelected.classList.remove('answered');
+            }
+    
+            // Mark the current answer as selected
+            numbers_item.classList.add('answered');
+        });
+    });
 </script>
 {% endblock %}
