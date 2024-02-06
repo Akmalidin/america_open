@@ -52,7 +52,7 @@
                     <h5 class="card-title subject-title">
                       {{subject.title}}
                     </h5>
-                    <a href="#" class="button button-subject">Сдача</a>
+                    <a href="{% url 'exam_view_ent' moduls_id_ent=subject.id %}" class="button button-subject">Сдача</a>
                   </div>
                 </div>
               </div>
@@ -79,8 +79,7 @@
                     <div class="card-footer">
                         <h5 class="card-title subject-title">{{subjects.title}}</h5>
                         <a
-                        onclick="createTest(4)"
-                        href="javascript: void(0)"
+                        href="{% url 'exam_view_ent' moduls_id_ent=subjects.id %}"
                         class="button button-subject"
                         >Сдача</a
                         >
