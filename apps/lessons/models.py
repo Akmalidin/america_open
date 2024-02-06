@@ -98,13 +98,13 @@ class Result(models.Model):
     date = models.DateTimeField(auto_now=True)
 
 class UserAnswer(models.Model):
-    question = models.ForeignKey('Question', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    chosen_answer = models.CharField(max_length=255)
-    is_correct = models.BooleanField()
+    question = models.ForeignKey('Question', on_delete=models.CASCADE, related_name='Вопросы', verbose_name="Вопрос")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Пользователи', verbose_name="Пользователь")
+    chosen_answer = models.CharField(max_length=255, verbose_name='Выбранный ответ')
+    is_correct = models.BooleanField(verbose_name='Правильный ответ')
 
     def __str__(self):
-        return f"{self.user.username}'s answer for {self.question}: {self.chosen_answer}"
+        return f"Ответ пользователя {self.user.username} на вопрос {self.question}: {self.chosen_answer}"
     
     class Meta:
         verbose_name = 'Ответ на вопрос'

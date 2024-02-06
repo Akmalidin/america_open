@@ -27,6 +27,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 @admin.register(UserAnswer)
 class UserAnswerAdmin(admin.ModelAdmin):
-    list_display = ('user', 'question', 'chosen_answer')
+    list_display = ('user', 'question', 'chosen_answer', 'is_correct')
     list_filter = ('user', 'question')
     search_fields = ('user', 'question', 'chosen_answer')
