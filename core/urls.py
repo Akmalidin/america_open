@@ -27,8 +27,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n',)),
 ]
 urlpatterns += i18n_patterns(
-    path(_('admin/'), admin.site.urls),
-    path('custom/', include('admin_soft.urls')),
+    path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     # apps urls
     path("", include("apps.settings.urls")),
