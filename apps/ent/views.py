@@ -19,9 +19,7 @@ def exam_view(request, moduls_id):
     moduls = Subjects.objects.get(id=moduls_id)
     questions = QuestionEnt.objects.all().filter(moduls=moduls)
     num_questions = len(questions)
-    if request.method == 'POST':
-        pass
-    response= render(request,'lessons/exam.html', locals())
+    response= render(request,'ent/exam.html', locals())
     response.set_cookie('moduls_id',moduls.id)
     return response
 
@@ -40,7 +38,7 @@ def exam_submit_view(request):
         if user_answers_exist:
             # Удалить существующие ответы
             UserAnswerEnt.objects.filter(user=request.user, question__moduls=moduls).delete()
-
+        
         score = 0
         correct_answers = 0
         incorrect_answers = 0
@@ -84,7 +82,7 @@ def exam_submit_view(request):
                 is_correct=is_correct,
             )
 
-        return render(request, 'lessons/result_page.html', context)
+        return render(request, 'ent/result_page.html', context)
 
     messages.error(request, 'Не удалось сохранить оценку. Пожалуйста, попробуйте ещё раз.')
     return redirect('index')
@@ -97,20 +95,40 @@ def repeat_exam_view(request, moduls_id):
     moduls = get_object_or_404(Subjects, id=moduls_id)
     questions = QuestionEnt.objects.filter(moduls=moduls)
     num_questions = len(questions)
-
-    return render(request, 'lessons/repeat_exam.html', locals())
+    
+    request.session.pop('score', None)
+    request.session.pop('user_answers', None)
+    request.session.pop('correct_answers', None)
+    request.session.pop('incorrect_answers', None)
+    
+    user_answers_exist = UserAnswerEnt.objects.filter(user=request.user, question__moduls=moduls).exists()
+    
+    if user_answers_exist:
+        UserAnswerEnt.objects.filter(user=request.user, question__moduls=moduls).delete()
+    
+    request.session.pop('score', None)
+    request.session.pop('user_answers', None)
+    request.session.pop('correct_answers', None)
+    request.session.pop('incorrect_answers', None)
+    return render(request, 'ent/repeat_exam.html', locals())
 def work_on_mistakes_view(request, moduls_id):
     settings = Settings.objects.latest('id')
     moduls = get_object_or_404(Subjects, id=moduls_id)
     questions = QuestionEnt.objects.filter(moduls=moduls, is_attempted=True, answer__isnull=False)
     num_questions = len(questions)
+    
+    user_answers_exist = UserAnswerEnt.objects.filter(user=request.user, question__moduls=moduls)
+    print(user_answers_exist)
+    # Очистка сессии от предыдущих результатов теста
+    request.session.pop('score', None)
 
     # Получите результаты предыдущего теста
     score = request.session.get('score', 0)
     correct_answers = request.session.get('correct_answers', 0)
     incorrect_answers = request.session.get('incorrect_answers', 0)
     user_answers = request.session.get('user_answers', {})
-
+    request.session['correct_answers'] = correct_answers
+    request.session['incorrect_answers'] = incorrect_answers
     # Создайте словарь, содержащий правильные ответы для вопросов
     correct_answers_dict = {q.id: q.answer for q in questions}
 
@@ -118,4 +136,4 @@ def work_on_mistakes_view(request, moduls_id):
     incorrect_questions = [q for q in questions if user_answers.get(str(q.id), None) != correct_answers_dict.get(q.id)]
     # Создайте словарь с ответами пользователя для каждого вопроса
     user_answers_dict = {q.id: user_answers.get(str(q.id), None) for q in questions}
-    return render(request, 'lessons/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict})
+    return render(request, 'ent/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict})

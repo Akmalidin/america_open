@@ -25,12 +25,13 @@ SECRET_KEY = "django-insecure-^&-)c7yli-cemd=zs_me4x=!4dx%*%7!6^-6dm4^#t)1@m0!p+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','89.23.112.178']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','89.23.112.178', 'america.akmal.webtm.ru']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     "django.contrib.admin",
     'ckeditor',
     "django.contrib.auth",
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     'apps.courses',
     'apps.lessons',
     'apps.ent',
-    'admin_soft',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'apps.settings.middleware.OneDevicePerProfileMiddleware',
 ]
 
 

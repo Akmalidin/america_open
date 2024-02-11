@@ -204,9 +204,7 @@ def work_on_mistakes_view(request, moduls_id):
     num_questions = len(questions)
 
     # Очистка сессии от предыдущих результатов теста
-    request.session.pop('score', None)
     
-    request.session.pop('user_answers', None)
 
     # Получите результаты предыдущего теста
     score = request.session.get('score', 0)
@@ -215,6 +213,7 @@ def work_on_mistakes_view(request, moduls_id):
     user_answers = request.session.get('user_answers', {})
     request.session['correct_answers'] = correct_answers
     request.session['incorrect_answers'] = incorrect_answers
+    
     # Создайте словарь, содержащий правильные ответы для вопросов
     correct_answers_dict = {q.id: q.answer for q in questions}
 
