@@ -129,66 +129,6 @@ def exam_submit_view(request):
     messages.error(request, 'Не удалось сохранить оценку. Пожалуйста, попробуйте ещё раз.')
     return redirect('index')
 
-# def exam_submit_view(request):
-#     settings = Settings.objects.latest('id')
-#     moduls_list = Moduls.objects.all()
-    
-#     if request.method == 'POST':
-#         moduls_id = request.COOKIES.get('moduls_id')
-#         moduls = Moduls.objects.get(id=moduls_id)
-#         questions = Question.objects.filter(moduls=moduls)
-        
-
-#         score = 0
-#         correct_answers = 0
-#         incorrect_answers = 0
-#         user_answers = {}
-
-#         for question in questions:
-#             user_answer = request.POST.get(f'question{question.id}')
-#             user_answers[question.id] = user_answer
-
-#             if user_answer == question.answer:
-#                 score += 1
-#                 correct_answers += 1
-#             else:
-#                 incorrect_answers += 1
-
-#         request.session['score'] = score
-#         request.session['correct_answers'] = correct_answers
-#         request.session['incorrect_answers'] = incorrect_answers
-#         request.session['user_answers'] = user_answers
-
-#         context = {
-#             'score': score,
-#             'correct_answers': correct_answers,
-#             'incorrect_answers': incorrect_answers,
-#             'moduls_id': moduls_id,
-#             'course_id': moduls.course.id,
-#             'module_id': moduls.id,
-#             'user_answers': user_answers,
-#             'settings': settings,
-#             'moduls_list': moduls_list,
-#         }
-#         user = request.user
-#         for question in questions:
-#             user_answer = request.POST.get(f'question{question.id}')
-#             is_correct = user_answer == question.answer
-
-#             UserAnswer.objects.create(
-#                 question=question,
-#                 user=user,
-#                 chosen_answer=user_answer,
-#                 is_correct=is_correct,
-#             )
-
-#         return render(request, 'lessons/result_page.html', context)
-
-#     messages.error(request, 'Не удалось сохранить оценку. Пожалуйста, попробуйте ещё раз.')
-#     return redirect('index')
-
-
-
 
 def repeat_exam_view(request, moduls_id):
     settings = Settings.objects.latest('id')
@@ -204,7 +144,7 @@ def work_on_mistakes_view(request, moduls_id):
     num_questions = len(questions)
 
     # Очистка сессии от предыдущих результатов теста
-    
+    user_answers_exist = UserAnswer.objects.filter(user=request.user, question__moduls=moduls)
 
     # Получите результаты предыдущего теста
     score = request.session.get('score', 0)
