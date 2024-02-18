@@ -118,9 +118,6 @@ def work_on_mistakes_view(request, moduls_id):
     num_questions = len(questions)
     
     user_answers_exist = UserAnswerEnt.objects.filter(user=request.user, question__moduls=moduls)
-    print(user_answers_exist)
-    # Очистка сессии от предыдущих результатов теста
-    request.session.pop('score', None)
 
     # Получите результаты предыдущего теста
     score = request.session.get('score', 0)
@@ -131,9 +128,10 @@ def work_on_mistakes_view(request, moduls_id):
     request.session['incorrect_answers'] = incorrect_answers
     # Создайте словарь, содержащий правильные ответы для вопросов
     correct_answers_dict = {q.id: q.answer for q in questions}
-
     # Получите только вопросы с неправильными ответами
     incorrect_questions = [q for q in questions if user_answers.get(str(q.id), None) != correct_answers_dict.get(q.id)]
     # Создайте словарь с ответами пользователя для каждого вопроса
     user_answers_dict = {q.id: user_answers.get(str(q.id), None) for q in questions}
-    return render(request, 'ent/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict})
+    print(user_answers_dict)
+    return render(request, 'ent/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict, 'correct_answers_dict':correct_answers_dict})
+
