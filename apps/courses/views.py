@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Courses, Course, UserCourse
+from .models import Courses, UserCourse
 from apps.settings.models import Settings 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.core.paginator import Paginator
 from apps.lessons.models import Moduls, Lesson
+from datetime import datetime, timedelta
 # Create your views here.
 
 def courses(request):
@@ -33,6 +34,7 @@ def show_course(request, slug):
         return render(request, 'courses/course.html', locals())
 
 
+@login_required
 def buy_course(request, course_id):
     course = get_object_or_404(Courses, pk=course_id)
     user = request.user
@@ -44,8 +46,13 @@ def buy_course(request, course_id):
     else:
         UserCourse.objects.create(user=user, course=course, access_granted=False)
     
-    return redirect('my_courses')
+    # Обновляем длительность курса, если требуется.
+    start_date = datetime.now()
+    end_date = start_date + timedelta(days=31 * course.time)
 
+    # Далее вы можете сохранить эти даты в базу данных или использовать их для других целей.
+    
+    return redirect('my_courses')
 
 @login_required
 def my_courses(request):
