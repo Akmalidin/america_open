@@ -41,47 +41,54 @@
                       <div class="course-questions-block">
                          <div class="questions-block-left">
                             <div class="questions">
+                              
                               {% for question in questions %}
                               <div class="questions-item" data-question-id="{{ question.id }}">
                                   <div class="question-text">
-                                      <div>{{ question.question }}</div>
+                                      <div>Вопрос: {{ question.question }}</div>
                                   </div>
                                   <div class="answers">
-                                    <div class="answer-item {% if 'Option1' in user_answers.values and question.answer == 'Option1' %} success {% elif 'Option1' in user_answers.values %} failed {% elif question.answer == 'Option1' %} success{% endif %}" data-question-id="{{ question.id }}">
-                                      <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option1" class="answer-item-input" value="Option1">
-                                      <label for="question{{ question.id }}_option1" class="answer-var">A</label>
-                                      <div class="answer-text">
-                                          <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option1 }}</span></span><br />
-                                      </div>
-                                  </div>
-                                  
-                                  <div class="answer-item {% if 'Option2' in user_answers.values and question.answer == 'Option2' %} success {% elif 'Option2' in user_answers.values %} failed {% elif question.answer == 'Option2' %} success{% endif %}" data-question-id="{{ question.id }}">
-                                      <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option2" class="answer-item-input" value="Option2">
-                                      <label for="question{{ question.id }}_option2" class="answer-var">B</label>
-                                      <div class="answer-text">
-                                          <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option2 }}</span></span><br />
-                                      </div>
-                                  </div>
-
-                                      <div class="answer-item {% if 'Option3' in user_answers.values and question.answer == 'Option3' %} success {% elif 'Option3' in user_answers.values %} failed {% elif question.answer == 'Option3' %} success{% endif %}" data-question-id="{{ question.id }}">
-                                        <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option3" class="answer-item-input" value="Option3">
-                                        <label for="question{{ question.id }}_option3" class="answer-var">C</label>
-                                        <div class="answer-text">
-                                           <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option3 }}</span></span><br />
-                                        </div>
-                                  </div>
-
-                                  <div class="answer-item {% if 'Option4' in user_answers.values and question.answer == 'Option4' %} success {% elif 'Option4' in user_answers.values %} failed {% elif question.answer == 'Option4' %} success{% endif %}" data-question-id="{{ question.id }}">
-                                    <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option4" class="answer-item-input" value="Option4">
-                                    <label for="question{{ question.id }}_option4" class="answer-var">D</label>
-                                    <div class="answer-text">
-                                       <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option4 }}</span></span><br />
-                                    </div>
-                                  </div>
-
+                                      {% for question_id, user_answer in request.session.user_answers.items %}
+                                      {% if question_id|add:'0' == question.id %}
+                                              <div class="answer-item {% if user_answer == question.answer and user_answer == 'Option1' %}success {% elif user_answer == 'Option1' and user_answer != question.answer %}failed {% endif %} {% if question.answer == 'Option1' %} success {% endif %}" data-question-id="{{ question.id }}">
+                                                  <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option1" class="answer-item-input" value="Option1">
+                                                  <label for="question{{ question.id }}_option1" class="answer-var">A</label>
+                                                  <div class="answer-text">
+                                                      <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option1 }}</span></span><br />
+                                                  </div>
+                                              </div>
+                          
+                                              <div class="answer-item {% if user_answer == question.answer and user_answer == 'Option2' %}success {% elif user_answer == 'Option2' and user_answer != question.answer %}failed {% endif %} {% if question.answer == 'Option2' %} success {% endif %}" data-question-id="{{ question.id }}">
+                                                  <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option2" class="answer-item-input" value="Option2">
+                                                  <label for="question{{ question.id }}_option2" class="answer-var">B</label>
+                                                  <div class="answer-text">
+                                                      <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option2 }}</span></span><br />
+                                                  </div>
+                                              </div>
+                          
+                                              <div class="answer-item {% if user_answer == question.answer and user_answer == 'Option3' %}success {% elif user_answer == 'Option3' and user_answer != question.answer %}failed {% endif %} {% if question.answer == 'Option3' %} success {% endif %}" data-question-id="{{ question.id }}">
+                                                  <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option3" class="answer-item-input" value="Option3">
+                                                  <label for="question{{ question.id }}_option3" class="answer-var">C</label>
+                                                  <div class="answer-text">
+                                                      <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option3 }}</span></span><br />
+                                                  </div>
+                                              </div>
+                          
+                                              <div class="answer-item {% if user_answer == question.answer and user_answer == 'Option4' %}success {% elif user_answer == 'Option4' and user_answer != question.answer %}failed {% endif %} {% if question.answer == 'Option4' %} success {% endif %}" data-question-id="{{ question.id }}">
+                                                  <input type="radio" name="question{{ question.id }}" readonly id="question{{ question.id }}_option4" class="answer-item-input" value="Option4">
+                                                  <label for="question{{ question.id }}_option4" class="answer-var">D</label>
+                                                  <div class="answer-text">
+                                                      <span style="font-size: 11pt"><span style="font-family: Calibri, sans-serif">{{ question.option4 }}</span></span><br />
+                                                  </div>
+                                              </div>
+                                          {% endif %}
+                                      {% endfor %}
                                   </div>
                               </div>
                           {% endfor %}
+                          
+                          
+                          
                             </div>
                             <div class="question-footer">
                               <div class="left">
@@ -143,7 +150,7 @@
                            <div class="title">Список вопросов</div>
                            <div class="answer-numbers">
                              {% for question in questions %}
-                               <div class="answer-number" data-right-num-questions="{{ question.id }}">{{ forloop.counter }}</div>
+                               <div class="answer-number answered" data-right-num-questions="{{ question.id }}">{{ forloop.counter }}</div>
                              {% endfor %}
                            </div>
                          </div>
@@ -156,8 +163,19 @@
     </div>
  </div>
  </div>
+ 
  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  <script>
+  window.onload = function () {
+    if (window.history && window.history.pushState) {
+
+        window.history.pushState('forward', null, './#work_on_mistakes');
+
+        window.onpopstate = function () {
+            window.location.href = "{% url 'my_courses' %}";
+        };
+    }
+}
    let currentSlide = 0; // Current slide index
  
    function showSlide(slideIndex) {
