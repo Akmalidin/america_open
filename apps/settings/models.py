@@ -98,7 +98,10 @@ class Paket(models.Model):
         null=True, blank=True
     )
     slug = models.SlugField(verbose_name='Авто URL', max_length=255, unique=True)
-    # modules = models.ManyToManyField(Moduls, blank=True, verbose_name='Доступные модули')
+    available_modules = models.IntegerField(
+        verbose_name='Доступное количество модулей',
+        default=0
+    )
     def __str__(self):
         return self.title
     class Meta:
