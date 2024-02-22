@@ -38,28 +38,33 @@ def show_course(request, slug):
 def buy_course(request, course_id):
     course = get_object_or_404(Courses, pk=course_id)
     user = request.user
-    
+
     if UserCourse.objects.filter(user=user, course=course).exists():
         user_course = UserCourse.objects.get(user=user, course=course)
-        user_course.access_granted = False
-        user_course.save()
+        if user_course.end_date < datetime.now():
+            user_course.access_granted = False
+            user_course.save()
+        else:
+            # Курс еще не закончился, доступ остается True
+            pass
     else:
-        UserCourse.objects.create(user=user, course=course, access_granted=False)
-    
-    # Обновляем длительность курса, если требуется.
-    start_date = datetime.now()
-    end_date = start_date + timedelta(days=31 * course.time)
-
-    # Далее вы можете сохранить эти даты в базу данных или использовать их для других целей.
+        end_date = datetime.now() + timedelta(days=course.time)
+        UserCourse.objects.create(user=user, course=course, access_granted=True, end_date=end_date)
     
     return redirect('my_courses')
 
 @login_required
 def my_courses(request):
-    user = request.user  # Убедитесь, что пользователь аутентифицирован
     user_courses = UserCourse.objects.filter(user=request.user, access_granted=True)
     settings = Settings.objects.latest('id')
+    
+    for user_course in user_courses:
+        if user_course.end_date and user_course.end_date < datetime.now():
+            user_course.access_granted = False
+            user_course.save()
+    
     paginator = Paginator(user_courses, 9)
-    page_number = request.GET.get("page")
+    page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    
     return render(request, 'courses/my_courses.html', locals())

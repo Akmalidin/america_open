@@ -8,7 +8,7 @@
     <title>{% block title %} {{ settings.title }} {% endblock %}</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{settings.logo.url}}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{% static './css/fonts.css' %}"/>
