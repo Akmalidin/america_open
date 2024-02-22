@@ -21,8 +21,8 @@ class UserCourse(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, verbose_name='Курсы')
     access_granted = models.BooleanField(verbose_name='Разрешено', default=False)
-    phone_number = models.CharField(max_length=20, blank=True, null=True)
-
+    phone_number = models.CharField(verbose_name="Номер телефона",max_length=20, blank=True, null=True)
+    end_date = models.DateField(null=True, blank=True, verbose_name='Дата окончания курса')
     def __str__(self):
         return f"{self.user.username} ({self.phone_number})"
 

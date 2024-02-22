@@ -1,4 +1,4 @@
-{% extends 'include/homepage.html' %} {% load i18n %} {% block title %} {% trans 'Мои Курсы' %} {% endblock %} {% load static %} {% block content %} 
+{% extends 'include/homepage.html' %}{% load humanize %}{% load tz %}{% load i18n %} {% block title %} {% trans 'Мои Курсы' %} {% endblock %} {% load static %} {% block content %} 
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -29,6 +29,11 @@
                     <p class="card-text">
                       {% trans 'Длительность' %} {{user_courses.course.time}} {% trans 'мес.' %}
                     </p>
+                    {% if user_course.end_date %}
+                    <p class="card-text">
+                      {% trans 'До окончании ост:' %}{{ user_course.end_date|timeuntil }}
+                    </p>
+                    {% endif %}
                       <a href="{% url 'course' slug=user_courses.course.slug %}" class="button button-outline">
                         {% trans 'Открыть' %}
                       </a>

@@ -35,10 +35,9 @@ class PaketTranslationOptions(TranslationOptions):
     hide_default_language = True
 @admin.register(Paket)
 class PaketAdmin(TranslationAdmin):
-    list_display = ('title', 'image', 'ent', 'available_modules', 'price')
+    list_display = ('title', 'image', 'ent','price')
     list_display_links = ('title', 'ent')
     prepopulated_fields = {"slug": ("title", )}
-    list_editable = ('available_modules', 'price')
 # ----------------------------PAKET End---------------------------#
 
 
