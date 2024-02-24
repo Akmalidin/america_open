@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Lesson, Comment, Question, Result, Moduls, UserAnswer
+from .models import Lesson, Comment, Question, Moduls, UserAnswer
 from apps.ent.models import UserAnswerEnt
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm, CommentReplyForm

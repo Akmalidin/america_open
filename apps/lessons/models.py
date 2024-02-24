@@ -90,13 +90,6 @@ class Question(models.Model):
         return self.question
 
 
-
-class Result(models.Model):
-    student = models.ForeignKey(User,on_delete=models.CASCADE)
-    exam = models.ForeignKey(Moduls,on_delete=models.CASCADE)
-    marks = models.PositiveIntegerField()
-    date = models.DateTimeField(auto_now=True)
-
 class UserAnswer(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE, related_name='Вопросы', verbose_name="Вопрос")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Пользователи', verbose_name="Пользователь")
