@@ -8,4 +8,7 @@ urlpatterns = [
     path('exam/submit/', views.exam_submit_view, name='exam_submit_view'),
     path('repeat-exam/<int:moduls_id>/', views.repeat_exam_view, name='repeat_exam'),  # Добавьте этот путь
     path('work_on_mistakes/<int:moduls_id>/', views.work_on_mistakes_view, name='work_on_mistakes'),
+    path('my_tests/', views.my_tests, name='my_tests'),
+    path('result_page/<int:moduls_id>/', views.result_page, name='result_page'),
+
 ]

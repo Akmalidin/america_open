@@ -5,13 +5,20 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseBadRequest
 from apps.settings.models import Settings
 from django.contrib import messages
+from django.utils import timezone
+from pytz import timezone as pytz_timezone
 
+# Получаем объект для часового пояса 'Asia/Bishkek'
+local_tz = pytz_timezone('Asia/Bishkek')
+
+# Получаем текущее локальное время в заданном часовом поясе
+local_time = timezone.now().astimezone(local_tz)
 # Create your views here.
 def index(request):
     settings = Settings.objects.latest('id')
     slider = Slider.objects.latest("id")
     subjects = Subjects.objects.all()
-    return render(request, 'ent.html', locals())
+    return render(request, 'ent/index.html', locals())
 
 @login_required
 def exam_view(request, moduls_id):
@@ -19,6 +26,7 @@ def exam_view(request, moduls_id):
     moduls = Subjects.objects.get(id=moduls_id)
     questions = QuestionEnt.objects.all().filter(moduls=moduls)
     num_questions = len(questions)
+    request.session['start_time_ent'] = local_time.strftime('%d.%m.%Y/%H:%M')
     response= render(request,'ent/exam.html', locals())
     response.set_cookie('moduls_id',moduls.id)
     return response
@@ -95,7 +103,7 @@ def repeat_exam_view(request, moduls_id):
     moduls = get_object_or_404(Subjects, id=moduls_id)
     questions = QuestionEnt.objects.filter(moduls=moduls)
     num_questions = len(questions)
-    
+    request.session['start_time_ent'] = local_time.strftime('%d.%m.%Y/%H:%M')
     request.session.pop('score', None)
     request.session.pop('user_answers', None)
     request.session.pop('correct_answers', None)
@@ -135,3 +143,14 @@ def work_on_mistakes_view(request, moduls_id):
     print(user_answers_dict)
     return render(request, 'ent/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict, 'correct_answers_dict':correct_answers_dict})
 
+def result_page(request, moduls_id):
+    settings = Settings.objects.latest('id')
+    moduls = get_object_or_404(Subjects, id=moduls_id)
+    questions = QuestionEnt.objects.filter(moduls=moduls)
+    score = request.session.get('score', 0)
+    correct_answers = request.session.get('correct_answers', 0)
+    incorrect_answers = request.session.get('incorrect_answers', 0)
+    user_answers = request.session.get('user_answers', {})
+    request.session['correct_answers'] = correct_answers
+    request.session['incorrect_answers'] = incorrect_answers
+    return render(request, 'ent/result_page.html', locals())

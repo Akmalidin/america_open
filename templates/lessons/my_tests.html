@@ -1,0 +1,74 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} {% trans 'Мои Тесты' %} {% endblock %} {% block content %}
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {% trans 'Мои тесты' %}
+            </li>
+          </ol>
+        </nav>
+
+        <h3 class="breadcrumb-title">{% trans 'Мои тесты' %}</h3>
+
+        <section class="content" style="padding-top: 20px">
+          <div class="row">
+            {% for test_id, test_info in tests.items %}
+            <div class="col-lg-12 mb-3">
+              <div class="card">
+                <div class="card-body card-body-test">
+                  <div class="card-information">
+                    <h4 class="card-title">{{ test_info.exam.title }}</h4>
+                    <div class="card-times">
+                      <div class="card-body-text">
+                        {% trans 'Дата теста' %}: <span>{{ test_info.start_time }} {{start_time}}</span>
+                      </div>
+                      <div class="card-body-text">
+                        {% trans 'Балл' %}: <span>{{ test_info.marks }} / {{ test_info.num_questions }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-link">
+                    <a href="{% url 'result_page' moduls_id=test_info.exam.id %}" class="btn btn-default btn-test">{% trans 'Подробнее' %}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% for test_id, test_info_ent in tests_ent.items %}
+            <div class="col-lg-12 mb-3">
+              <div class="card">
+                <div class="card-body card-body-test">
+                  <div class="card-information">
+                    <h4 class="card-title">{{ test_info_ent.exam.title }}</h4>
+                    <div class="card-times">
+                      <div class="card-body-text">
+                        {% trans 'Дата теста' %}: <span> {{start_time_ent}}</span>
+                      </div>
+                      <div class="card-body-text">
+                        {% trans 'Балл' %}: <span>{{ test_info_ent.marks }} / {{ test_info_ent.num_questions }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-link">
+                    <a href="{% url 'result_page_ent' moduls_id=test_info_ent.exam.id %}" class="btn btn-default btn-test">{% trans 'Подробнее' %}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,12 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Lesson, Comment, Question, Result, Moduls, UserAnswer
+from apps.ent.models import UserAnswerEnt
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm, CommentReplyForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from apps.settings.models import Settings
 from django.contrib import messages
+from django.utils import timezone
+from pytz import timezone as pytz_timezone
 
+# Получаем объект для часового пояса 'Asia/Bishkek'
+local_tz = pytz_timezone('Asia/Bishkek')
+
+# Получаем текущее локальное время в заданном часовом поясе
+local_time = timezone.now().astimezone(local_tz)
 def lesson_detail(request, lesson_id):
     settings = Settings.objects.latest('id')
     lesson = get_object_or_404(Lesson, id=lesson_id)
@@ -58,12 +66,12 @@ def exam_view(request, moduls_id):
     moduls = Moduls.objects.get(id=moduls_id)
     questions = Question.objects.all().filter(moduls=moduls)
     num_questions = len(questions)
+    request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
     if request.method == 'POST':
         pass
     response= render(request,'lessons/exam.html', locals())
     response.set_cookie('moduls_id',moduls.id)
     return response
-from django.http import HttpResponseBadRequest
 
 def exam_submit_view(request):
     settings = Settings.objects.latest('id')
@@ -135,6 +143,7 @@ def repeat_exam_view(request, moduls_id):
     moduls = get_object_or_404(Moduls, id=moduls_id)
     questions = Question.objects.filter(moduls=moduls)
     num_questions = len(questions)
+    request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
 
     return render(request, 'lessons/repeat_exam.html', locals())
 def work_on_mistakes_view(request, moduls_id):
@@ -162,3 +171,47 @@ def work_on_mistakes_view(request, moduls_id):
     # Создайте словарь с ответами пользователя для каждого вопроса
     user_answers_dict = {q.id: user_answers.get(str(q.id), None) for q in questions}
     return render(request, 'lessons/work_on_mistakes.html', {'settings': settings, 'moduls': moduls, 'questions': questions, 'num_questions': num_questions, 'score': score, 'correct_answers': correct_answers, 'incorrect_answers': incorrect_answers, 'user_answers': user_answers_dict})
+@login_required
+def my_tests(request):
+    settings = Settings.objects.latest('id')
+    user = request.user
+    user_answers = UserAnswer.objects.filter(user=user).select_related('question__moduls')
+    user_answers_ent = UserAnswerEnt.objects.filter(user=user).select_related('question__moduls')
+    tests = {}
+    for answer in user_answers:
+        test_id = answer.question.moduls.id
+        if test_id not in tests:
+            tests[test_id] = {
+                'exam': answer.question.moduls,
+                'marks': 0,
+                'num_questions': 0,
+            }
+        tests[test_id]['num_questions'] += 1
+        if answer.is_correct:
+            tests[test_id]['marks'] += 1
+    tests_ent = {}
+    for answer_ent in user_answers_ent:
+        test_id = answer_ent.question.moduls.id
+        if test_id not in tests_ent:
+            tests_ent[test_id] = {
+                'exam': answer_ent.question.moduls,
+                'marks': 0,
+                'num_questions': 0,
+            }
+        tests_ent[test_id]['num_questions'] += 1
+        if answer_ent.is_correct:
+            tests_ent[test_id]['marks'] += 1
+    start_time = request.session.get('start_time')
+    start_time_ent = request.session.get('start_time_ent')
+    return render(request, 'lessons/my_tests.html', locals())
+def result_page(request, moduls_id):
+    settings = Settings.objects.latest('id')
+    moduls = get_object_or_404(Moduls, id=moduls_id)
+    questions = Question.objects.filter(moduls=moduls)
+    score = request.session.get('score', 0)
+    correct_answers = request.session.get('correct_answers', 0)
+    incorrect_answers = request.session.get('incorrect_answers', 0)
+    user_answers = request.session.get('user_answers', {})
+    request.session['correct_answers'] = correct_answers
+    request.session['incorrect_answers'] = incorrect_answers
+    return render(request, 'lessons/result_page.html', locals())

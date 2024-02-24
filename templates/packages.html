@@ -12,10 +12,10 @@
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="{% url 'index' %}">Главная страница</a>
+            <a href="{% url 'index' %}">{% trans 'Главная страница' %}</a>
         </li>
                     <li class="breadcrumb-item">
-                <a href="{% url 'courses' %}">Курсы</a>
+                <a href="{% url 'courses' %}">{% trans 'Курсы' %}</a>
             </li>
                                                 <li class="breadcrumb-item active" aria-current="page">{{paket.title}}</li>
     </ol>
@@ -36,13 +36,13 @@
                         
                         <div class="card-body">
                             <h5 class="card-title">{{paket.title}}</h5>
-                            <p class="card-text">Количество возможностей для сдачи ЕНТ:: {{paket.ent}}</p>
+                            <p class="card-text">{% trans 'Количество возможностей для сдачи ЕНТ:' %} {{paket.ent}}</p>
                             {% if request.user.is_authenticated %}
                                 
                             {% else %}
                             <p class="card-price">{{paket.price}} сом</p>
                                 <a href="#"
-                                   class="button button-outline">Купить</a>
+                                   class="button button-outline">{% trans 'Купить' %}</a>
                             {% endif %}
                         </div>
                     </div>
@@ -53,31 +53,31 @@
                             
                             <div class="card-body card-mobile-body">
                                 <h5 class="card-title">{{paket.title}}</h5>
-                                <p class="card-text">Количество возможностей для сдачи ЕНТ: {{paket.ent}}</p>
+                                <p class="card-text">{% trans 'Количество возможностей для сдачи ЕНТ:' %} {{paket.ent}}</p>
                                                                     <p class="card-price">{{paket.price}}</p>
                                                             </div>
                         </div>
                                                     <div class="card-footer">
                                 <a href="#"
-                                   class="button button-outline">Купить</a>
+                                   class="button button-outline">{% trans 'Купить' %}</a>
                             </div>
                                             </div>
                 </div>
 
                 <div class="col-lg-8 my-3 my-lg-0">
                     <div class="course-main">
-                        <h4 class="course-content"> Возможности пакета {{paket.title}}</h4>
+                        <h4 class="course-content"> {% trans 'Возможности пакета' %} {{paket.title}}</h4>
 
                         <p class="course-description">
                             <ul>
-	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Видео записи всех уроков</span></span></span></span></li>
+	<li><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">{% trans 'Видео записи всех уроков' %}</span></span></span></span></li>
 </ul>{{paket.content|safe}}
 
 
                         </p>
 
                         <p class="course-description">
-                            Количество возможностей для сдачи ЕНТ: {{paket.ent}}
+                            {% trans 'Количество возможностей для сдачи ЕНТ:' %} {{paket.ent}}
                         </p>
                     </div>
                 </div>
