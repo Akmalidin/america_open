@@ -93,7 +93,7 @@ class Question(models.Model):
 class UserAnswer(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE, related_name='Вопросы', verbose_name="Вопрос")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Пользователи', verbose_name="Пользователь")
-    chosen_answer = models.CharField(max_length=255, verbose_name='Выбранный ответ')
+    chosen_answer = models.CharField(max_length=255, verbose_name='Выбранный ответ', null=True, blank=True)
     is_correct = models.BooleanField(verbose_name='Правильный ответ')
 
     def __str__(self):

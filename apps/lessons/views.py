@@ -214,4 +214,4 @@ def result_page(request, moduls_id):
     user_answers = request.session.get('user_answers', {})
     request.session['correct_answers'] = correct_answers
     request.session['incorrect_answers'] = incorrect_answers
-    return render(request, 'lessons/result_page.html', locals())
+    return render(request, 'lessons/my_tests_result_page.html', locals())
