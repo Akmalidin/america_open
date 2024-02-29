@@ -29,9 +29,9 @@
                     <p class="card-text">
                       {% trans 'Длительность' %} {{user_courses.course.time}} {% trans 'мес.' %}
                     </p>
-                    {% if user_course.end_date %}
+                    {% if user_courses.end_date %}
                     <p class="card-text">
-                      {% trans 'До окончании ост:' %}{{ user_course.end_date|timeuntil }}
+                      {% trans 'До окончании ост:' %}{{ user_courses.end_date|timeuntil }}
                     </p>
                     {% endif %}
                       <a href="{% url 'course' slug=user_courses.course.slug %}" class="button button-outline">

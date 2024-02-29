@@ -1,0 +1,53 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block title %} Результат экзамена {% endblock %}
+{% block content %}
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Главная страница</a>
+            </li>
+                        <li class="breadcrumb-item">
+                    <a href="{% url 'courses' %}">Курсы</a>
+                </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Модуль тесты</li>
+          </ol>
+        </nav>
+
+<h3 class="breadcrumb-title">Модуль тесты</h3>
+
+<section class="content" style="padding-top: 20px;">
+  <div class="testing-result">
+      <div class="row align-items-center row-result">
+          <div class="col-lg-7">
+              <div class="testing-result-left">
+                  <h4 class="result">Модуль: {{moduls}}</h4>
+                  <h4 class="result-title">Вы набрали {{ score }} баллов за тест</h4>
+                  <div class="result-message">Правильные ответы: {{ correct_answers }}</div>
+                  <div class="result-message">Неправильные ответы: {{ incorrect_answers }}</div>
+                  <div class="buttons mt-4">
+                    <a class="btn btn-result" href="{% url 'my_tests' %}">
+                      Назад к моим тестам
+                  </a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-5">
+              <div class="testing-result-right">
+                  <img src="{% static 'images/result-image.svg' %}" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+{% endblock %}

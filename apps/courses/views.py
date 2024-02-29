@@ -15,23 +15,23 @@ def courses(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     return render(request, 'courses/courses.html', locals())
-
+@login_required
 def show_course(request, slug):
     course = get_object_or_404(Courses, slug=slug)
     settings = Settings.objects.latest('id')
     modules = Moduls.objects.filter(course=course)
     lessons = Lesson.objects.filter(module__in=modules)
-    if request.user.is_authenticated:
-        if UserCourse.objects.filter(user=request.user, course=course).exists():
-            user_course = UserCourse.objects.get(user=request.user, course=course)
-            if not user_course.access_granted:
-                return render(request, 'courses/fail.html', locals())
-            else:
-                return render(request, 'courses/course.html', locals())
+    user = request.user
+    user_courses = UserCourse.objects.filter(user=user, course=course)
+    for user_course in user_courses:
+        if user_course.end_date < datetime.now():
+            user_course.access_granted = False
+            user_course.save()
+            return render(request, 'courses/fail.html', locals())
         else:
             return render(request, 'courses/course.html', locals())
-    else:
-        return render(request, 'courses/course.html', locals())
+
+    return render(request, 'courses/course.html', locals())
 
 
 @login_required
