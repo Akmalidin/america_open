@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.shortcuts import render
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -22,7 +23,8 @@ from django.conf.urls.i18n import i18n_patterns
 from . import user_login
 
 from django.utils.translation import gettext_lazy as _
-
+def my_custom_404_view(request, exception):
+    return render(request, '404.html', {}, status=404)
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n',)),
 ]
@@ -43,5 +45,5 @@ urlpatterns += i18n_patterns(
     path('accounts/profile/update', user_login.PROFILE_UPDATE, name='profile_update'),
     
 )
-
+handler404 = my_custom_404_view
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
