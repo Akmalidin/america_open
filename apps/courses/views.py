@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.core.paginator import Paginator
 from apps.lessons.models import Moduls, Lesson
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 # Create your views here.
 
 def courses(request):
@@ -24,7 +24,7 @@ def show_course(request, slug):
     user = request.user
     user_courses = UserCourse.objects.filter(user=user, course=course)
     for user_course in user_courses:
-        if user_course.end_date < datetime.now():
+        if user_course.end_date < date.today():
             user_course.access_granted = False
             user_course.save()
             return render(request, 'courses/fail.html', locals())
@@ -41,14 +41,14 @@ def buy_course(request, course_id):
 
     if UserCourse.objects.filter(user=user, course=course).exists():
         user_course = UserCourse.objects.get(user=user, course=course)
-        if user_course.end_date < datetime.now():
+        if user_course.end_date < date.today():
             user_course.access_granted = False
             user_course.save()
         else:
             # Курс еще не закончился, доступ остается True
             pass
     else:
-        end_date = datetime.now() + timedelta(days=course.time)
+        end_date = date.today() + timedelta(days=course.time)
         UserCourse.objects.create(user=user, course=course, access_granted=True, end_date=end_date)
     
     return redirect('my_courses')
@@ -59,7 +59,7 @@ def my_courses(request):
     settings = Settings.objects.latest('id')
     
     for user_course in user_courses:
-        if user_course.end_date and user_course.end_date < datetime.now():
+        if user_course.end_date and user_course.end_date < date.today():
             user_course.access_granted = False
             user_course.save()
     

@@ -15,6 +15,7 @@ local_tz = pytz_timezone('Asia/Bishkek')
 
 # Получаем текущее локальное время в заданном часовом поясе
 local_time = timezone.now().astimezone(local_tz)
+@login_required
 def lesson_detail(request, lesson_id):
     settings = Settings.objects.latest('id')
     lesson = get_object_or_404(Lesson, id=lesson_id)
@@ -44,7 +45,7 @@ def lesson_detail(request, lesson_id):
         reply_form = CommentReplyForm()
 
     return render(request, 'lessons/lesson_detail.html', locals())
-
+@login_required
 def add_comment_reply(request, lesson_id):
     lesson = get_object_or_404(Lesson, id=lesson_id)
 
@@ -137,7 +138,7 @@ def exam_submit_view(request):
     messages.error(request, 'Не удалось сохранить оценку. Пожалуйста, попробуйте ещё раз.')
     return redirect('index')
 
-
+@login_required
 def repeat_exam_view(request, moduls_id):
     settings = Settings.objects.latest('id')
     moduls = get_object_or_404(Moduls, id=moduls_id)
@@ -146,6 +147,7 @@ def repeat_exam_view(request, moduls_id):
     request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
 
     return render(request, 'lessons/repeat_exam.html', locals())
+@login_required
 def work_on_mistakes_view(request, moduls_id):
     settings = Settings.objects.latest('id')
     moduls = get_object_or_404(Moduls, id=moduls_id)

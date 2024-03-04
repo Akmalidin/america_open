@@ -1,6 +1,7 @@
-{% extends 'include/homepage.html' %} {% load static %} {% load i18n %} {% block title %} {{lesson.title}} {% endblock %} {% block content %}
+{% extends 'include/homepage.html' %} {% load static %} {% load i18n %} {% block title %} {{lesson.title}} {% endblock%} {% block content %}
 <style>
-  iframe, video {
+  iframe,
+  video {
     width: 100%;
     height: 628px;
   }
@@ -20,10 +21,10 @@
               </li>
               <li class="breadcrumb-item">
                 {% if course.slug %}
-                  <a href="{% url 'course' course.slug %}">{{ course.course_name }}</a>
-              {% else %}
-                  {{ course.course_name }}
-              {% endif %}
+                <a href="{% url 'course' course.slug %}">{{ course.course_name }}</a>
+                {% else %}
+                {{ course.course_name }}
+                {% endif %}
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 {{ lesson.title }}
@@ -40,48 +41,34 @@
                   {% if lesson.video.url is not None %}
                   <div class="col-lg-12">
                     <video controls controlsList="nodownload" preload="preload">
-                        <source src="{{lesson.video.url}}" type="video/mp4"></source>
+                      <source src="{{lesson.video.url}}" type="video/mp4">
+                      </source>
                     </video>
-                </div> 
+                  </div>
                   {% else %}
                   <div class="col-lg-12">{{ lesson.video_url|safe }}</div>
                   {% endif %}
-              </div>
-              
+                </div>
+
 
                 {% if lesson.file.url is not None or lesson.file2.url is not None %}
                 <ul class="lesson-documents-ul">
                   {% if lesson.file.url is not None %}
                   <li class="lesson-document-li">
                     <div class="lesson-document-name">
-                      <img
-                        src="{% static 'images/document-icon.svg' %}"
-                        alt=""
-                      />
+                      <img src="{% static 'images/document-icon.svg' %}" alt="" />
                       <span>КОНСПЕКТ для урока -- {{lesson.title}}</span>
                     </div>
-                    <a
-                      href="{{lesson.file.url}}"
-                      class="lesson-document-download"
-                      download
-                      >Скачать
+                    <a href="{{lesson.file.url}}" class="lesson-document-download" download>Скачать
                     </a>
                   </li>
                   {% endif %} {% if lesson.file2.url is not None %}
                   <li class="lesson-document-li">
                     <div class="lesson-document-name">
-                      <img
-                        src="{% static 'images/document-icon.svg' %}"
-                        alt=""
-                      />
-                      <span>Презентация урока</span>
+                      <img src="{% static 'images/document-icon.svg' %}" alt="" />
+                      <span>Домашнее задание</span>
                     </div>
-                    <a
-                      href="{{lesson.file2.url}}"
-                      class="lesson-document-download"
-                      download
-                      >Скачать</a
-                    >
+                    <a href="{{lesson.file2.url}}" class="lesson-document-download" download>Скачать</a>
                   </li>
                   {% endif %}
                 </ul>
@@ -98,24 +85,19 @@
                 </div>
                 <form class="mb-4 w-100" action="{% url 'lesson_detail' lesson.id %}" method="POST">
                   {% csrf_token %}
-                  <textarea minlength="3" maxlength="6000" class="form-control resize-none" name="text" cols="30" rows="5" placeholder="Өз пікіріңізді осында жазыңыз" required id="id_text"></textarea>
+                  <textarea minlength="3" maxlength="6000" class="form-control resize-none" name="text" cols="30"
+                    rows="5" placeholder="Оставьте свое мнение" required id="id_text"></textarea>
                   <div class="buttons">
                     <button class="btn btn-lesson ml-auto mt-2" type="submit">
                       Отправить
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          opacity="0.4"
+                        <path opacity="0.4"
                           d="M7.11039 5.96003L16.1304 2.95003C20.1804 1.60003 22.3804 3.81003 21.0404 7.86003L18.0304 16.88C16.0104 22.95 12.6904 22.95 10.6704 16.88L9.78039 14.2L7.10039 13.31C1.04039 11.3 1.04039 7.99003 7.11039 5.96003Z"
-                          fill="white"
-                        ></path>
-                        <path
-                          d="M12.1201 11.6301L15.9301 7.81006L12.1201 11.6301Z"
-                          fill="white"
-                        ></path>
+                          fill="white"></path>
+                        <path d="M12.1201 11.6301L15.9301 7.81006L12.1201 11.6301Z" fill="white"></path>
                         <path
                           d="M12.1196 12.38C11.9296 12.38 11.7396 12.31 11.5896 12.16C11.2996 11.87 11.2996 11.39 11.5896 11.1L15.3896 7.28C15.6796 6.99 16.1596 6.99 16.4496 7.28C16.7396 7.57 16.7396 8.05 16.4496 8.34L12.6496 12.16C12.4996 12.3 12.3096 12.38 12.1196 12.38Z"
-                          fill="white"
-                        ></path>
+                          fill="white"></path>
                       </svg>
                     </button>
                   </div>
@@ -127,84 +109,66 @@
                 {% for comment in comments %}
                 <div class="comment" id="comment{{ comment.id }}">
                   <div class="comment-main">
-                    <img
-                      src="{% static 'images/user-default-image.svg' %}"
-                      alt=""
-                      class="comment-image"
-                    />
+                    <img src="{% static 'images/user-default-image.svg' %}" alt="" class="comment-image" />
                     <div class="comment-header">
                       <div class="comment-author">{{ comment.user.username }}</div>
                       <div class="comment-text">{{ comment.text }}</div>
                       <button class="btn btn-reply" onclick="toggleReplyForm('{{ comment.id }}')">
                         <img class="mr-2" src="{% static 'images/lesson/reply-icon.svg' %}" alt="" />
                         Ответить
-                    </button>
+                      </button>
                     </div>
-                    
+
                   </div>
-                  
+
                   <div class="comment-replies">
                     <div class="comment-reply" id="comment-reply{{ comment.id }}">
-                        <div class="comment-reply-title">
-                            Ответ: <b>{{ comment.user.username }}</b>
+                      <div class="comment-reply-title">
+                        Ответ: <b>{{ comment.user.username }}</b>
+                      </div>
+                      <form action="{% url 'add_comment_reply' lesson.id %}" method="POST"
+                        id="comment-reply-form{{ comment.id }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                        <div class="form-group form-group-reply">
+                          <input type="text" name="text" class="form-control form-control-reply"
+                            placeholder="Оставьте свой ответ" required="" min="3" max="6000" />
+                          <button type="submit" class="btn btn-send-reply">
+                            Ответить
+                            <img class="ml-2" src="https://daiyndal.kz/images/lesson/send-reply-icon.svg" alt="" />
+                          </button>
                         </div>
-                        <form
-                            action="{% url 'add_comment_reply' lesson.id %}"
-                            method="POST"
-                            id="comment-reply-form{{ comment.id }}"
-                        >
-                            {% csrf_token %}
-                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
-                            <div class="form-group form-group-reply">
-                                <input
-                                    type="text"
-                                    name="text"
-                                    class="form-control form-control-reply"
-                                    placeholder="Оставьте свой ответ"
-                                    required=""
-                                    min="3"
-                                    max="6000"
-                                />
-                                <button type="submit" class="btn btn-send-reply">
-                                    Ответить
-                                    <img
-                                        class="ml-2"
-                                        src="https://daiyndal.kz/images/lesson/send-reply-icon.svg"
-                                        alt=""
-                                    />
-                                </button>
-                            </div>
-                        </form>
+                      </form>
                     </div>
-                    
+
                     {% for reply in comment.commentreply_set.all %}
-                        <div class="comment comment-user-reply">
-                            <img src="{% static '/images/user-default-image.svg' %}" alt="" class="comment-image">
-                            <div class="comment-header">
-                                <div class="comment-author">{{ reply.user.username }}</div>
-                                <div class="comment-text">{{ reply.text }}</div>
-                            </div>
-                        </div>
+                    <div class="comment comment-user-reply">
+                      <img src="{% static '/images/user-default-image.svg' %}" alt="" class="comment-image">
+                      <div class="comment-header">
+                        <div class="comment-author">{{ reply.user.username }}</div>
+                        <div class="comment-text">{{ reply.text }}</div>
+                      </div>
+                    </div>
                     {% endfor %}
+                  </div>
                 </div>
-                </div>
-                  {% endfor %}
-                </div>
+                {% endfor %}
               </div>
             </div>
-          </section>
         </div>
+        </section>
       </div>
     </div>
   </div>
 </div>
+</div>
 <script>
   function toggleReplyForm(commentId) {
-      var replyForm = document.getElementById('comment-reply' + commentId);
-      if (replyForm) {
-          var displayStyle = window.getComputedStyle(replyForm).display;
-          replyForm.style.display = (displayStyle === 'none' || displayStyle === '') ? 'block' : 'none';
-      }
+    var replyForm = document.getElementById('comment-reply' + commentId);
+    if (replyForm) {
+      var displayStyle = window.getComputedStyle(replyForm).display;
+      replyForm.style.display = (displayStyle === 'none' || displayStyle === '') ? 'block' : 'none';
+    }
   }
 </script>
 {% endblock %}
