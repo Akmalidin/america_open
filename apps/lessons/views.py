@@ -66,12 +66,20 @@ def exam_view(request, moduls_id):
     moduls = Moduls.objects.get(id=moduls_id)
     questions = Question.objects.all().filter(moduls=moduls)
     num_questions = len(questions)
-    request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
-    if request.method == 'POST':
-        pass
-    response= render(request,'lessons/exam.html', locals())
-    response.set_cookie('moduls_id',moduls.id)
-    return response
+    user_answers_exist = UserAnswer.objects.filter(user=request.user, question__moduls=moduls).exists()
+    # Check if the user has already started the exam
+    if request.COOKIES.get('moduls_id') == str(moduls.id) or user_answers_exist:
+        # Redirect to my_tests page
+        return redirect('my_tests')
+    else:
+
+    # Store start time in session
+        request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
+
+        response = render(request, 'lessons/exam.html', locals())
+        response.set_cookie('moduls_id', moduls.id, max_age=60)
+        return response
+
 
 def exam_submit_view(request):
     settings = Settings.objects.latest('id')
@@ -122,15 +130,15 @@ def exam_submit_view(request):
         }
         user = request.user
         for question in questions:
-            user_answer = request.POST.get(f'question{question.id}')
-            is_correct = user_answer == question.answer
-
-            UserAnswer.objects.create(
-                question=question,
-                user=user,
-                chosen_answer=user_answer,
-                is_correct=is_correct,
-            )
+            user_answer = request.POST.get(f'question{question.id}', None)
+            if user_answer is not None:  # Check if user_answer is not None
+                is_correct = user_answer == question.answer
+                UserAnswer.objects.create(
+                    question=question,
+                    user=request.user,
+                    chosen_answer=user_answer,
+                    is_correct=is_correct,
+                )
 
         return render(request, 'lessons/result_page.html', context)
 

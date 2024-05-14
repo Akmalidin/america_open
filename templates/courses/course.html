@@ -53,7 +53,6 @@
                       <p class="card-text">{% trans 'Длительность'%} {{course.time}} {% trans 'мес.' %}</p>
                       {% if request.user.is_authenticated %}
                         {% if user_course.access_granted %}
-                                <a href="{% url 'index' %}" class="button button-outline">{% trans 'Перейти к курсу' %}</a>
                         {% else %}
                         <a href="{% url 'buy_course' course.id %}" class="button button-outline">{% trans 'Купить' %}</a>
                         {% endif %}
@@ -109,18 +108,42 @@
                               <div class="panel-body accordion-body" data-acc-content="modul{{ modul.id }}" style="display: none">
                                   <ul class="accordion-ul">
                                       <li class="accordion-li">
-                                          <a href="{% url 'exam_view' moduls_id=modul.id  %}">
+                                          <a type="button" data-toggle="modal" data-target="#staticBackdrop">
                                               Тест
                                               <img src="{% static 'images/open-icon.svg' %}" alt="" />
                                           </a>
                                       </li>
                                   </ul>
                               </div>
+                              <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Внимание ! </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body text-center"><center><image src="{% static 'images/icons/warning.gif' %}" alt=""></br></center>
+                                        Вы переходите на страницу для сдачи теста.  Вы не сможете вернуться назад так как ваши данные будут сохранены и вы не сможете их изменить. </br>
+                                        Хотите продолжить ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                        {% if user_course.access_granted %}
+                                        <a  href="{% url 'exam_view' moduls_id=modul.id  %}" class="btn btn-success">Перейти на тест</a>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% comment %} End Modal {% endcomment %}
                           {% endif %}
                       </div> <!-- Закрытие accordion-item -->
                   {% endfor %}
 
-                      
+
 
 
                   </div>

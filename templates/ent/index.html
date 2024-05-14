@@ -52,7 +52,7 @@
                     <h5 class="card-title subject-title">
                       {{subject.title}}
                     </h5>
-                    <a href="{% url 'exam_view_ent' moduls_id=subject.id %}" class="button button-subject">Сдача</a>
+                    <a data-toggle="modal" data-target="#staticBackdrop" class="button button-subject">Сдача</a>
                   </div>
                 </div>
               </div>
@@ -78,14 +78,36 @@
                     <div class="card-body"></div>
                     <div class="card-footer">
                         <h5 class="card-title subject-title">{{subjects.title}}</h5>
-                        <a
-                        href="{% url 'exam_view_ent' moduls_id=subjects.id %}"
+                        <a data-toggle="modal" data-target="#staticBackdrop"
                         class="button button-subject"
                         >Сдача</a
                         >
+                        
                     </div>
                     </div>
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Внимание ! </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body text-center"><center><image src="{% static 'images/icons/warning.gif' %}" alt=""></br></center>
+                        Вы переходите на страницу для сдачи теста.  Вы не сможете вернуться назад так как ваши данные будут сохранены и вы не сможете их изменить. </br>
+                        Хотите продолжить ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                        <a  href="{% url 'exam_view_ent' moduls_id_ent=subjects.id %}" class="btn btn-success">Перейти на тест</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% comment %} End Modal {% endcomment %}
               {% endfor %}
             </div>
           </div>

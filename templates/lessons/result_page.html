@@ -26,11 +26,13 @@
       <div class="row align-items-center row-result">
           <div class="col-lg-7">
               <div class="testing-result-left">
-                  <h4 class="result-title">Вы набрали {{ score }} баллов за тест</h4>
-                  <div class="result-message">Правильные ответы: {{ correct_answers }}</div>
-                  <div class="result-message">Неправильные ответы: {{ incorrect_answers }}</div>
+                  <h4 class="result-title">Вы успешно закончили тест!</h4>
+                  <div class="result-message">Ожидайте ответа администратора.</div>
                   <div class="buttons mt-4">
-                      <form method="POST" class="result-form" action="{% url 'repeat_exam' moduls_id %}">
+                    <a class="btn btn-result" href="{% url 'my_tests' %}">
+                      Назад к моим тестам
+                  </a>
+                      {% comment %} <form method="POST" class="result-form" action="{% url 'repeat_exam' moduls_id %}">
                         {% csrf_token %}
                         <button class="btn btn-result" type="submit">
                               Повторная подача
@@ -38,7 +40,7 @@
                       </form>
                         <a class="btn btn-result" href="{% url 'work_on_mistakes' moduls_id=moduls_id %}">
                             Работа с ошибками
-                        </a>
+                        </a> {% endcomment %}
                                        
                   </div>
               </div>
