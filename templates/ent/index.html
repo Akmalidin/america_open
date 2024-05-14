@@ -52,7 +52,7 @@
                     <h5 class="card-title subject-title">
                       {{subject.title}}
                     </h5>
-                    <a data-toggle="modal" data-target="#staticBackdrop" class="button button-subject">Сдача</a>
+                    <a data-toggle="modal" data-id="{{subject.id}}" data-target="#staticBackdrop{{subject.id}}" class="button button-subject">Сдача</a>
                   </div>
                 </div>
               </div>
@@ -78,16 +78,13 @@
                     <div class="card-body"></div>
                     <div class="card-footer">
                         <h5 class="card-title subject-title">{{subjects.title}}</h5>
-                        <a data-toggle="modal" data-target="#staticBackdrop"
-                        class="button button-subject"
-                        >Сдача</a
-                        >
+                        <a data-toggle="modal" data-id="{{subjects.id}}" data-target="#staticBackdrop{{subjects.id}}" class="button button-subject">Сдача</a>
                         
                     </div>
                     </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop{{subjects.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -108,6 +105,19 @@
                   </div>
                 </div>
                 {% comment %} End Modal {% endcomment %}
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      var modalTriggerList = document.querySelectorAll('[data-toggle="modal"]');
+                      modalTriggerList.forEach(function (modalTrigger) {
+                          modalTrigger.addEventListener('click', function() {
+                              var id = this.getAttribute('data-id');
+                              var modalId = this.getAttribute('data-target');
+                              var modalLink = document.querySelector(modalId + ' .btn-success');
+                              modalLink.href = modalLink.getAttribute('data-url').replace('0', id);
+                          });
+                      });
+                  });
+              </script>
               {% endfor %}
             </div>
           </div>
