@@ -15,7 +15,6 @@ local_tz = pytz_timezone('Asia/Bishkek')
 
 # Получаем текущее локальное время в заданном часовом поясе
 local_time = timezone.now().astimezone(local_tz)
-@login_required
 def lesson_detail(request, lesson_id):
     settings = Settings.objects.latest('id')
     lesson = get_object_or_404(Lesson, id=lesson_id)
@@ -45,7 +44,7 @@ def lesson_detail(request, lesson_id):
         reply_form = CommentReplyForm()
 
     return render(request, 'lessons/lesson_detail.html', locals())
-@login_required
+
 def add_comment_reply(request, lesson_id):
     lesson = get_object_or_404(Lesson, id=lesson_id)
 
@@ -67,12 +66,20 @@ def exam_view(request, moduls_id):
     moduls = Moduls.objects.get(id=moduls_id)
     questions = Question.objects.all().filter(moduls=moduls)
     num_questions = len(questions)
-    request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
-    if request.method == 'POST':
-        pass
-    response= render(request,'lessons/exam.html', locals())
-    response.set_cookie('moduls_id',moduls.id)
-    return response
+    user_answers_exist = UserAnswer.objects.filter(user=request.user, question__moduls=moduls).exists()
+    # Check if the user has already started the exam
+    if request.COOKIES.get('moduls_id') == str(moduls.id) or user_answers_exist:
+        # Redirect to my_tests page
+        return redirect('my_tests')
+    else:
+
+    # Store start time in session
+        request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
+
+        response = render(request, 'lessons/exam.html', locals())
+        response.set_cookie('moduls_id', moduls.id, max_age=3600)
+        return response
+
 
 def exam_submit_view(request):
     settings = Settings.objects.latest('id')
@@ -123,22 +130,22 @@ def exam_submit_view(request):
         }
         user = request.user
         for question in questions:
-            user_answer = request.POST.get(f'question{question.id}')
-            is_correct = user_answer == question.answer
-
-            UserAnswer.objects.create(
-                question=question,
-                user=user,
-                chosen_answer=user_answer,
-                is_correct=is_correct,
-            )
+            user_answer = request.POST.get(f'question{question.id}', None)
+            if user_answer is not None:  # Check if user_answer is not None
+                is_correct = user_answer == question.answer
+                UserAnswer.objects.create(
+                    question=question,
+                    user=request.user,
+                    chosen_answer=user_answer,
+                    is_correct=is_correct,
+                )
 
         return render(request, 'lessons/result_page.html', context)
 
     messages.error(request, 'Не удалось сохранить оценку. Пожалуйста, попробуйте ещё раз.')
     return redirect('index')
 
-@login_required
+
 def repeat_exam_view(request, moduls_id):
     settings = Settings.objects.latest('id')
     moduls = get_object_or_404(Moduls, id=moduls_id)
@@ -147,7 +154,6 @@ def repeat_exam_view(request, moduls_id):
     request.session['start_time'] = local_time.strftime('%d.%m.%Y/%H:%M')
 
     return render(request, 'lessons/repeat_exam.html', locals())
-@login_required
 def work_on_mistakes_view(request, moduls_id):
     settings = Settings.objects.latest('id')
     moduls = get_object_or_404(Moduls, id=moduls_id)

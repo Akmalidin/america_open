@@ -18,6 +18,6 @@ class QuestionEntAdmin(admin.ModelAdmin):
 
 @admin.register(UserAnswerEnt)
 class UserAnswerEntAdmin(admin.ModelAdmin):
-    list_display = ('user', 'question', 'chosen_answer', 'is_correct')
-    list_filter = ('user', 'question')
+    list_display = ('user', 'question', 'is_correct')
+    list_filter = ('user', 'question', 'question__moduls')
     search_fields = ('user', 'question', 'chosen_answer')

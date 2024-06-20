@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'django.contrib.sites',
     'crispy_forms',
+    "crispy_bootstrap4",
     'rosetta',
     'modeltranslation',
     #apps
@@ -51,7 +52,9 @@ INSTALLED_APPS = [
     'apps.ent',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -65,7 +68,6 @@ MIDDLEWARE = [
     'apps.settings.middleware.ServerErrorMiddleware',
 ]
 
-
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 ROOT_URLCONF = "core.urls"
 
@@ -77,7 +79,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
-		"django.template.context_processors.i18n",
+		        "django.template.context_processors.i18n",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -170,7 +172,7 @@ EMAIL_HOST_PASSWORD = 'lefpyxzqpeqpoona'
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "American Dream Osh",
+    "site_title": "American Dream Osh -- Akmal",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_header": "American Dream Osh",

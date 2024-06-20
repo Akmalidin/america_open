@@ -138,6 +138,16 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+  window.onload = function () {
+    if (window.history && window.history.pushState) {
+
+        window.history.pushState('forward', null, './#ENTPass');
+
+        window.onpopstate = function () {
+            window.location.href = "{% url 'ent' %}";
+        };
+    }
+}
   let answerItems = document.querySelectorAll('.answer-item');
 
   answerItems.forEach(item => {
@@ -211,7 +221,7 @@
   document.querySelector('.right').addEventListener('click', nextSlide);
 
     // Установка даты завершения обратного отсчета
-    var countDownDate = new Date().getTime() + 2 * 60 * 60 * 1000 + 59 * 60 * 1000 + 35 * 1000;
+    var countDownDate = new Date().getTime() + 1 * 60 * 60 * 1000 + 10 * 60 * 1000 + 30 * 1000;
 
     // Обновление таймера каждую секунду
     var x = setInterval(function() {

@@ -33,8 +33,8 @@ class QuestionEnt(models.Model):
     option3 = models.CharField(max_length=200, verbose_name='Вариант ответа 3')
     option4 = models.CharField(max_length=200, verbose_name='Вариант ответа 4')
     cat = (('Option1', 'Вариант ответа 1'), ('Option2', 'Вариант ответа 2'), ('Option3', 'Вариант ответа 3'), ('Option4', 'Вариант ответа 4'))
-    answer = models.CharField(max_length=8, choices=cat)
-    is_attempted = models.BooleanField(default=True, blank=True)
+    answer = models.CharField(max_length=8, choices=cat, verbose_name="Правильный вариатн ответа:")
+    is_attempted = models.BooleanField(default=True, blank=True, verbose_name="Пользователь может пересдать тест")
     
     class Meta:
         verbose_name = 'Вопрос'

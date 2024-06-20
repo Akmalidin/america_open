@@ -37,8 +37,8 @@ class Lesson(models.Model):
 )
     file = models.FileField(upload_to="lessons/files/", verbose_name="Файл для конспекта", null=True, blank=True)
     file2 = models.FileField(upload_to="lessons/files/", verbose_name="Файл для презентации", null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
 
     def __str__(self):
         return self.title
@@ -79,8 +79,8 @@ class Question(models.Model):
     option3 = models.CharField(max_length=200, verbose_name='Вариант ответа 3')
     option4 = models.CharField(max_length=200, verbose_name='Вариант ответа 4')
     cat = (('Option1', 'Вариант ответа 1'), ('Option2', 'Вариант ответа 2'), ('Option3', 'Вариант ответа 3'), ('Option4', 'Вариант ответа 4'))
-    answer = models.CharField(max_length=8, choices=cat)
-    is_attempted = models.BooleanField(default=True, blank=True)
+    answer = models.CharField(max_length=8, choices=cat, verbose_name="Правильный вариатн ответа:")
+    is_attempted = models.BooleanField(default=True, blank=True, verbose_name="Пользователь может пересдать тест")
     
     class Meta:
         verbose_name = 'Вопрос'
